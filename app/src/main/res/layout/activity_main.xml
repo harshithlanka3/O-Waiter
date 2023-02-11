@@ -2,10 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/startAppTxt"
+    android:id="@+id/startingPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scaleX="1"
     android:visibility="visible"
     tools:context=".MainActivity">
 
@@ -13,7 +12,7 @@
         android:id="@+id/startingApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="136dp"
         android:fontFamily="@font/alfa_slab_one"
         android:scaleX="1"
