@@ -6,9 +6,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.ImageButton;
 
 public class ConfigActivity extends AppCompatActivity {
-    Button startJump, penguButton, bunnyButton, pepeButton;
+    Button startJump;
+
+    ImageButton penguButton, bunnyButton, pepeButton;
     EditText userName;
 
     boolean userValid;
@@ -30,8 +33,8 @@ public class ConfigActivity extends AppCompatActivity {
                 userValid = checkValidity();
 
                 if (userValid) {
-                    Intent playGame = new Intent(ConfigActivity.this, MainActivity.this);
-                    startActivity(playGame);
+//                    Intent playGame = new Intent(ConfigActivity.this, MainActivity.this);
+//                    startActivity(playGame);
                 } else {
                     userName.setError("You have to enter a valid username." +
                             "Can't be null or whitespace.");
@@ -45,10 +48,8 @@ public class ConfigActivity extends AppCompatActivity {
             return false;
         } else if (userName == null) {
             return false;
-        } else if (userName.getText().toString().trim().length() == 0) {
-            return false;
         } else {
-            return true;
+            return userName.getText().toString().trim().length() != 0;
         }
     }
 }
