@@ -46,9 +46,7 @@ public class ConfigActivity extends AppCompatActivity {
         });
     }
     private boolean checkValidity() {
-        if (userName.length() == 0) {
-            return false;
-        } else if (userName == null) {
+        if (userName == null || userName.length() == 0) {
             return false;
         } else {
             return userName.getText().toString().trim().length() != 0;
