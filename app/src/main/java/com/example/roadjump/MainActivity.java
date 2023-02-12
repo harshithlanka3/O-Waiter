@@ -6,13 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     // one buttons
-    Button bStart;
+    private Button bStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
         bStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity( new Intent(MainActivity.this, ConfigActivity.class));
-                //startActivity(new Intent(MainActivity.this, MyOtherActivity.class));
+                startActivity(new Intent(MainActivity.this, ConfigActivity.class));
             }
         });
 
