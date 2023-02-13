@@ -12,6 +12,7 @@ import android.widget.SeekBar;
 public class ConfigActivity extends AppCompatActivity {
     private Button startJump;
 
+    private int imgClicked = 0;
     private ImageButton penguButton;
     private ImageButton bunnyButton;
     private ImageButton pepeButton;
@@ -47,6 +48,36 @@ public class ConfigActivity extends AppCompatActivity {
                 }
             }
 
+        });
+
+        penguButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imgClicked = 0;
+                Intent intent = new Intent(this, GameActivity.class);
+                intent.putExtra("key1", imgClicked);
+                startActivity(intent);
+            }
+        });
+
+        bunnyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imgClicked = 1;
+                Intent intent = new Intent(this, GameActivity.class);
+                intent.putExtra("key2", imgClicked);
+                startActivity(intent);
+            }
+        });
+
+        pepeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imgClicked = 2;
+                Intent intent = new Intent(this, GameActivity.class);
+                intent.putExtra("key3", imgClicked);
+                startActivity(intent);
+            }
         });
     }
     private boolean checkValidity() {
