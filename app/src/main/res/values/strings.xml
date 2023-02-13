@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Road Jump</string>
+    <string name="hello">Hello!</string>
+    <string name="scoreDisplayTxt">Score: 0</string>
+    <string name="livesDisplayTxt">Lives:</string>
+    <string name="playerNameDisplayTxt">Name: </string>
+    <string name="gameplayS1ImageDescription">Gameplay Image during Sprint 1</string>
+    <string name="characterGameplayS1ImageDescription">Gameplay Image of chosen char during Sprint 1</string>
+
 </resources>
