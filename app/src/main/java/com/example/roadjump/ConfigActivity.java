@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
-import android.widget.TextView;
 
 public class ConfigActivity extends AppCompatActivity {
     private Button startJump;
