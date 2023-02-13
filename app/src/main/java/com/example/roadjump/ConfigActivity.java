@@ -40,7 +40,7 @@ public class ConfigActivity extends AppCompatActivity {
                 userValid = checkValidity();
 
                 if (userValid) {
-                    Intent playGame = new Intent(ConfigActivity.this, MainActivity.this);
+                    Intent playGame = new Intent(ConfigActivity.this, GameActivity.class);
                     startActivity(playGame);
                 } else {
                     userName.setError("You have to enter a valid username."
@@ -54,7 +54,7 @@ public class ConfigActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imgClicked = 0;
-                Intent intent = new Intent(this, GameActivity.class);
+                Intent intent = new Intent(ConfigActivity.this, GameActivity.class);
                 intent.putExtra("key1", imgClicked);
                 startActivity(intent);
             }
@@ -64,8 +64,8 @@ public class ConfigActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imgClicked = 1;
-                Intent intent = new Intent(this, GameActivity.class);
-                intent.putExtra("key2", imgClicked);
+                Intent intent = new Intent(ConfigActivity.this, GameActivity.class);
+                intent.putExtra("key1", imgClicked);
                 startActivity(intent);
             }
         });
@@ -74,8 +74,8 @@ public class ConfigActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imgClicked = 2;
-                Intent intent = new Intent(this, GameActivity.class);
-                intent.putExtra("key3", imgClicked);
+                Intent intent = new Intent(ConfigActivity.this, GameActivity.class);
+                intent.putExtra("key1", imgClicked);
                 startActivity(intent);
             }
         });
