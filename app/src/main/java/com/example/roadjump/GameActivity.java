@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 
 public class GameActivity extends AppCompatActivity {
+    private Image characterSprite;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
