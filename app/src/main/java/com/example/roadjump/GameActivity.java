@@ -9,21 +9,32 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.content.Intent;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 
 public class GameActivity extends AppCompatActivity {
     private Image characterSprite;
     protected void onCreate(Bundle savedInstanceState) {
-        int numCharacter = 0;
+        super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        int numCharacter = intent.getIntExtra("key1", 0);
+
+        ImageView img = findViewById(R.id.characterSpriteImage);
+        //make varaibles for each image file
+        //set drawable for each img.set to the correct image file varaible correspondign to each case
+
         switch (numCharacter) {
             case 1:
-                characterSprite = setImageResource(R.id.bunny_sprite);
+                //do something
+                img.setImageResource(R.drawable.);
                 break;
             case 2:
-                characterSprite = findViewById(R.id.pepe_sprite);
+                //do something
+                img.setImageResource(R.drawable.);
                 break;
             default:
-                characterSprite = findViewById(R.id.pengu_sprite);
+                //set to 0
+                img.setImageResource(R.drawable.);
                 break;
         }
     }
