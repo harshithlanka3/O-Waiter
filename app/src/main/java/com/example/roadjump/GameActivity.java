@@ -29,8 +29,8 @@ public class GameActivity extends AppCompatActivity {
         TextView lives = findViewById(R.id.livesNumTxt);
         TextView usernameText = findViewById(R.id.playerEnteredNameTxt);
 
-//        make varaibles for each image file
-//        set drawable for each img.set to the correct image file varaible correspondign to each case
+//        make variables for each image file
+//        set drawable for each img.set to the correct image file variable corresponding to each case
 
         switch (numCharacter) {
             case 1:
