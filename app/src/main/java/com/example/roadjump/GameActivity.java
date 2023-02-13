@@ -15,41 +15,38 @@ public class GameActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        int numCharacter = intent.getIntExtra("key1", 0);
-        int difficultySet = intent.getIntExtra("key2", 0);
-        String actualUsername = intent.getExtras().getString("usernameString");
+        int characterNum = intent.getIntExtra("character", 0);
+        int difficultyNum = intent.getIntExtra("difficulty", 0);
+        String inputUsername = intent.getExtras().getString("user");
 
-        ImageView img = findViewById(R.id.characterSpriteImage);
-        TextView lives = findViewById(R.id.livesNumTxt);
-        TextView usernameText = findViewById(R.id.playerEnteredNameTxt);
+        ImageView characterImage = findViewById(R.id.characterSpriteImage);
+        TextView livesText = findViewById(R.id.livesNumTxt);
+        TextView userText = findViewById(R.id.playerEnteredNameTxt);
 
-        switch (numCharacter) {
+        switch (characterNum) {
         case 1:
-            //do something
-            img.setImageResource(R.drawable.bunny);
+            characterImage.setImageResource(R.drawable.bunny);
             break;
         case 2:
-            //do something
-            img.setImageResource(R.drawable.pepe);
+            characterImage.setImageResource(R.drawable.pepe);
             break;
         default:
-            //set to 0
-            img.setImageResource(R.drawable.pengu);
+            characterImage.setImageResource(R.drawable.pengu);
             break;
         }
 
-        switch (difficultySet) {
+        switch (difficultyNum) {
         case 1:
-            lives.setText("<3 <3");
+            livesText.setText("<3 <3");
             break;
         case 2:
-            lives.setText("<3");
+            livesText.setText("<3");
             break;
         default:
-            lives.setText("<3 <3 <3");
+            livesText.setText("<3 <3 <3");
             break;
         }
 
-        usernameText.setText(actualUsername);
+        userText.setText(inputUsername);
     }
 }

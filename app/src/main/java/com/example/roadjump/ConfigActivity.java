@@ -16,7 +16,8 @@ public class ConfigActivity extends AppCompatActivity {
     private ImageButton penguButton;
     private ImageButton bunnyButton;
     private ImageButton pepeButton;
-    private EditText userName;
+
+    private EditText username;
 
     private SeekBar difficultyBar;
 
@@ -31,7 +32,7 @@ public class ConfigActivity extends AppCompatActivity {
         penguButton = findViewById(R.id.pengu_sprite);
         bunnyButton = findViewById(R.id.bunny_sprite);
         pepeButton = findViewById(R.id.pepe_sprite);
-        userName = findViewById(R.id.username);
+        username = findViewById(R.id.username);
         difficultyBar = findViewById(R.id.difficultyBar);
 
         startJump.setOnClickListener(new View.OnClickListener() {
@@ -41,26 +42,26 @@ public class ConfigActivity extends AppCompatActivity {
 
                 if (userValid) {
                     Intent playGame = new Intent(ConfigActivity.this, GameActivity.class);
-                    playGame.putExtra("key1", imgClicked);
-                    playGame.putExtra("key2", difficultyBar.getProgress());
-                    playGame.putExtra("usernameString", userName.getText().toString().trim());
+                    playGame.putExtra("character", imgClicked);
+                    playGame.putExtra("difficulty", difficultyBar.getProgress());
+                    playGame.putExtra("user", username.getText().toString().trim());
                     startActivity(playGame);
                 } else {
-                    userName.setError("You have to enter a valid username."
+                    username.setError("You have to enter a valid username. "
                             + "Can't be null or whitespace.");
                 }
             }
 
         });
 
-        penguButton.setOnClickListener(new View.OnClickListener() {
+        bunnyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 imgClicked = 0;
             }
         });
 
-        bunnyButton.setOnClickListener(new View.OnClickListener() {
+        penguButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 imgClicked = 1;
@@ -75,10 +76,10 @@ public class ConfigActivity extends AppCompatActivity {
         });
     }
     private boolean checkValidity() {
-        if (userName == null || userName.length() == 0) {
+        if (username == null || username.length() == 0) {
             return false;
         } else {
-            return userName.getText().toString().trim().length() != 0;
+            return username.getText().toString().trim().length() != 0;
         }
     }
 

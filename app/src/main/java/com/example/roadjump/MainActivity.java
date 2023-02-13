@@ -10,7 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     // one buttons
-    private Button bStart;
+    private Button startBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +19,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // registering button
-        bStart = findViewById(R.id.startAppBtn);
+        startBtn = findViewById(R.id.startAppBtn);
 
         //handling the start button
-        bStart.setOnClickListener(new View.OnClickListener() {
+        startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, ConfigActivity.class));
