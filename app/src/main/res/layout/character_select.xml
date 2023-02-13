@@ -9,20 +9,64 @@
         android:id="@+id/username"
         android:layout_width="343dp"
         android:layout_height="50dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameView" />
 
+    <TextView
+        android:id="@+id/usernameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="68dp"
+        android:text="Type Your Username!"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/pengu_sprite"
+        android:layout_width="130dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="174dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="352dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/pepe_sprite"
+        app:layout_constraintStart_toEndOf="@+id/bunny_sprite"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/pengu" />
+
+    <ImageButton
+        android:id="@+id/pepe_sprite"
+        android:layout_width="130dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="174dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="352dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pengu_sprite"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/pepe" />
+
     <ImageButton
         android:id="@+id/bunny_sprite"
-        android:layout_width="110dp"
-        android:layout_height="206dp"
+        android:layout_width="130dp"
+        android:layout_height="160dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="174dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="351dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="352dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/pengu_sprite"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,52 +74,12 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/bunny" />
 
-    <ImageButton
-        android:id="@+id/pengu_sprite"
-        android:layout_width="118dp"
-        android:layout_height="207dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="174dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="350dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/pepe_sprite"
-        app:layout_constraintStart_toEndOf="@+id/bunny_sprite"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/pengu" />
-
-    <ImageButton
-        android:id="@+id/pepe_sprite"
-        android:layout_width="104dp"
-        android:layout_height="213dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="166dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="352dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/pengu_sprite"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pepe" />
-
-    <TextView
-        android:id="@+id/usernameView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="28dp"
-        android:text="Type Your Username!"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/difficultyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="84dp"
         android:text="Choose Your Difficulty!"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,10 +88,10 @@
     <SeekBar
         android:id="@+id/difficultyBar"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="213dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="99dp"
-        android:layout_marginBottom="154dp"
+        android:layout_width="267dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginBottom="152dp"
         android:max="2"
         android:progress="0"
         app:layout_constraintBottom_toBottomOf="parent"
