@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 public class ConfigActivity extends AppCompatActivity {
     private Button startJump;
@@ -41,10 +42,13 @@ public class ConfigActivity extends AppCompatActivity {
 
                 if (userValid) {
                     Intent playGame = new Intent(ConfigActivity.this, GameActivity.class);
+                    playGame.putExtra("key1", imgClicked);
+                    playGame.putExtra("key2", difficultyBar.getProgress());
+                    playGame.putExtra("usernameString", userName.getText().toString().trim());
                     startActivity(playGame);
                 } else {
                     userName.setError("You have to enter a valid username."
-                            + "Can't be null or whitespace." + difficultyBar.getProgress());
+                            + "Can't be null or whitespace.");
                 }
             }
 
@@ -54,9 +58,6 @@ public class ConfigActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imgClicked = 0;
-                Intent intent = new Intent(ConfigActivity.this, GameActivity.class);
-                intent.putExtra("key1", imgClicked);
-                startActivity(intent);
             }
         });
 
@@ -64,9 +65,6 @@ public class ConfigActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imgClicked = 1;
-                Intent intent = new Intent(ConfigActivity.this, GameActivity.class);
-                intent.putExtra("key1", imgClicked);
-                startActivity(intent);
             }
         });
 
@@ -74,9 +72,6 @@ public class ConfigActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imgClicked = 2;
-                Intent intent = new Intent(ConfigActivity.this, GameActivity.class);
-                intent.putExtra("key1", imgClicked);
-                startActivity(intent);
             }
         });
     }
