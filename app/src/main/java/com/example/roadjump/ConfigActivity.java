@@ -40,8 +40,8 @@ public class ConfigActivity extends AppCompatActivity {
                 userValid = checkValidity();
 
                 if (userValid) {
-//                    Intent playGame = new Intent(ConfigActivity.this, MainActivity.this);
-//                    startActivity(playGame);
+                    Intent playGame = new Intent(ConfigActivity.this, MainActivity.this);
+                    startActivity(playGame);
                 } else {
                     userName.setError("You have to enter a valid username."
                             + "Can't be null or whitespace." + difficultyBar.getProgress());
