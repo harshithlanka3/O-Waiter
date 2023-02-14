@@ -25,13 +25,13 @@ public class GameActivity extends AppCompatActivity {
 
         switch (characterNum) {
         case 1:
-            characterImage.setImageResource(R.drawable.bunny);
+            characterImage.setImageResource(R.drawable.pengu);
             break;
         case 2:
             characterImage.setImageResource(R.drawable.pepe);
             break;
         default:
-            characterImage.setImageResource(R.drawable.pengu);
+            characterImage.setImageResource(R.drawable.bunny);
             break;
         }
 

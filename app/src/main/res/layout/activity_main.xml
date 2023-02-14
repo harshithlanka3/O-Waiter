@@ -15,7 +15,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_0081" />
+        app:srcCompat="@drawable/gameplays1background" />
 
     <TextView
         android:id="@+id/startingApp"
