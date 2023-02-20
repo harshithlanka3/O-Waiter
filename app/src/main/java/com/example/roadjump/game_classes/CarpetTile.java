@@ -1,4 +1,7 @@
 package com.example.roadjump.game_classes;
 
-public class CarpetTile {
+public class CarpetTile extends Tile {
+    private String imageId;
+
+    private boolean isSafe = true;
 }
