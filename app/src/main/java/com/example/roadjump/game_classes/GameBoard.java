@@ -7,11 +7,15 @@ public class GameBoard {
         board = new Tile[9][9];
     }
 
-    public void addTile(Tile tile , int row, int column) {
-        board[row][column] = tile;
+    public void addTile(Tile tile , int row, int col) {
+        board[row][col] = tile;
     }
 
-    public Tile getTile(int row, int column) {
-        return board[row][column];
+    public Tile getTile(int row, int col) {
+        return board[row][col];
+    }
+
+    public boolean isSafe(int row, int col) {
+        return board[row][col].getIsSafe();
     }
 }
