@@ -12,5 +12,7 @@ public abstract class Tile {
      */
     private boolean isSafe;
 
-
+    public boolean getIsSafe() {
+        return isSafe;
+    }
 }
