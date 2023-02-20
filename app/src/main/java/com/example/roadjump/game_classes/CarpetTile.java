@@ -4,4 +4,8 @@ public class CarpetTile extends Tile {
     private String imageId;
 
     private boolean isSafe = true;
+
+    public boolean getIsSafe() {
+        return isSafe;
+    }
 }
