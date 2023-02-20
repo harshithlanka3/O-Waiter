@@ -1,4 +1,11 @@
 package com.example.roadjump.game_classes;
 
-public class SushiBeltTile {
+public class SushiBeltTile extends Tile {
+    private String imageId;
+
+    private boolean isSafe = true;
+
+    public boolean getIsSafe() {
+        return isSafe;
+    }
 }
