@@ -1,8 +1,8 @@
 package com.example.roadjump.game_classes;
 
 public class Player {
-    private int xCoord;
-    private int yCoord;
+    private float xCoord;
+    private float yCoord;
 
-    private int score;
+    private float score;
 }
