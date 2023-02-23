@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.animation.ObjectAnimator;
 
+import com.example.roadjump.game_classes.Player;
+
 
 public class GameActivity extends AppCompatActivity {
 
@@ -40,20 +42,8 @@ public class GameActivity extends AppCompatActivity {
             characterImage.setImageResource(R.drawable.bunny);
             break;
         }
-        //animating object movement
-        /*
-        AnimationDrawable characterAnimation = (AnimationDrawable) characterImage.getBackground();
 
-        backImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                rocketAnimation.start();
-            }
-        //Move object up 32 pixles;
-        ObjectAnimator animation = ObjectAnimator.ofFloat(characterImage, "translationY", 32f);
-        animation.setDuration(2000);
-        animation.start();
-        */
+        Player currentGamePlayer = new Player(characterImage);
 
         switch (difficultyNum) {
         case 1:
