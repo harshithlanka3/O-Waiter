@@ -78,7 +78,8 @@ public class GameActivity extends AppCompatActivity {
         upBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() + 1);
+                currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() + 10);
+                currentGamePlayer.setScore(currentGamePlayer.getScore() + 1);
             }
         });
 
@@ -89,6 +90,7 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 1);
+                currentGamePlayer.setScore(currentGamePlayer.getScore() - 1);
             }
         });
 
@@ -98,7 +100,7 @@ public class GameActivity extends AppCompatActivity {
         leftBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() - 1);
+                currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() - 10);
             }
         });
 
@@ -107,7 +109,7 @@ public class GameActivity extends AppCompatActivity {
         rightBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() + 1);
+                currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() + 10);
             }
         });
     }
