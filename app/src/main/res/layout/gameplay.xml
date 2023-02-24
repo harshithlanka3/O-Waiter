@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/gameplays1background" />
 
     <TextView
@@ -106,42 +106,48 @@
         app:srcCompat="@drawable/pepe" />
 
     <Button
-        android:id="@+id/upButton"
-        android:layout_width="47dp"
-        android:layout_height="40dp"
+        android:id="@+id/upBtn"
+        android:layout_width="45dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="4dp"
         android:text="Button"
         app:icon="@android:drawable/arrow_up_float"
-        tools:layout_editor_absoluteX="303dp"
-        tools:layout_editor_absoluteY="569dp" />
+        app:layout_constraintBottom_toTopOf="@+id/downBtn"
+        app:layout_constraintEnd_toStartOf="@+id/rightBtn" />
 
     <Button
-        android:id="@+id/rightButton"
-        android:layout_width="47dp"
-        android:layout_height="40dp"
-        android:rotation="90"
-        android:text="Button"
-        app:icon="@android:drawable/arrow_up_float"
-        tools:layout_editor_absoluteX="350dp"
-        tools:layout_editor_absoluteY="589dp" />
-
-    <Button
-        android:id="@+id/leftButton"
-        android:layout_width="47dp"
-        android:layout_height="40dp"
+        android:id="@+id/leftBtn"
+        android:layout_width="45dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="-550dp"
         android:rotation="-90"
         android:text="Button"
         app:icon="@android:drawable/arrow_up_float"
-        tools:layout_editor_absoluteX="256dp"
-        tools:layout_editor_absoluteY="589dp" />
+        app:layout_constraintBottom_toTopOf="@+id/backgroundImg"
+        app:layout_constraintEnd_toStartOf="@+id/upBtn" />
 
     <Button
-        android:id="@+id/downButton"
-        android:layout_width="47dp"
-        android:layout_height="40dp"
+        android:id="@+id/rightBtn"
+        android:layout_width="45dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="-400dp"
+        android:layout_marginBottom="-550dp"
+        android:rotation="90"
+        android:text="Button"
+        app:icon="@android:drawable/arrow_up_float"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundImg"
+        app:layout_constraintEnd_toStartOf="@+id/backgroundImg" />
+
+    <Button
+        android:id="@+id/downBtn"
+        android:layout_width="45dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="-575dp"
         android:text="Button"
         app:icon="@android:drawable/arrow_down_float"
-        tools:layout_editor_absoluteX="303dp"
-        tools:layout_editor_absoluteY="609dp" />
+        app:layout_constraintBottom_toTopOf="@+id/backgroundImg"
+        app:layout_constraintEnd_toStartOf="@+id/rightBtn" />
 
     <!--UPDATE!-->
 
