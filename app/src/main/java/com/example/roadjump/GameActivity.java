@@ -78,7 +78,7 @@ public class GameActivity extends AppCompatActivity {
         upBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() + 1);
             }
         });
 
@@ -88,7 +88,7 @@ public class GameActivity extends AppCompatActivity {
         downBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 1);
             }
         });
 
@@ -98,17 +98,16 @@ public class GameActivity extends AppCompatActivity {
         leftBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() - 1);
             }
         });
 
         rightBtn = findViewById(R.id.rightBtn);
 
-        //handling the start button
         rightBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() + 1);
             }
         });
     }
