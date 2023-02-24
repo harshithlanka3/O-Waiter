@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.content.Intent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.animation.ObjectAnimator;
@@ -13,6 +15,14 @@ import com.example.roadjump.game_classes.Player;
 
 
 public class GameActivity extends AppCompatActivity {
+
+    private Button upBtn;
+
+    private Button downBtn;
+
+    private Button leftBtn;
+
+    private Button rightBtn;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +69,47 @@ public class GameActivity extends AppCompatActivity {
 
         userText.setText(inputUsername);
 
-        //making the character move
+        //making the character move buttons establishment
 
+        // registering button
+        upBtn = findViewById(R.id.upBtn);
+
+        //handling the start button
+        upBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        downBtn = findViewById(R.id.downBtn);
+
+        //handling the start button
+        downBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        leftBtn = findViewById(R.id.leftBtn);
+
+        //handling the start button
+        leftBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        rightBtn = findViewById(R.id.rightBtn);
+
+        //handling the start button
+        rightBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 }
