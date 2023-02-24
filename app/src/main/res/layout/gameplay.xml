@@ -13,7 +13,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -107,12 +107,31 @@
 
     <Button
         android:id="@+id/upButton"
-        android:layout_width="53dp"
-        android:layout_height="45dp"
-        android:text="Up"
-        android:textSize="12sp"
-        tools:layout_editor_absoluteX="331dp"
-        tools:layout_editor_absoluteY="555dp" />
+        android:layout_width="47dp"
+        android:layout_height="40dp"
+        android:text="Button"
+        app:icon="@android:drawable/arrow_up_float"
+        tools:layout_editor_absoluteX="303dp"
+        tools:layout_editor_absoluteY="569dp" />
+
+    <Button
+        android:id="@+id/leftButton"
+        android:layout_width="47dp"
+        android:layout_height="40dp"
+        android:rotation="-90"
+        android:text="Button"
+        app:icon="@android:drawable/arrow_up_float"
+        tools:layout_editor_absoluteX="256dp"
+        tools:layout_editor_absoluteY="589dp" />
+
+    <Button
+        android:id="@+id/downButton"
+        android:layout_width="47dp"
+        android:layout_height="40dp"
+        android:text="Button"
+        app:icon="@android:drawable/arrow_down_float"
+        tools:layout_editor_absoluteX="303dp"
+        tools:layout_editor_absoluteY="609dp" />
 
     <!--UPDATE!-->
 
