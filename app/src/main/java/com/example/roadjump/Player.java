@@ -2,21 +2,17 @@ package com.example.roadjump;
 
 import android.widget.ImageView;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
-
-import com.example.roadjump.R;
-
 public class Player {
     private float xCoord;
     private float yCoord;
     private ImageView characterImage;
     private float score;
 
-    public final int SPRITE_SIZE = 88;
+    private final int spriteSize = 88;
 
-    public final int LOWER_BOUND = 1754;
+    private final int lowerBound = 1754;
 
-    public final int RIGHT_BOUND = 992;
+    private final int rightBound = 992;
 
     public Player(float startX, float startY) {
         xCoord = startX;
@@ -26,24 +22,24 @@ public class Player {
 
     //new code methods
     public void moveUp() {
-        if (yCoord > SPRITE_SIZE) {
-            yCoord -= SPRITE_SIZE;
+        if (yCoord > spriteSize) {
+            yCoord -= spriteSize;
         }
     }
     public void moveDown() {
-        if (yCoord <= LOWER_BOUND) {
-            yCoord += SPRITE_SIZE;
+        if (yCoord <= lowerBound) {
+            yCoord += spriteSize;
         }
     }
 
     public void moveLeft() {
-        if (xCoord - SPRITE_SIZE >= SPRITE_SIZE) {
-            xCoord -= SPRITE_SIZE;
+        if (xCoord - spriteSize >= spriteSize) {
+            xCoord -= spriteSize;
         }
     }
     public void moveRight() {
-        if (xCoord + SPRITE_SIZE <= RIGHT_BOUND) {
-            xCoord += SPRITE_SIZE;
+        if (xCoord + spriteSize <= rightBound) {
+            xCoord += spriteSize;
         }
     }
 
