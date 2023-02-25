@@ -108,14 +108,13 @@ public class GameActivity extends AppCompatActivity {
         upBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 10);
-                layoutParams.topMargin = layoutParams.topMargin - 352;
-                //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
-                characterImage.setLayoutParams(layoutParams);
-
-                //Constraints.LayoutParams lp= (ConstraintLayout.LayoutParams) characterImage.getLayoutParams();
-                //lp.setMargins(left, top, right, bottom);
-                //list.setLayoutParams(lp);
+                if (layoutParams.topMargin - 352 > -4200) {
+                    currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 10);
+                    layoutParams.topMargin = layoutParams.topMargin - 352;
+                    layoutParams.bottomMargin = layoutParams.bottomMargin + 88;
+                    //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
+                    characterImage.setLayoutParams(layoutParams);
+                }
             }
         });
 
@@ -129,14 +128,14 @@ public class GameActivity extends AppCompatActivity {
         downBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 10);
-                layoutParams.bottomMargin = layoutParams.bottomMargin - 88;
-                //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
-                characterImage.setLayoutParams(layoutParams);
+                if (layoutParams.bottomMargin - 88 > -100) {
+                    currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 10);
+                    layoutParams.bottomMargin = layoutParams.bottomMargin - 88;
+                    layoutParams.topMargin = layoutParams.topMargin + 352;
+                    //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
+                    characterImage.setLayoutParams(layoutParams);
+                }
 
-                //Constraints.LayoutParams lp= (ConstraintLayout.LayoutParams) characterImage.getLayoutParams();
-                //lp.setMargins(left, top, right, bottom);
-                //list.setLayoutParams(lp);
             }
         });
 
@@ -146,11 +145,13 @@ public class GameActivity extends AppCompatActivity {
         leftBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() - 10);
-
-                layoutParams.leftMargin = layoutParams.leftMargin - 88;
-                //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
-                characterImage.setLayoutParams(layoutParams);
+                if (layoutParams.leftMargin - 88 > -350) {
+                    currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() - 10);
+                    layoutParams.leftMargin = layoutParams.leftMargin - 88;
+                    layoutParams.rightMargin = layoutParams.rightMargin + 88;
+                    //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
+                    characterImage.setLayoutParams(layoutParams);
+                }
             }
         });
 
@@ -159,11 +160,13 @@ public class GameActivity extends AppCompatActivity {
         rightBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() + 1);
-
-                layoutParams.rightMargin = layoutParams.rightMargin - 88;
-                //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
-                characterImage.setLayoutParams(layoutParams);
+                if (layoutParams.rightMargin - 88 > -350) {
+                    currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() + 10);
+                    layoutParams.rightMargin = layoutParams.rightMargin - 88;
+                    layoutParams.leftMargin = layoutParams.leftMargin + 88;
+                    //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
+                    characterImage.setLayoutParams(layoutParams);
+                }
             }
         });
 
