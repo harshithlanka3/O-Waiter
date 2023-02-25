@@ -119,7 +119,6 @@ public class GameActivity extends AppCompatActivity {
                     //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
                     characterImage.setLayoutParams(layoutParams);
                 }
->>>>>>> origin/main
             }
         });
 
@@ -141,8 +140,6 @@ public class GameActivity extends AppCompatActivity {
                     //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
                     characterImage.setLayoutParams(layoutParams);
                 }
-
->>>>>>> origin/main
             }
         });
 
@@ -160,7 +157,6 @@ public class GameActivity extends AppCompatActivity {
                     //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
                     characterImage.setLayoutParams(layoutParams);
                 }
->>>>>>> origin/main
             }
         });
 
@@ -177,7 +173,6 @@ public class GameActivity extends AppCompatActivity {
                     //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
                     characterImage.setLayoutParams(layoutParams);
                 }
->>>>>>> origin/main
             }
         });
 
