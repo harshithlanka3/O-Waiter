@@ -1,7 +1,11 @@
 package com.example.roadjump;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -42,11 +46,8 @@ public class  ConfigActivity extends AppCompatActivity {
                 userValid = checkValidity();
 
                 if (userValid) {
-                    Intent playGame = new Intent(ConfigActivity.this, GameActivity.class);
-                    playGame.putExtra("character", imgClicked);
-                    playGame.putExtra("difficulty", difficultyBar.getProgress());
-                    playGame.putExtra("user", username.getText().toString().trim());
-                    startActivity(playGame);
+                    startGame(imgClicked, difficultyBar.getProgress(), username.getText().toString().trim());
+
                 } else {
                     username.setError("You have to enter a valid username. "
                             + "Can't be null or whitespace.");
@@ -84,6 +85,11 @@ public class  ConfigActivity extends AppCompatActivity {
         } else {
             return username.getText().toString().trim().length() != 0;
         }
+    }
+
+    public void startGame(int imgClicked, int difficulty, String username) {
+        GameView gameView = new GameView(this, imgClicked, difficulty, username);
+        setContentView(gameView);
     }
 
 }
