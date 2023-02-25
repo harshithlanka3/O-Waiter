@@ -62,7 +62,7 @@ public class GameActivity extends AppCompatActivity {
             break;
         }
 
-        Player currentGamePlayer = new Player(characterImage);
+        //Player currentGamePlayer = new Player(characterImage);
 
         switch (difficultyNum) {
         case 1:
@@ -80,36 +80,14 @@ public class GameActivity extends AppCompatActivity {
 
         //making the character move buttons establishment
         ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) characterImage.getLayoutParams();
-        /*
-        // registering button
-        upBtn = findViewById(R.id.upBtn);
-        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) characterImage.getLayoutParams();
-
-        //handling the start button
-        upBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() + 10);
-
-                layoutParams.topMargin = layoutParams.topMargin - 88;
-                //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
-                characterImage.setLayoutParams(layoutParams);
-            }
-        });
-        */
 
         upBtn = findViewById(R.id.upBtn);
-
-
-        //Constraints.LayoutParams layoutParams = (Constraints.LayoutParams) characterImage.getLayoutParams();
-        //RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) characterImage.getLayoutParams();
 
         //handling the start button
         upBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (layoutParams.topMargin - 352 > -4200) {
-                    currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 10);
                     layoutParams.topMargin = layoutParams.topMargin - 352;
                     layoutParams.bottomMargin = layoutParams.bottomMargin + 88;
                     //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
@@ -120,16 +98,10 @@ public class GameActivity extends AppCompatActivity {
 
         downBtn = findViewById(R.id.downBtn);
 
-
-        //Constraints.LayoutParams layoutParams = (Constraints.LayoutParams) characterImage.getLayoutParams();
-        //RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) characterImage.getLayoutParams();
-
-        //handling the start button
         downBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (layoutParams.bottomMargin - 88 > -100) {
-                    currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 10);
                     layoutParams.bottomMargin = layoutParams.bottomMargin - 88;
                     layoutParams.topMargin = layoutParams.topMargin + 352;
                     //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
@@ -146,7 +118,6 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (layoutParams.leftMargin - 88 > -350) {
-                    currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() - 10);
                     layoutParams.leftMargin = layoutParams.leftMargin - 88;
                     layoutParams.rightMargin = layoutParams.rightMargin + 88;
                     //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
@@ -161,7 +132,6 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (layoutParams.rightMargin - 88 > -350) {
-                    currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() + 10);
                     layoutParams.rightMargin = layoutParams.rightMargin - 88;
                     layoutParams.leftMargin = layoutParams.leftMargin + 88;
                     //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
