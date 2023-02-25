@@ -23,10 +23,7 @@ public class GameView extends View {
     Context context;
     Handler handler;
     Runnable runnable;
-    static int dWidth, dHeight;
     float spriteX, spriteY;
-    float oldX;
-    float oldSpriteX;
 
     int difficulty;
 
