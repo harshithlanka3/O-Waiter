@@ -1,5 +1,7 @@
 package com.example.roadjump;
 
+import static com.example.roadjump.game_classes.CheckValidity.checkValidity;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -14,7 +16,7 @@ import android.content.Intent;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 
-public class  ConfigActivity extends AppCompatActivity {
+public class ConfigActivity extends AppCompatActivity {
     private Button startJump;
 
     private int imgClicked = 0;
@@ -43,7 +45,7 @@ public class  ConfigActivity extends AppCompatActivity {
         startJump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userValid = checkValidity();
+                userValid = checkValidity(username.getText().toString().trim());
 
                 if (userValid) {
                     startGame(imgClicked, difficultyBar.getProgress(), username.getText().toString().trim());
@@ -78,13 +80,6 @@ public class  ConfigActivity extends AppCompatActivity {
                 imgClicked = 2;
             }
         });
-    }
-    private boolean checkValidity() {
-        if (username == null || username.length() == 0) {
-            return false;
-        } else {
-            return username.getText().toString().trim().length() != 0;
-        }
     }
 
     public void startGame(int imgClicked, int difficulty, String username) {
