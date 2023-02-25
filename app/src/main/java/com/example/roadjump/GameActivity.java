@@ -1,6 +1,8 @@
 package com.example.roadjump;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.constraintlayout.widget.*;
 
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.animation.ObjectAnimator;
 import android.view.WindowManager;
@@ -76,25 +79,63 @@ public class GameActivity extends AppCompatActivity {
         userText.setText(inputUsername);
 
         //making the character move buttons establishment
-
+        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) characterImage.getLayoutParams();
+        /*
         // registering button
         upBtn = findViewById(R.id.upBtn);
+        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) characterImage.getLayoutParams();
 
         //handling the start button
         upBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() + 1);
+                currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() + 10);
+
+                layoutParams.topMargin = layoutParams.topMargin - 88;
+                //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
+                characterImage.setLayoutParams(layoutParams);
+            }
+        });
+        */
+
+        upBtn = findViewById(R.id.upBtn);
+
+
+        //Constraints.LayoutParams layoutParams = (Constraints.LayoutParams) characterImage.getLayoutParams();
+        //RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) characterImage.getLayoutParams();
+
+        //handling the start button
+        upBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (layoutParams.topMargin - 352 > -4200) {
+                    currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 10);
+                    layoutParams.topMargin = layoutParams.topMargin - 352;
+                    layoutParams.bottomMargin = layoutParams.bottomMargin + 88;
+                    //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
+                    characterImage.setLayoutParams(layoutParams);
+                }
             }
         });
 
         downBtn = findViewById(R.id.downBtn);
 
+
+        //Constraints.LayoutParams layoutParams = (Constraints.LayoutParams) characterImage.getLayoutParams();
+        //RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) characterImage.getLayoutParams();
+
         //handling the start button
         downBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 1);
+                if (layoutParams.bottomMargin - 88 > -100) {
+                    currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 10);
+                    layoutParams.bottomMargin = layoutParams.bottomMargin - 88;
+                    layoutParams.topMargin = layoutParams.topMargin + 352;
+                    //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
+                    characterImage.setLayoutParams(layoutParams);
+                }
+
             }
         });
 
@@ -104,7 +145,13 @@ public class GameActivity extends AppCompatActivity {
         leftBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() - 1);
+                if (layoutParams.leftMargin - 88 > -350) {
+                    currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() - 10);
+                    layoutParams.leftMargin = layoutParams.leftMargin - 88;
+                    layoutParams.rightMargin = layoutParams.rightMargin + 88;
+                    //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
+                    characterImage.setLayoutParams(layoutParams);
+                }
             }
         });
 
@@ -113,7 +160,13 @@ public class GameActivity extends AppCompatActivity {
         rightBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() + 1);
+                if (layoutParams.rightMargin - 88 > -350) {
+                    currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() + 10);
+                    layoutParams.rightMargin = layoutParams.rightMargin - 88;
+                    layoutParams.leftMargin = layoutParams.leftMargin + 88;
+                    //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
+                    characterImage.setLayoutParams(layoutParams);
+                }
             }
         });
 
