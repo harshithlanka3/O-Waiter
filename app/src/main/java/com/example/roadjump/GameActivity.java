@@ -180,28 +180,94 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    SwipeListener swipeDetect;
+    SwipeListener swipeDetector;
+    swipeDetector = new SwipeListener(viewLayout);
+    //ENTER VIEW LAYOUT^
 
     private class SwipeListener implements View.OnTouchListener {
         //Variables
-
+        ImageView characterImage = findViewById(R.id.characterSpriteImage);
+        Player currentGamePlayer = new Player(characterImage);
+        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) characterImage.getLayoutParams();
         GestureDetector swipeDetect;
+        int threshold;
+        int velocity_threshold;
 
         //Constructor
         SwipeListener (View view) {
             //thresholds
-            int threshold = 100;
-            int velocity_threshold = 100;
+            threshold = 100;
+            velocity_threshold = 100;
         }
 
         GestureDetector.SimpleOnGestureListener listen =
                 new GestureDetector.SimpleOnGestureListener() {
                     public boolean onDown(MotionEvent m) {
+                        return true;
+                    }
+                    public boolean onSwipe(MotionEvent m1, MotionEvent m2, float velocity) {
+                        float xDifference = m2.getX() - m1.getX();
+                        float yDifference = m2.getY() - m1.getY();
 
+                        try {
+                            if (Math.abs(xDifference) > Math.abs(yDifference)) {
+                                if (Math.abs(xDifference) > threshold && Math.abs(velocityX) > velocity_threshold) {
+                                    if (xDifference > 0) {
+                                        //Swipe Right
+                                        if (layoutParams.rightMargin - 88 > -350) {
+                                            currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() + 10);
+                                            layoutParams.rightMargin = layoutParams.rightMargin - 88;
+                                            layoutParams.leftMargin = layoutParams.leftMargin + 88;
+                                            characterImage.setLayoutParams(layoutParams);
+                                        }
+                                    } else {
+                                        //Swipe Left
+                                        if (layoutParams.leftMargin - 88 > -350) {
+                                            currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() - 10);
+                                            layoutParams.leftMargin = layoutParams.leftMargin - 88;
+                                            layoutParams.rightMargin = layoutParams.rightMargin + 88;
+                                            characterImage.setLayoutParams(layoutParams);
+                                        }
+                                    }
+                                    return true;
+                                }
+                            } else {
+                                if (Math.abs(yDifference) > threshold && Math.abs(velocityY) > velocity_threshold) {
+                                    //y difference greater than threshold
+                                    if (yDifference > 0) {
+                                        //Swipe down
+                                        if (layoutParams.bottomMargin - 88 > -100) {
+                                            currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 10);
+                                            layoutParams.bottomMargin = layoutParams.bottomMargin - 88;
+                                            layoutParams.topMargin = layoutParams.topMargin + 352;
+                                            characterImage.setLayoutParams(layoutParams);
+                                        }
+                                    } else {
+                                        //swipe up
+                                        if (layoutParams.topMargin - 352 > -4200) {
+                                            currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 10);
+                                            layoutParams.topMargin = layoutParams.topMargin - 352;
+                                            layoutParams.bottomMargin = layoutParams.bottomMargin + 88;
+                                            characterImage.setLayoutParams(layoutParams);
+                                        }
+                                    }
+                                    return true;
+                                }
+                            }
+
+                        } catch (Exception except) {
+                            except.printStackTrace();
+                        }
+                        return false;
                     }
 
-                }
+                };
+            //gesture detector
+            swipeDetect = new GestureDetector(listen);
+            view.setOnTouchListener(this);
         public boolean onTouch(View view, MotionEvent mEvent) {
+            //return event
+            return gestureDetector.onTouchEvent(motionEvent);
 
 
         }
