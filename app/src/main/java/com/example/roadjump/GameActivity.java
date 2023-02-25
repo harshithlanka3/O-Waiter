@@ -73,7 +73,8 @@ public class GameActivity extends AppCompatActivity {
         userText.setText(inputUsername);
 
         //making the character move buttons establishment
-
+        ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) characterImage.getLayoutParams();
+        /*
         // registering button
         upBtn = findViewById(R.id.upBtn);
         ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) characterImage.getLayoutParams();
@@ -82,11 +83,33 @@ public class GameActivity extends AppCompatActivity {
         upBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() + 1);
+                currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() + 10);
 
-                layoutParams.topMargin = layoutParams.topMargin - 10;
+                layoutParams.topMargin = layoutParams.topMargin - 88;
                 //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
                 characterImage.setLayoutParams(layoutParams);
+            }
+        });
+        */
+
+        upBtn = findViewById(R.id.upBtn);
+
+
+        //Constraints.LayoutParams layoutParams = (Constraints.LayoutParams) characterImage.getLayoutParams();
+        //RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) characterImage.getLayoutParams();
+
+        //handling the start button
+        upBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 10);
+                layoutParams.topMargin = layoutParams.topMargin - 352;
+                //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
+                characterImage.setLayoutParams(layoutParams);
+
+                //Constraints.LayoutParams lp= (ConstraintLayout.LayoutParams) characterImage.getLayoutParams();
+                //lp.setMargins(left, top, right, bottom);
+                //list.setLayoutParams(lp);
             }
         });
 
@@ -101,7 +124,7 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 currentGamePlayer.setyCoord(currentGamePlayer.getyCoord() - 10);
-                layoutParams.bottomMargin = layoutParams.bottomMargin - 10;
+                layoutParams.bottomMargin = layoutParams.bottomMargin - 88;
                 //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
                 characterImage.setLayoutParams(layoutParams);
 
@@ -119,7 +142,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View view) {
                 currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() - 10);
 
-                layoutParams.leftMargin = layoutParams.leftMargin - 10;
+                layoutParams.leftMargin = layoutParams.leftMargin - 88;
                 //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
                 characterImage.setLayoutParams(layoutParams);
             }
@@ -132,7 +155,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View view) {
                 currentGamePlayer.setxCoord(currentGamePlayer.getxCoord() + 1);
 
-                layoutParams.rightMargin = layoutParams.rightMargin - 10;
+                layoutParams.rightMargin = layoutParams.rightMargin - 88;
                 //layoutParams.bottomMargin = (int) currentGamePlayer.getyCoord();//your bottom margin value
                 characterImage.setLayoutParams(layoutParams);
             }
