@@ -28,8 +28,8 @@
 
     <ImageButton
         android:id="@+id/pengu_sprite"
-        android:layout_width="130dp"
-        android:layout_height="160dp"
+        android:layout_width="91dp"
+        android:layout_height="117dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="174dp"
         android:layout_marginEnd="15dp"
@@ -44,8 +44,8 @@
 
     <ImageButton
         android:id="@+id/pepe_sprite"
-        android:layout_width="130dp"
-        android:layout_height="160dp"
+        android:layout_width="91dp"
+        android:layout_height="117dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="174dp"
         android:layout_marginEnd="10dp"
@@ -60,8 +60,8 @@
 
     <ImageButton
         android:id="@+id/maya_sprite"
-        android:layout_width="130dp"
-        android:layout_height="160dp"
+        android:layout_width="91dp"
+        android:layout_height="117dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="174dp"
         android:layout_marginEnd="5dp"
