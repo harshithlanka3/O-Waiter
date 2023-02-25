@@ -76,13 +76,7 @@ public class Player {
     public ImageView getCharacterImage() {
         return characterImage;
     }
-
-    public void setxCoord(float x) {
-        xCoord = x;
-    }
-    public void setyCoord(float y) {
-        xCoord = y;
-    }
+    
     public void setScore(float score) {
         this.score = score;
     }
