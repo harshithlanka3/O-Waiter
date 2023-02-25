@@ -153,6 +153,20 @@
         app:layout_constraintBottom_toTopOf="@+id/backgroundImg"
         app:layout_constraintEnd_toStartOf="@+id/rightBtn" />
 
-    <!--UPDATE!-->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="514dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="169dp"
+        android:text="Button"
+        android:onClick="startGame"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundImg"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImg"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImg"
+        app:layout_constraintTop_toTopOf="@+id/backgroundImg" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

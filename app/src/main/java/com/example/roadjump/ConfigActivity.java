@@ -3,13 +3,14 @@ package com.example.roadjump;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Button;
 import android.content.Intent;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 
-public class ConfigActivity extends AppCompatActivity {
+public class  ConfigActivity extends AppCompatActivity {
     private Button startJump;
 
     private int imgClicked = 0;
@@ -53,6 +54,8 @@ public class ConfigActivity extends AppCompatActivity {
             }
 
         });
+
+
 
         bunnyButton.setOnClickListener(new View.OnClickListener() {
             @Override
