@@ -104,6 +104,7 @@
         android:layout_marginStart="155dp"
         android:layout_marginBottom="53dp"
         android:text="Go!"
+        android:onClick="startGame"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
