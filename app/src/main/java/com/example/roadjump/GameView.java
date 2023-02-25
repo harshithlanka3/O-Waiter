@@ -92,17 +92,15 @@ public class GameView extends View {
         super.onDraw(canvas);
         canvas.drawBitmap(background, null, rectBackground, null);
 
-        drawRow(canvas, 0, 176, wood);
-        drawRow(canvas, 176, 352, carpet);
-        drawRow(canvas, 352, 528, wood);
-        drawRow(canvas, 528, 704, sushi);
-        drawRow(canvas, 704, 880, wood);
-        drawRow(canvas, 880, 1144, carpet);
-        drawRow(canvas, 1144, 1232, wood);
-        drawRow(canvas, 1232, 1408, sushi);
-        drawRow(canvas, 1408, 1496, wood);
-        drawRow(canvas, 1496, 1672, carpet);
-        drawRow(canvas, 1672, 1936, wood);
+        drawRow(canvas, 0, SPRITE_SIZE * 3, wood);
+        drawRow(canvas, SPRITE_SIZE * 3, SPRITE_SIZE * 7, carpet);
+        drawRow(canvas, SPRITE_SIZE * 7, SPRITE_SIZE * 8, wood);
+        drawRow(canvas, SPRITE_SIZE * 8, SPRITE_SIZE * 11, sushi);
+        drawRow(canvas, SPRITE_SIZE * 11, SPRITE_SIZE * 12, wood);
+        drawRow(canvas, SPRITE_SIZE * 12, SPRITE_SIZE * 15, sushi);
+        drawRow(canvas, SPRITE_SIZE * 15, SPRITE_SIZE * 16, wood);
+        drawRow(canvas, SPRITE_SIZE * 16, SPRITE_SIZE * 20, carpet);
+        drawRow(canvas, SPRITE_SIZE * 20, SPRITE_SIZE * 22, wood);
 
         canvas.drawBitmap(table, SCREEN_WIDTH / 2 - SPRITE_SIZE/2, SPRITE_SIZE, null);
         canvas.drawBitmap(sprite, player.getxCoord() - SPRITE_SIZE/2, player.getyCoord(), null);
