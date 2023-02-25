@@ -34,6 +34,15 @@ public class GameView extends View {
 
     String username;
 
+    public final int SPRITE_SIZE = 88;
+    public final int SCREEN_WIDTH = 1080;
+
+    public final int SCREEN_HEIGHT = 1760;
+
+    public final int TEXT_HT = 40;
+
+    public final int LIVES_WDTH = 920;
+
     public GameView(Context context, int spriteNum, int difficulty, String username) {
         super(context);
         this.context = context;
@@ -43,15 +52,15 @@ public class GameView extends View {
         switch (spriteNum) {
             case 1:
                 sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pengu);
-                sprite = Bitmap.createScaledBitmap(sprite, 88, 88, false);
+                sprite = Bitmap.createScaledBitmap(sprite, SPRITE_SIZE, SPRITE_SIZE, false);
                 break;
             case 2:
                 sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pepe);
-                sprite = Bitmap.createScaledBitmap(sprite, 88, 88, false);
+                sprite = Bitmap.createScaledBitmap(sprite, SPRITE_SIZE, SPRITE_SIZE, false);
                 break;
             default:
                 sprite = BitmapFactory.decodeResource(getResources(), R.drawable.bunny);
-                sprite = Bitmap.createScaledBitmap(sprite, 88, 88, false);
+                sprite = Bitmap.createScaledBitmap(sprite, SPRITE_SIZE, SPRITE_SIZE, false);
                 break;
         }
 
@@ -64,9 +73,7 @@ public class GameView extends View {
         Display display = ((Activity) getContext()).getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
-        dWidth = size.x;
-        dHeight = 2000;
-        rectBackground = new Rect(0, 0, dWidth, dHeight);
+        rectBackground = new Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
         handler = new Handler();
         runnable = new Runnable() {
             @Override
@@ -74,8 +81,8 @@ public class GameView extends View {
                 invalidate();
             }
         };
-        spriteX = dWidth / 2;
-        spriteY = dHeight * 7 / 8;
+        spriteX = SCREEN_WIDTH / 2;
+        spriteY = SCREEN_HEIGHT;
 
         player = new Player(spriteX, spriteY);
     }
@@ -85,36 +92,36 @@ public class GameView extends View {
         super.onDraw(canvas);
         canvas.drawBitmap(background, null, rectBackground, null);
 
-        drawRow(canvas, 0, 100, wood);
-        drawRow(canvas, 100, 300, carpet);
-        drawRow(canvas, 300, 500, wood);
-        drawRow(canvas, 500, 650, sushi);
-        drawRow(canvas, 650, 800, wood);
-        drawRow(canvas, 800, 950, carpet);
-        drawRow(canvas, 950, 1200, wood);
-        drawRow(canvas, 1200, 1450, sushi);
-        drawRow(canvas, 1450, 1550, wood);
-        drawRow(canvas, 1550, 1650, carpet);
-        drawRow(canvas, 1650, 2000, wood);
+        drawRow(canvas, 0, 176, wood);
+        drawRow(canvas, 176, 352, carpet);
+        drawRow(canvas, 352, 528, wood);
+        drawRow(canvas, 528, 704, sushi);
+        drawRow(canvas, 704, 880, wood);
+        drawRow(canvas, 880, 1144, carpet);
+        drawRow(canvas, 1144, 1232, wood);
+        drawRow(canvas, 1232, 1408, sushi);
+        drawRow(canvas, 1408, 1496, wood);
+        drawRow(canvas, 1496, 1672, carpet);
+        drawRow(canvas, 1672, 1936, wood);
 
-        canvas.drawBitmap(table, dWidth / 2 - 44, 0, null);
-        canvas.drawBitmap(sprite, player.getxCoord() - 44, player.getyCoord(), null);
+        canvas.drawBitmap(table, SCREEN_WIDTH / 2 - SPRITE_SIZE/2, SPRITE_SIZE, null);
+        canvas.drawBitmap(sprite, player.getxCoord() - SPRITE_SIZE/2, player.getyCoord(), null);
 
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
         paint.setTextSize(40);
         switch (difficulty) {
             case 1:
-                canvas.drawText("<3 <3", 900, 40, paint);
+                canvas.drawText("<3 <3", LIVES_WDTH + 50, TEXT_HT, paint);
                 break;
             case 2:
-                canvas.drawText("<3", 900, 40, paint);
+                canvas.drawText("<3", LIVES_WDTH + 100, TEXT_HT, paint);
                 break;
             default:
-                canvas.drawText("<3 <3 <3", 900, 40, paint);
+                canvas.drawText("<3 <3 <3", LIVES_WDTH, TEXT_HT, paint);
                 break;
         }
-        canvas.drawText(username, 10, 40, paint);
+        canvas.drawText(username, 10, TEXT_HT, paint);
 
 
         handler.postDelayed(runnable, 30);
@@ -128,7 +135,7 @@ public class GameView extends View {
         int x = (int) event.getX();
         int y = (int) event.getY();
 
-        if (Math.abs((player.getyCoord() - 44) - y) >= Math.abs((player.getxCoord() + 44) - x)) {
+        if (!(player.getyCoord() <= y && y <= player.getyCoord() + SPRITE_SIZE)) {
             if (y < player.getyCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveUp();
                 spriteX = player.getxCoord();
@@ -154,8 +161,8 @@ public class GameView extends View {
     }
 
     public void drawRow(Canvas canvas, int rowStart, int rowEnd, Bitmap image) {
-        for (int row = rowStart; row < rowEnd; row += 88) {
-            for (int col = 0; col < 1080; col += 88) {
+        for (int row = rowStart; row < rowEnd; row += SPRITE_SIZE) {
+            for (int col = 0; col < SCREEN_WIDTH; col += SPRITE_SIZE) {
                 canvas.drawBitmap(image, col, row, null);
             }
         }
