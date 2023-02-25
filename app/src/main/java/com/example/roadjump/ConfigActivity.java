@@ -1,5 +1,7 @@
 package com.example.roadjump;
 
+import static com.example.roadjump.game_classes.CheckValidity.checkValidity;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -14,12 +16,12 @@ import android.content.Intent;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 
-public class  ConfigActivity extends AppCompatActivity {
+public class ConfigActivity extends AppCompatActivity {
     private Button startJump;
 
     private int imgClicked = 0;
     private ImageButton penguButton;
-    private ImageButton bunnyButton;
+    private ImageButton mayaButton;
     private ImageButton pepeButton;
 
     private EditText username;
@@ -35,7 +37,7 @@ public class  ConfigActivity extends AppCompatActivity {
 
         startJump = findViewById(R.id.submitCharacter);
         penguButton = findViewById(R.id.pengu_sprite);
-        bunnyButton = findViewById(R.id.bunny_sprite);
+        mayaButton = findViewById(R.id.maya_sprite);
         pepeButton = findViewById(R.id.pepe_sprite);
         username = findViewById(R.id.username);
         difficultyBar = findViewById(R.id.difficultyBar);
@@ -43,7 +45,7 @@ public class  ConfigActivity extends AppCompatActivity {
         startJump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userValid = checkValidity();
+                userValid = checkValidity(username.getText().toString().trim());
 
                 if (userValid) {
                     startGame(imgClicked, difficultyBar.getProgress(), username.getText().toString().trim());
@@ -58,7 +60,7 @@ public class  ConfigActivity extends AppCompatActivity {
 
 
 
-        bunnyButton.setOnClickListener(new View.OnClickListener() {
+        mayaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 imgClicked = 0;
@@ -78,13 +80,6 @@ public class  ConfigActivity extends AppCompatActivity {
                 imgClicked = 2;
             }
         });
-    }
-    private boolean checkValidity() {
-        if (username == null || username.length() == 0) {
-            return false;
-        } else {
-            return username.getText().toString().trim().length() != 0;
-        }
     }
 
     public void startGame(int imgClicked, int difficulty, String username) {
