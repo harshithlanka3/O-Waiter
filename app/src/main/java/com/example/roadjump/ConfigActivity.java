@@ -4,15 +4,10 @@ import static com.example.roadjump.game_classes.CheckValidity.checkValidity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Button;
-import android.content.Intent;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 
@@ -48,7 +43,8 @@ public class ConfigActivity extends AppCompatActivity {
                 userValid = checkValidity(username.getText().toString().trim());
 
                 if (userValid) {
-                    startGame(imgClicked, difficultyBar.getProgress(), username.getText().toString().trim());
+                    startGame(imgClicked, difficultyBar.getProgress(),
+                            username.getText().toString().trim());
 
                 } else {
                     username.setError("You have to enter a valid username. "
