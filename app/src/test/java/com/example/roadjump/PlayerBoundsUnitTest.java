@@ -22,7 +22,7 @@ public class PlayerBoundsUnitTest {
         for (int i = 0; i < 50; i++) {
             player.moveUp();
         }
-        assertTrue(player.getyCoord() > UPPER && player.getyCoord() < 880 && player.getxCoord() == 540);
+        assertTrue(player.getyCoord() >= UPPER && player.getyCoord() < 880 && player.getxCoord() == 540);
     }
 
     @Test

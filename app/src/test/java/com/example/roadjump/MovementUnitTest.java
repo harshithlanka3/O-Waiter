@@ -52,13 +52,13 @@ public class MovementUnitTest {
     public void movingRightTest() {
         bruh.moveRight();
 
-        assertEquals(512, bruh.getxCoord(), 0);
+        assertEquals(688, bruh.getxCoord(), 0);
         assertEquals(600, bruh.getyCoord(), 0);
 
         bruh.moveRight();
         bruh.moveRight();
 
-        assertEquals(336, bruh.getxCoord(), 0);
+        assertEquals(864, bruh.getxCoord(), 0);
         assertEquals(600, bruh.getyCoord(), 0);
 
     }
@@ -68,13 +68,13 @@ public class MovementUnitTest {
     public void movingLeftTest() {
         bruh.moveLeft();
 
-        assertEquals(688, bruh.getxCoord(), 0);
+        assertEquals(512, bruh.getxCoord(), 0);
         assertEquals(600, bruh.getyCoord(), 0);
 
         bruh.moveLeft();
         bruh.moveLeft();
 
-        assertEquals(864, bruh.getxCoord(), 0);
+        assertEquals(336, bruh.getxCoord(), 0);
         assertEquals(600, bruh.getyCoord(), 0);
     }
 
