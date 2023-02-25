@@ -16,7 +16,7 @@ public class Player {
 
     public final int LOWER_BOUND = 1754;
 
-    public final int LEFT_BOUND = 992;
+    public final int RIGHT_BOUND = 992;
 
     public Player(float startX, float startY) {
         xCoord = startX;
@@ -37,13 +37,13 @@ public class Player {
     }
 
     public void moveLeft() {
-        if (xCoord + SPRITE_SIZE <= LEFT_BOUND) {
-            xCoord += SPRITE_SIZE;
+        if (xCoord - SPRITE_SIZE >= SPRITE_SIZE) {
+            xCoord -= SPRITE_SIZE;
         }
     }
     public void moveRight() {
-        if (xCoord - SPRITE_SIZE >= SPRITE_SIZE) {
-            xCoord -= SPRITE_SIZE;
+        if (xCoord + SPRITE_SIZE <= RIGHT_BOUND) {
+            xCoord += SPRITE_SIZE;
         }
     }
 

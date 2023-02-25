@@ -37,7 +37,7 @@
         app:layout_constraintHorizontal_bias="0.408"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.04"
         tools:visibility="visible" />
 
     <Button
@@ -46,9 +46,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
         android:layout_marginEnd="162dp"
-        android:layout_marginBottom="148dp"
+        android:layout_marginBottom="112dp"
         android:backgroundTint="#673AB7"
-        android:fontFamily="@font/alfa_slab_one"
         android:scaleX="3"
         android:scaleY="3"
         android:text="Start"
