@@ -59,7 +59,7 @@ public class GameView extends View {
                 sprite = Bitmap.createScaledBitmap(sprite, SPRITE_SIZE, SPRITE_SIZE, false);
                 break;
             default:
-                sprite = BitmapFactory.decodeResource(getResources(), R.drawable.bunny);
+                sprite = BitmapFactory.decodeResource(getResources(), R.drawable.maya);
                 sprite = Bitmap.createScaledBitmap(sprite, SPRITE_SIZE, SPRITE_SIZE, false);
                 break;
         }
@@ -147,11 +147,11 @@ public class GameView extends View {
             }
         } else {
             if (x < player.getxCoord() && action == MotionEvent.ACTION_DOWN) {
-                player.moveRight();
+                player.moveLeft();
                 spriteX = player.getxCoord();
                 spriteY = player.getyCoord();
             } else if (x > player.getxCoord() && action == MotionEvent.ACTION_DOWN) {
-                player.moveLeft();
+                player.moveRight();
                 spriteX = player.getxCoord();
                 spriteY = player.getyCoord();
             }
