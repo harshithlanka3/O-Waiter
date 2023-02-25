@@ -12,6 +12,12 @@ public class Player {
     private ImageView characterImage;
     private float score;
 
+    public final int SPRITE_SIZE = 88;
+
+    public final int LOWER_BOUND = 1754;
+
+    public final int LEFT_BOUND = 992;
+
     public Player(float startX, float startY) {
         xCoord = startX;
         yCoord = startY;
@@ -20,24 +26,24 @@ public class Player {
 
     //new code methods
     public void moveUp() {
-        if (yCoord >= 44) {
-            yCoord -= 88;
+        if (yCoord > SPRITE_SIZE) {
+            yCoord -= SPRITE_SIZE;
         }
     }
     public void moveDown() {
-        if (yCoord <= 1760) {
-            yCoord += 88;
+        if (yCoord <= LOWER_BOUND) {
+            yCoord += SPRITE_SIZE;
         }
     }
 
     public void moveLeft() {
-        if (xCoord + 88 <= 992) {
-            xCoord += 88;
+        if (xCoord + SPRITE_SIZE <= LEFT_BOUND) {
+            xCoord += SPRITE_SIZE;
         }
     }
     public void moveRight() {
-        if (xCoord - 88 >= 88) {
-            xCoord -= 88;
+        if (xCoord - SPRITE_SIZE >= SPRITE_SIZE) {
+            xCoord -= SPRITE_SIZE;
         }
     }
 
