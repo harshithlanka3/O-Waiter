@@ -62,82 +62,17 @@ public class GameView extends View {
         super.onDraw(canvas);
         canvas.drawBitmap(background, null, rectBackground, null);
 
-        // wood
-        for (int row = 0; row < 100; row += 88) {
-            for (int col = 0; col < 1080; col += 88) {
-                canvas.drawBitmap(wood, col, row, null);
-            }
-        }
-
-        // carpet
-        for (int row = 100; row < 300; row += 88) {
-            for (int col = 0; col < 1080; col += 88) {
-                canvas.drawBitmap(carpet, col, row, null);
-            }
-        }
-
-        // wood
-        for (int row = 300; row < 500; row += 88) {
-            for (int col = 0; col < 1080; col += 88) {
-                canvas.drawBitmap(wood, col, row, null);
-            }
-        }
-
-        // sushi belt
-        for (int row = 500; row < 650; row += 88) {
-            for (int col = 0; col < 1080; col += 88) {
-                canvas.drawBitmap(sushi, col, row, null);
-            }
-        }
-
-        // wood
-        for (int row = 650; row < 800; row += 88) {
-            for (int col = 0; col < 1080; col += 88) {
-                canvas.drawBitmap(wood, col, row, null);
-            }
-        }
-
-        // carpet
-        for (int row = 800; row < 950; row += 88) {
-            for (int col = 0; col < 1080; col += 88) {
-                canvas.drawBitmap(carpet, col, row, null);
-            }
-        }
-
-        // wood
-        for (int row = 950; row < 1200; row += 88) {
-            for (int col = 0; col < 1080; col += 88) {
-                canvas.drawBitmap(wood, col, row, null);
-            }
-        }
-
-        // sushi belt
-        for (int row = 1200; row < 1450; row += 88) {
-            for (int col = 0; col < 1080; col += 88) {
-                canvas.drawBitmap(sushi, col, row, null);
-            }
-        }
-
-        // wood
-        for (int row = 1450; row < 1550; row += 88) {
-            for (int col = 0; col < 1080; col += 88) {
-                canvas.drawBitmap(wood, col, row, null);
-            }
-        }
-
-        // carpet
-        for (int row = 1550; row < 1650; row += 88) {
-            for (int col = 0; col < 1080; col += 88) {
-                canvas.drawBitmap(carpet, col, row, null);
-            }
-        }
-
-        // wood
-        for (int row = 1650; row < 2000; row += 88) {
-            for (int col = 0; col < 1080; col += 88) {
-                canvas.drawBitmap(wood, col, row, null);
-            }
-        }
+        drawRow(canvas, 0, 100, wood);
+        drawRow(canvas, 100, 300, carpet);
+        drawRow(canvas, 300, 500, wood);
+        drawRow(canvas, 500, 650, sushi);
+        drawRow(canvas, 650, 800, wood);
+        drawRow(canvas, 800, 950, carpet);
+        drawRow(canvas, 950, 1200, wood);
+        drawRow(canvas, 1200, 1450, sushi);
+        drawRow(canvas, 1450, 1550, wood);
+        drawRow(canvas, 1550, 1650, carpet);
+        drawRow(canvas, 1650, 2000, wood);
 
         canvas.drawBitmap(table, dWidth / 2 - 44, 0, null);
         //canvas.drawBitmap(sprite, spriteX, spriteY, null);
@@ -167,5 +102,13 @@ public class GameView extends View {
             }
         }
         return true;
+    }
+
+    public void drawRow(Canvas canvas, int rowStart, int rowEnd, Bitmap image) {
+        for (int row = rowStart; row < rowEnd; row += 88) {
+            for (int col = 0; col < 1080; col += 88) {
+                canvas.drawBitmap(image, col, row, null);
+            }
+        }
     }
 }
