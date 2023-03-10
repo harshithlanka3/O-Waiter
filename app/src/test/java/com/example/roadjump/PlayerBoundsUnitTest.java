@@ -5,24 +5,19 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 public class PlayerBoundsUnitTest {
-    private Player player;
+    private Player player = new Player();
 
-    private final int UPPER = 88;
-    private final int LOWER = 1754;
-    private final int LEFT = 88;
-    private final int RIGHT = 992;
-
-    @Before
-    public void setup() {
-        player = new Player(540, 880);
-    }
+    private final int UPPER = player.getSpriteSize();
+    private final int LOWER = player.getScreenHeight();
+    private final int LEFT = player.getLeftBound();
+    private final int RIGHT = player.getRightBound();
 
     @Test
     public void upperBound() {
         for (int i = 0; i < 50; i++) {
             player.moveUp();
         }
-        assertTrue(player.getyCoord() > UPPER && player.getyCoord() < 880 && player.getxCoord() == 540);
+        assertTrue(player.getyCoord() == UPPER && player.getxCoord() == player.getScreenWidth() / 2);
     }
 
     @Test
@@ -30,7 +25,7 @@ public class PlayerBoundsUnitTest {
         for (int i = 0; i < 50; i++) {
             player.moveDown();
         }
-        assertTrue(player.getyCoord() - 88 <= LOWER && player.getyCoord() > 880 && player.getxCoord() == 540);
+        assertTrue(player.getyCoord() == LOWER && player.getxCoord() == player.getScreenWidth() / 2);
     }
 
     @Test
@@ -38,7 +33,7 @@ public class PlayerBoundsUnitTest {
         for (int i = 0; i < 50; i++) {
             player.moveLeft();
         }
-        assertTrue(player.getxCoord() >= LEFT && player.getxCoord() < 540 && player.getyCoord() == 880);
+        assertTrue(player.getxCoord() == LEFT && player.getyCoord() == player.getScreenHeight());
     }
 
     @Test
@@ -46,6 +41,6 @@ public class PlayerBoundsUnitTest {
         for (int i = 0; i < 50; i++) {
             player.moveRight();
         }
-        assertTrue(player.getxCoord() <= RIGHT && player.getxCoord() > 540 && player.getyCoord() == 880);
+        assertTrue(player.getxCoord() == RIGHT && player.getyCoord() == player.getScreenHeight());
     }
 }

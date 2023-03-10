@@ -15,36 +15,42 @@ public class MovementUnitTest {
     private Player bruh;
 
     @Before
-    public void setup() {bruh = new Player(600, 600);}
+    public void setup() {bruh = new Player();}
 
     //test1: moving forward
     @Test
     public void movingForwardTest() {
         bruh.moveUp();
 
-        assertEquals(600, bruh.getxCoord(), 0);
-        assertEquals(512, bruh.getyCoord(), 0);
+        assertEquals(bruh.getScreenWidth() / 2, bruh.getxCoord(), 0);
+        assertEquals(bruh.getScreenHeight() - bruh.getSpriteSize(), bruh.getyCoord(), 0);
 
         bruh.moveUp();
         bruh.moveUp();
 
-        assertEquals(600,  bruh.getxCoord(), 0);
-        assertEquals(336, bruh.getyCoord(), 0);
+        assertEquals(bruh.getScreenWidth() / 2,  bruh.getxCoord(), 0);
+        assertEquals(bruh.getScreenHeight() - 3 * bruh.getSpriteSize(), bruh.getyCoord(), 0);
     }
 
     //test2: moving backwards
     @Test
     public void movingBackwardsTest() {
+        bruh.moveUp();
+        bruh.moveUp();
         bruh.moveDown();
 
-        assertEquals(600, bruh.getxCoord(), 0);
-        assertEquals(688, bruh.getyCoord(), 0);
+        assertEquals(bruh.getScreenWidth() / 2, bruh.getxCoord(), 0);
+        assertEquals(bruh.getScreenHeight() - bruh.getSpriteSize(), bruh.getyCoord(), 0);
 
+        bruh.moveUp();
+        bruh.moveUp();
+        bruh.moveUp();
+        bruh.moveUp();
         bruh.moveDown();
         bruh.moveDown();
 
-        assertEquals(600, bruh.getxCoord(), 0);
-        assertEquals(864, bruh.getyCoord(), 0);
+        assertEquals(bruh.getScreenWidth() / 2, bruh.getxCoord(), 0);
+        assertEquals(bruh.getScreenHeight() - 3 * bruh.getSpriteSize(), bruh.getyCoord(), 0);
     }
 
     //test3: moving right
@@ -52,14 +58,14 @@ public class MovementUnitTest {
     public void movingRightTest() {
         bruh.moveRight();
 
-        assertEquals(512, bruh.getxCoord(), 0);
-        assertEquals(600, bruh.getyCoord(), 0);
+        assertEquals(bruh.getScreenWidth() / 2 + bruh.getSpriteSize(), bruh.getxCoord(), 0);
+        assertEquals(bruh.getScreenHeight(), bruh.getyCoord(), 0);
 
         bruh.moveRight();
         bruh.moveRight();
 
-        assertEquals(336, bruh.getxCoord(), 0);
-        assertEquals(600, bruh.getyCoord(), 0);
+        assertEquals(bruh.getScreenWidth() / 2 + 3 * bruh.getSpriteSize(), bruh.getxCoord(), 0);
+        assertEquals(bruh.getScreenHeight(), bruh.getyCoord(), 0);
 
     }
 
@@ -68,14 +74,14 @@ public class MovementUnitTest {
     public void movingLeftTest() {
         bruh.moveLeft();
 
-        assertEquals(688, bruh.getxCoord(), 0);
-        assertEquals(600, bruh.getyCoord(), 0);
+        assertEquals(bruh.getScreenWidth() / 2 - bruh.getSpriteSize(), bruh.getxCoord(), 0);
+        assertEquals(bruh.getScreenHeight(), bruh.getyCoord(), 0);
 
         bruh.moveLeft();
         bruh.moveLeft();
 
-        assertEquals(864, bruh.getxCoord(), 0);
-        assertEquals(600, bruh.getyCoord(), 0);
+        assertEquals(bruh.getScreenWidth() / 2 - 3 * bruh.getSpriteSize(), bruh.getxCoord(), 0);
+        assertEquals(bruh.getScreenHeight(), bruh.getyCoord(), 0);
     }
 
 

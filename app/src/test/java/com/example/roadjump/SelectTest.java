@@ -19,14 +19,14 @@ public class SelectTest {
     private String nullString;
     private String normalString;
 
-    private Player sample = new Player(0, 0);
+    private Player sample;
 
     @Before
     public void setup() {
         emptyString = "";
         nullString = null;
         normalString = "pinguThePenguino";
-
+        sample = new Player();
     }
 
     //test1: moving forward
