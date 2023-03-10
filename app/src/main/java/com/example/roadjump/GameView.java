@@ -27,12 +27,9 @@ public class GameView extends View {
     private Context context;
     private Handler handler;
     private Runnable runnable;
+    private final int livesWidth = 920;
 
     private Player player;
-
-    private final int textHeight = 40;
-
-    private final int livesWidth = 920;
 
     public GameView(Context context, Player player) {
         super(context);
@@ -96,16 +93,17 @@ public class GameView extends View {
         paint.setTextSize(40);
         switch (player.getDifficulty()) {
         case 1:
-            canvas.drawText("<3 <3", livesWidth + 50, textHeight, paint);
+            canvas.drawText("<3 <3", livesWidth + 50, player.getSpriteSize() / 2, paint);
             break;
         case 2:
-            canvas.drawText("<3", livesWidth + 100, textHeight, paint);
+            canvas.drawText("<3", livesWidth + 100, player.getSpriteSize() / 2, paint);
             break;
         default:
-            canvas.drawText("<3 <3 <3", livesWidth, textHeight, paint);
+            canvas.drawText("<3 <3 <3", livesWidth, player.getSpriteSize() / 2, paint);
             break;
         }
-        canvas.drawText(player.getUsername(), 10, textHeight, paint);
+        canvas.drawText(player.getUsername(), player.getLeftBound(), player.getSpriteSize() / 2, paint);
+        canvas.drawText("Score: " + player.getScore(), player.getLeftBound(), player.getSpriteSize(), paint);
 
 
         handler.postDelayed(runnable, 30);

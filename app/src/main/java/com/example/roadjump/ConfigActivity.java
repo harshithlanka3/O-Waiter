@@ -11,20 +11,13 @@ import android.widget.SeekBar;
 
 public class ConfigActivity extends AppCompatActivity {
     private Button startJump;
-
     private int imgClicked;
     private ImageButton penguButton;
     private ImageButton mayaButton;
     private ImageButton pepeButton;
-
     private EditText username;
-
     private SeekBar difficultyBar;
-
-    private boolean userValid;
-
     public Player player;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +35,7 @@ public class ConfigActivity extends AppCompatActivity {
         startJump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userValid = player.checkValidity(username.getText().toString().trim());
+                boolean userValid = player.checkValidity(username.getText().toString().trim());
 
                 if (userValid) {
                     startGame(imgClicked, difficultyBar.getProgress(),

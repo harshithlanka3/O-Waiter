@@ -3,9 +3,9 @@ package com.example.roadjump;
 import android.widget.ImageView;
 
 public class Player {
-    private float xCoord;
-    private float yCoord;
-    private float score;
+    private int xCoord;
+    private int yCoord;
+    private int score;
     private String username;
     private int difficulty;
     private int imgClicked;
@@ -21,16 +21,23 @@ public class Player {
 
     private final int screenHeight = 1760;
 
+    private int progress;
+
     public Player() {
         xCoord = screenWidth/2;
         yCoord = screenHeight;
-        score = 0;
+        resetScore();
         imgClicked = 0;
+        progress = screenHeight;
     }
 
     public void moveUp() {
         if (yCoord > spriteSize) {
             yCoord -= spriteSize;
+        }
+        if (yCoord < progress) {
+            progress = yCoord;
+            updateScore();
         }
     }
     public void moveDown() {
@@ -50,19 +57,32 @@ public class Player {
         }
     }
 
-    public float getxCoord() {
+    public boolean checkValidity(String username) {
+        if (username == null || username.length() == 0) {
+            return false;
+        } else {
+            return username.length() != 0;
+        }
+    }
+
+    public int getxCoord() {
         return xCoord;
     }
-    public float getyCoord() {
+    public int getyCoord() {
         return yCoord;
     }
 
-    public float getScore() {
+    public int getScore() {
         return score;
     }
 
-    public void setScore(float score) {
-        this.score = score;
+    // need to implement different score increase based on tiles crossed
+    public void updateScore() {
+        score += 1;
+    }
+
+    public void resetScore() {
+        score = 0;
     }
 
     public void setUsername(String username) {
@@ -111,12 +131,5 @@ public class Player {
 
     public int getLeftBound() {
         return leftBound;
-    }
-    public boolean checkValidity(String username) {
-        if (username == null || username.length() == 0) {
-            return false;
-        } else {
-            return username.length() != 0;
-        }
     }
 }
