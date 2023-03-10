@@ -54,11 +54,16 @@ public class Player {
     public float getScore() {
         return score;
     }
-    public ImageView getCharacterImage() {
-        return characterImage;
-    }
 
     public void setScore(float score) {
         this.score = score;
+    }
+
+    public boolean checkValidity(String username) {
+        if (username == null || username.length() == 0) {
+            return false;
+        } else {
+            return username.length() != 0;
+        }
     }
 }
