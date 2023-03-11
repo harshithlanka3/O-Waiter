@@ -64,9 +64,9 @@ public class MovementUnitTest {
         bruh.moveRight();
         bruh.moveRight();
 
+
         assertEquals(bruh.getScreenWidth() / 2 + 3 * bruh.getSpriteSize(), bruh.getxCoord(), 0);
         assertEquals(bruh.getScreenHeight(), bruh.getyCoord(), 0);
-
     }
 
     //test4: moving left
