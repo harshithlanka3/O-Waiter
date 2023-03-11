@@ -25,6 +25,8 @@ public class GameView extends View {
     private Bitmap sushi;
     private Bitmap carpet;
     private Bitmap doubleChef;
+    private Bitmap rumya;
+    private Bitmap rumyarev;
     private Rect rectBackground;
     private Context context;
     private Handler handler;
@@ -35,6 +37,8 @@ public class GameView extends View {
     private Vehicle doubleChef2;
     private Vehicle doubleChef3;
     private Vehicle doubleChef4;
+    private Vehicle rumya1;
+    private Vehicle rumya2;
     private long globalTimer;
     private long lastClicked = 0;
 
@@ -53,6 +57,11 @@ public class GameView extends View {
         doubleChef4 = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
                 20 * player.getSpriteSize(), player.getLowerBound() - 14 * player.getSpriteSize());
 
+        rumya1 = new Vehicle(500,player.getSpriteSize() * 2, player.getSpriteSize(),
+                0, player.getLowerBound() - 2 * player.getSpriteSize());
+        rumya2 = new Vehicle(500,player.getSpriteSize() * 2, player.getSpriteSize(),
+                1080, player.getLowerBound() - 15 * player.getSpriteSize());
+
         switch (player.getImgClicked()) {
         case 1:
             sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pingu);
@@ -69,6 +78,8 @@ public class GameView extends View {
         }
 
         doubleChef = BitmapFactory.decodeResource(getResources(), R.drawable.double_chefs);
+        rumya = BitmapFactory.decodeResource(getResources(), R.drawable.rumyachef);
+        rumyarev = BitmapFactory.decodeResource(getResources(), R.drawable.rumyachefrev);
         background = BitmapFactory.decodeResource(getResources(), R.drawable.gameplays1background);
         wood = BitmapFactory.decodeResource(getResources(), R.drawable.wood_tile_image);
         table = BitmapFactory.decodeResource(getResources(), R.drawable.table_tile_image);
@@ -109,6 +120,9 @@ public class GameView extends View {
         canvas.drawBitmap(doubleChef, doubleChef2.getxCoord(), doubleChef2.getyCoord(), null);
         canvas.drawBitmap(doubleChef, doubleChef3.getxCoord(), doubleChef3.getyCoord(), null);
         canvas.drawBitmap(doubleChef, doubleChef4.getxCoord(), doubleChef4.getyCoord(), null);
+        canvas.drawBitmap(rumya, rumya1.getxCoord(), rumya1.getyCoord(), null);
+        canvas.drawBitmap(rumyarev, rumya2.getxCoord(), rumya2.getyCoord(), null);
+
 
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
@@ -133,6 +147,8 @@ public class GameView extends View {
             doubleChef2.moveRight(2);
             doubleChef3.moveLeft(2);
             doubleChef4.moveLeft(2);
+            rumya1.moveRight(5);
+            rumya2.moveLeft(5);
         }
 
         handler.postDelayed(runnable, 30);
