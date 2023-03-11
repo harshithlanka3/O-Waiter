@@ -34,21 +34,31 @@ public class Player {
             progress = yCoord;
             updateScore();
         }
+        if (score == 45 && xCoord == screenWidth / 2) {
+            score += 5;
+        }
     }
     public void moveDown() {
         if (yCoord <= lowerBound) {
             yCoord += spriteSize;
         }
+
     }
 
     public void moveLeft() {
         if (xCoord - spriteSize >= leftBound) {
             xCoord -= spriteSize;
         }
+        if (score == 45 && xCoord == screenWidth / 2) {
+            score += 5;
+        }
     }
     public void moveRight() {
         if (xCoord + spriteSize <= rightBound) {
             xCoord += spriteSize;
+        }
+        if (score == 45 && xCoord == screenWidth / 2) {
+            score += 5;
         }
     }
 

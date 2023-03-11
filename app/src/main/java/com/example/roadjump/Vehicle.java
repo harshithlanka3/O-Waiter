@@ -33,14 +33,14 @@ public class Vehicle {
 
     public void moveRight(int step) {
         if (xCoord > 1080) {
-            xCoord = -180;
+            xCoord = -250;
         }
         xCoord += step;
     }
 
     public void moveLeft(int step) {
-        if (xCoord <= -180) {
-            xCoord = 1080;
+        if (xCoord <= -250) {
+            xCoord = 1200;
         }
         xCoord -= step;
     }
