@@ -13,7 +13,7 @@ public class ConfigActivity extends AppCompatActivity {
     private Button startJump;
     private int imgClicked;
     private ImageButton pinguButton;
-    private ImageButton mayaButton;
+    private ImageButton podgeButton;
     private ImageButton narshithButton;
     private EditText username;
     private SeekBar difficultyBar;
@@ -25,7 +25,7 @@ public class ConfigActivity extends AppCompatActivity {
 
         startJump = findViewById(R.id.submitCharacter);
         pinguButton = findViewById(R.id.pingu_sprite);
-        mayaButton = findViewById(R.id.maya_sprite);
+        podgeButton = findViewById(R.id.podge_sprite);
         narshithButton = findViewById(R.id.narshith_sprite);
         username = findViewById(R.id.username);
         difficultyBar = findViewById(R.id.difficultyBar);
@@ -49,7 +49,7 @@ public class ConfigActivity extends AppCompatActivity {
 
         });
 
-        mayaButton.setOnClickListener(new View.OnClickListener() {
+        podgeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 imgClicked = 0;

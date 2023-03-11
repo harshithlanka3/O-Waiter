@@ -22,4 +22,26 @@ public class Vehicle {
     public Vehicle (int delay, int width, int height) {
         this(delay, width, height, 0, 0);
     }
+
+    public int getxCoord() {
+        return xCoord;
+    }
+
+    public int getyCoord() {
+        return yCoord;
+    }
+
+    public void moveRight(int step) {
+        if (xCoord > 1080) {
+            xCoord = -180;
+        }
+        xCoord += step;
+    }
+
+    public void moveLeft(int step) {
+        if (xCoord <= -180) {
+            xCoord = 1080;
+        }
+        xCoord -= step;
+    }
 }
