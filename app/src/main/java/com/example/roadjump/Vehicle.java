@@ -44,4 +44,12 @@ public class Vehicle {
         }
         xCoord -= step;
     }
+
+    public int getWidthSprite() {
+        return widthSprite;
+    }
+
+    public int getHeightSprite() {
+        return heightSprite;
+    }
 }
