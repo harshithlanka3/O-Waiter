@@ -12,15 +12,15 @@ public class Vehicle {
 
     //1 constructor
 
-    public Vehicle (int delay, int width, int height, int xCoord, int yCoord) {
+    public Vehicle (int width, int height, int xCoord, int yCoord) {
         this.delay = delay;
         this.widthSprite = width;
         this.heightSprite = height;
         this.xCoord = xCoord;
         this.yCoord = yCoord;
     }
-    public Vehicle (int delay, int width, int height) {
-        this(delay, width, height, 0, 0);
+    public Vehicle (int width, int height) {
+        this(width, height, 0, 0);
     }
 
     public int getxCoord() {
