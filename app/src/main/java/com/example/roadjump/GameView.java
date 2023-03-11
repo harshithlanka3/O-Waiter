@@ -24,20 +24,34 @@ public class GameView extends View {
     private Bitmap table;
     private Bitmap sushi;
     private Bitmap carpet;
+    private Bitmap doubleChef;
     private Rect rectBackground;
     private Context context;
     private Handler handler;
     private Runnable runnable;
     private final int livesWidth = 920;
-
     private Player player;
-
+    private Vehicle doubleChef1;
+    private Vehicle doubleChef2;
+    private Vehicle doubleChef3;
+    private Vehicle doubleChef4;
+    private long globalTimer;
     private long lastClicked = 0;
 
     public GameView(Context context, Player player) {
         super(context);
         this.context = context;
         this.player = player;
+
+        doubleChef1 = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+                0, player.getLowerBound() - player.getSpriteSize());
+        doubleChef2 = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+                -8 * player.getSpriteSize(), player.getLowerBound() - player.getSpriteSize());
+
+        doubleChef3 = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+                1080, player.getLowerBound() - 14 * player.getSpriteSize());
+        doubleChef4 = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+                20 * player.getSpriteSize(), player.getLowerBound() - 14 * player.getSpriteSize());
 
         switch (player.getImgClicked()) {
         case 1:
@@ -49,11 +63,12 @@ public class GameView extends View {
             sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(), player.getSpriteSize(), false);
             break;
         default:
-            sprite = BitmapFactory.decodeResource(getResources(), R.drawable.maya);
+            sprite = BitmapFactory.decodeResource(getResources(), R.drawable.podge);
             sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(), player.getSpriteSize(), false);
             break;
         }
 
+        doubleChef = BitmapFactory.decodeResource(getResources(), R.drawable.double_chefs);
         background = BitmapFactory.decodeResource(getResources(), R.drawable.gameplays1background);
         wood = BitmapFactory.decodeResource(getResources(), R.drawable.wood_tile_image);
         table = BitmapFactory.decodeResource(getResources(), R.drawable.table_tile_image);
@@ -90,6 +105,10 @@ public class GameView extends View {
 
         canvas.drawBitmap(table, player.getScreenWidth() / 2 - player.getSpriteSize() / 2, player.getSpriteSize(), null);
         canvas.drawBitmap(sprite, player.getxCoord() - player.getSpriteSize() / 2, player.getyCoord(), null);
+        canvas.drawBitmap(doubleChef, doubleChef1.getxCoord(), doubleChef1.getyCoord(), null);
+        canvas.drawBitmap(doubleChef, doubleChef2.getxCoord(), doubleChef2.getyCoord(), null);
+        canvas.drawBitmap(doubleChef, doubleChef3.getxCoord(), doubleChef3.getyCoord(), null);
+        canvas.drawBitmap(doubleChef, doubleChef4.getxCoord(), doubleChef4.getyCoord(), null);
 
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
@@ -108,6 +127,13 @@ public class GameView extends View {
         canvas.drawText(player.getUsername(), player.getLeftBound(), player.getSpriteSize() / 2, paint);
         canvas.drawText("Score: " + player.getScore(), player.getLeftBound(), player.getSpriteSize(), paint);
 
+        if (!(SystemClock.elapsedRealtime() - globalTimer < 1)) {
+            globalTimer = SystemClock.elapsedRealtime();
+            doubleChef1.moveRight(2);
+            doubleChef2.moveRight(2);
+            doubleChef3.moveLeft(2);
+            doubleChef4.moveLeft(2);
+        }
 
         handler.postDelayed(runnable, 30);
     }
