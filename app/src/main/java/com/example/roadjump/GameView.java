@@ -11,6 +11,7 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,6 +31,8 @@ public class GameView extends View {
     private final int livesWidth = 920;
 
     private Player player;
+
+    private long lastClicked = 0;
 
     public GameView(Context context, Player player) {
         super(context);
@@ -113,6 +116,12 @@ public class GameView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (SystemClock.elapsedRealtime() - lastClicked < 300) {
+            return true;
+        }
+
+        lastClicked = SystemClock.elapsedRealtime();
+
         int action = event.getAction();
         int x = (int) event.getX();
         int y = (int) event.getY();
@@ -141,5 +150,4 @@ public class GameView extends View {
             }
         }
     }
-
 }
