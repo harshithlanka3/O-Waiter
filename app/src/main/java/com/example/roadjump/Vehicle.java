@@ -22,7 +22,4 @@ public class Vehicle {
     public Vehicle (int delay, int width, int height) {
         this(delay, width, height, 0, 0);
     }
-
-
-
 }
