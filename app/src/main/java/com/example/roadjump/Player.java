@@ -68,8 +68,10 @@ public class Player {
     public void updateScore() {
         if ((score >= 0 && score < 8) || (score >= 29 && score < 37)) {
             score += 2;
-        } else if (score == 8 || score == 18 || score == 28 || score >= 37) {
+        } else if (score == 8 || score == 18 || score == 28 || score == 37) {
             score += 1;
+        } else if (score == 38) {
+            score += 7;
         } else {
             score += 3;
         }

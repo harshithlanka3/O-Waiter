@@ -38,11 +38,11 @@ public class GameView extends View {
 
         switch (player.getImgClicked()) {
         case 1:
-            sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pengu);
+            sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pingu);
             sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(), player.getSpriteSize(), false);
             break;
         case 2:
-            sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pepe);
+            sprite = BitmapFactory.decodeResource(getResources(), R.drawable.narshith);
             sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(), player.getSpriteSize(), false);
             break;
         default:

@@ -12,9 +12,9 @@ import android.widget.SeekBar;
 public class ConfigActivity extends AppCompatActivity {
     private Button startJump;
     private int imgClicked;
-    private ImageButton penguButton;
+    private ImageButton pinguButton;
     private ImageButton mayaButton;
-    private ImageButton pepeButton;
+    private ImageButton narshithButton;
     private EditText username;
     private SeekBar difficultyBar;
     public Player player;
@@ -24,9 +24,9 @@ public class ConfigActivity extends AppCompatActivity {
         setContentView(R.layout.character_select);
 
         startJump = findViewById(R.id.submitCharacter);
-        penguButton = findViewById(R.id.pengu_sprite);
+        pinguButton = findViewById(R.id.pingu_sprite);
         mayaButton = findViewById(R.id.maya_sprite);
-        pepeButton = findViewById(R.id.pepe_sprite);
+        narshithButton = findViewById(R.id.narshith_sprite);
         username = findViewById(R.id.username);
         difficultyBar = findViewById(R.id.difficultyBar);
 
@@ -56,14 +56,14 @@ public class ConfigActivity extends AppCompatActivity {
             }
         });
 
-        penguButton.setOnClickListener(new View.OnClickListener() {
+        pinguButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 imgClicked = 1;
             }
         });
 
-        pepeButton.setOnClickListener(new View.OnClickListener() {
+        narshithButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 imgClicked = 2;
