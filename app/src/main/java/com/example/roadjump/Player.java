@@ -12,8 +12,8 @@ public class Player {
     private int imgClicked;
     private final int spriteSize = 88;
     private final int lowerBound = 1754;
-    private final int leftBound = 12;
-    private final int rightBound = 1068;
+    private final int leftBound = 90;
+    private final int rightBound = 980;
     private final int screenWidth = 1080;
     private final int screenHeight = 1760;
     private int progress;

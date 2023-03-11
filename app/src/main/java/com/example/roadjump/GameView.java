@@ -160,8 +160,8 @@ public class GameView extends View {
             canvas.drawText("<3 <3 <3", livesWidth, player.getSpriteSize() / 2, paint);
             break;
         }
-        canvas.drawText(player.getUsername(), player.getLeftBound(), player.getSpriteSize() / 2, paint);
-        canvas.drawText("Score: " + player.getScore(), player.getLeftBound(), player.getSpriteSize(), paint);
+        canvas.drawText(player.getUsername(), player.getLeftBound() - player.getSpriteSize(), player.getSpriteSize() / 2, paint);
+        canvas.drawText("Score: " + player.getScore(), player.getLeftBound() - player.getSpriteSize(), player.getSpriteSize(), paint);
 
         if (!(SystemClock.elapsedRealtime() - globalTimer < 1)) {
             globalTimer = SystemClock.elapsedRealtime();
