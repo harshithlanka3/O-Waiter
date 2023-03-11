@@ -1,5 +1,6 @@
 package com.example.roadjump;
 
+import android.os.SystemClock;
 import android.widget.ImageView;
 
 public class Player {
@@ -9,22 +10,16 @@ public class Player {
     private String username;
     private int difficulty;
     private int imgClicked;
-
     private final int spriteSize = 88;
-
     private final int lowerBound = 1754;
-
     private final int leftBound = 12;
     private final int rightBound = 1068;
-
     private final int screenWidth = 1080;
-
     private final int screenHeight = 1760;
-
     private int progress;
 
     public Player() {
-        xCoord = screenWidth/2;
+        xCoord = screenWidth / 2;
         yCoord = screenHeight;
         resetScore();
         imgClicked = 0;
