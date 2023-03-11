@@ -45,33 +45,33 @@ public class GameView extends View {
         this.context = context;
         this.player = player;
 
-        vehicles[0] = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[0] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 0, player.getLowerBound() - player.getSpriteSize());
-        vehicles[1] = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[1] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 -8 * player.getSpriteSize(), player.getLowerBound() - player.getSpriteSize());
-        vehicles[6] = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[6] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 -4 * player.getSpriteSize(), player.getLowerBound() - 4 * player.getSpriteSize());
-        vehicles[7] = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[7] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 1080, player.getLowerBound() - 14 * player.getSpriteSize());
-        vehicles[8] = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[8] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 20 * player.getSpriteSize(), player.getLowerBound() - 14 * player.getSpriteSize());
-        vehicles[2] = new Vehicle(500,player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[2] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 0, player.getLowerBound() - 2 * player.getSpriteSize());
-        vehicles[9] = new Vehicle(500,player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[9] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 1080, player.getLowerBound() - 15 * player.getSpriteSize());
-        vehicles[13] = new Vehicle(500,player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[13] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 1080 + 4 * player.getSpriteSize(), player.getLowerBound() - 17 * player.getSpriteSize());
-        vehicles[3] = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+        vehicles[3] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 0, player.getLowerBound() - 3 * player.getSpriteSize());
-        vehicles[4] = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+        vehicles[4] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 -5 * player.getSpriteSize(), player.getLowerBound() - 3 * player.getSpriteSize());
-        vehicles[5] = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+        vehicles[5] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 -10 * player.getSpriteSize(), player.getLowerBound() - 3 * player.getSpriteSize());
-        vehicles[10] = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+        vehicles[10] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 1080, player.getLowerBound() - 16 * player.getSpriteSize());
-        vehicles[11] = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+        vehicles[11] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 1080 + 5 * player.getSpriteSize(), player.getLowerBound() - 16 * player.getSpriteSize());
-        vehicles[12] = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+        vehicles[12] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 1080 + 10 * player.getSpriteSize(), player.getLowerBound() - 16 * player.getSpriteSize());
         switch (player.getImgClicked()) {
         case 1:
