@@ -78,7 +78,14 @@ public class Player {
 
     // need to implement different score increase based on tiles crossed
     public void updateScore() {
-        score += 1;
+
+        if ((score >= 0 && score < 8) || (score >= 29 && score < 37)) {
+            score += 2; // carpet
+        } else if (score == 8 || score == 18 || score == 28 || score >= 37) {
+            score += 1; // wood
+        } else {
+            score += 3; // sushi belt
+        }
     }
 
     public void resetScore() {
