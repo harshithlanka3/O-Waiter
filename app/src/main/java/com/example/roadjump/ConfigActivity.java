@@ -17,7 +17,7 @@ public class ConfigActivity extends AppCompatActivity {
     private ImageButton narshithButton;
     private EditText username;
     private SeekBar difficultyBar;
-    public Player player;
+    private Player player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

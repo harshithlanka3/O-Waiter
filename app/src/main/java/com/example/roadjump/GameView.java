@@ -48,43 +48,54 @@ public class GameView extends View {
         vehicles[0] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 0, player.getLowerBound() - player.getSpriteSize());
         vehicles[1] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
-                -8 * player.getSpriteSize(), player.getLowerBound() - player.getSpriteSize());
+                -8 * player.getSpriteSize(),
+                player.getLowerBound() - player.getSpriteSize());
         vehicles[6] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
-                -4 * player.getSpriteSize(), player.getLowerBound() - 4 * player.getSpriteSize());
+                -4 * player.getSpriteSize(),
+                player.getLowerBound() - 4 * player.getSpriteSize());
         vehicles[7] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 1080, player.getLowerBound() - 14 * player.getSpriteSize());
         vehicles[8] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
-                20 * player.getSpriteSize(), player.getLowerBound() - 14 * player.getSpriteSize());
+                20 * player.getSpriteSize(),
+                player.getLowerBound() - 14 * player.getSpriteSize());
         vehicles[2] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 0, player.getLowerBound() - 2 * player.getSpriteSize());
         vehicles[9] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 1080, player.getLowerBound() - 15 * player.getSpriteSize());
         vehicles[13] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
-                1080 + 4 * player.getSpriteSize(), player.getLowerBound() - 17 * player.getSpriteSize());
+                1080 + 4 * player.getSpriteSize(),
+                player.getLowerBound() - 17 * player.getSpriteSize());
         vehicles[3] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 0, player.getLowerBound() - 3 * player.getSpriteSize());
         vehicles[4] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
-                -5 * player.getSpriteSize(), player.getLowerBound() - 3 * player.getSpriteSize());
+                -5 * player.getSpriteSize(),
+                player.getLowerBound() - 3 * player.getSpriteSize());
         vehicles[5] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
-                -10 * player.getSpriteSize(), player.getLowerBound() - 3 * player.getSpriteSize());
+                -10 * player.getSpriteSize(),
+                player.getLowerBound() - 3 * player.getSpriteSize());
         vehicles[10] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 1080, player.getLowerBound() - 16 * player.getSpriteSize());
         vehicles[11] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
-                1080 + 5 * player.getSpriteSize(), player.getLowerBound() - 16 * player.getSpriteSize());
+                1080 + 5 * player.getSpriteSize(),
+                player.getLowerBound() - 16 * player.getSpriteSize());
         vehicles[12] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
-                1080 + 10 * player.getSpriteSize(), player.getLowerBound() - 16 * player.getSpriteSize());
+                1080 + 10 * player.getSpriteSize(),
+                player.getLowerBound() - 16 * player.getSpriteSize());
         switch (player.getImgClicked()) {
         case 1:
             sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pingu);
-            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(), player.getSpriteSize(), false);
+            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
+                    player.getSpriteSize(), false);
             break;
         case 2:
             sprite = BitmapFactory.decodeResource(getResources(), R.drawable.narshith);
-            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(), player.getSpriteSize(), false);
+            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
+                    player.getSpriteSize(), false);
             break;
         default:
             sprite = BitmapFactory.decodeResource(getResources(), R.drawable.podge);
-            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(), player.getSpriteSize(), false);
+            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
+                    player.getSpriteSize(), false);
             break;
         }
 
@@ -117,17 +128,27 @@ public class GameView extends View {
         canvas.drawBitmap(background, null, rectBackground, null);
 
         drawRow(canvas, 0, player.getSpriteSize() * 3, wood);
-        drawRow(canvas, player.getSpriteSize() * 3, player.getSpriteSize() * 7, carpet);
-        drawRow(canvas, player.getSpriteSize() * 7, player.getSpriteSize() * 8, wood);
-        drawRow(canvas, player.getSpriteSize() * 8, player.getSpriteSize() * 11, sushi);
-        drawRow(canvas, player.getSpriteSize() * 11, player.getSpriteSize() * 12, wood);
-        drawRow(canvas, player.getSpriteSize() * 12, player.getSpriteSize() * 15, sushi);
-        drawRow(canvas, player.getSpriteSize() * 15, player.getSpriteSize() * 16, wood);
-        drawRow(canvas, player.getSpriteSize() * 16, player.getSpriteSize() * 20, carpet);
-        drawRow(canvas, player.getSpriteSize() * 20, player.getSpriteSize() * 22, wood);
+        drawRow(canvas, player.getSpriteSize() * 3,
+                player.getSpriteSize() * 7, carpet);
+        drawRow(canvas, player.getSpriteSize() * 7,
+                player.getSpriteSize() * 8, wood);
+        drawRow(canvas, player.getSpriteSize() * 8,
+                player.getSpriteSize() * 11, sushi);
+        drawRow(canvas, player.getSpriteSize() * 11,
+                player.getSpriteSize() * 12, wood);
+        drawRow(canvas, player.getSpriteSize() * 12,
+                player.getSpriteSize() * 15, sushi);
+        drawRow(canvas, player.getSpriteSize() * 15,
+                player.getSpriteSize() * 16, wood);
+        drawRow(canvas, player.getSpriteSize() * 16,
+                player.getSpriteSize() * 20, carpet);
+        drawRow(canvas, player.getSpriteSize() * 20,
+                player.getSpriteSize() * 22, wood);
 
-        canvas.drawBitmap(table, player.getScreenWidth() / 2 - player.getSpriteSize() / 2, player.getSpriteSize(), null);
-        canvas.drawBitmap(sprite, player.getxCoord() - player.getSpriteSize() / 2, player.getyCoord(), null);
+        canvas.drawBitmap(table, player.getScreenWidth() / 2 - player.getSpriteSize() / 2,
+                player.getSpriteSize(), null);
+        canvas.drawBitmap(sprite, player.getxCoord() - player.getSpriteSize() / 2,
+                player.getyCoord(), null);
       
         canvas.drawBitmap(doubleChef, vehicles[0].getxCoord(), vehicles[0].getyCoord(), null);
         canvas.drawBitmap(doubleChef, vehicles[1].getxCoord(), vehicles[1].getyCoord(), null);
@@ -160,8 +181,10 @@ public class GameView extends View {
             canvas.drawText("<3 <3 <3", livesWidth, player.getSpriteSize() / 2, paint);
             break;
         }
-        canvas.drawText(player.getUsername(), player.getLeftBound() - player.getSpriteSize(), player.getSpriteSize() / 2, paint);
-        canvas.drawText("Score: " + player.getScore(), player.getLeftBound() - player.getSpriteSize(), player.getSpriteSize(), paint);
+        canvas.drawText(player.getUsername(), player.getLeftBound() - player.getSpriteSize(),
+                player.getSpriteSize() / 2, paint);
+        canvas.drawText("Score: " + player.getScore(),
+                player.getLeftBound() - player.getSpriteSize(), player.getSpriteSize(), paint);
 
         if (!(SystemClock.elapsedRealtime() - globalTimer < 1)) {
             globalTimer = SystemClock.elapsedRealtime();
