@@ -1,7 +1,5 @@
 package com.example.roadjump;
 
-import static com.example.roadjump.game_classes.CheckValidity.checkValidity;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -13,18 +11,13 @@ import android.widget.SeekBar;
 
 public class ConfigActivity extends AppCompatActivity {
     private Button startJump;
-
-    private int imgClicked = 0;
+    private int imgClicked;
     private ImageButton penguButton;
     private ImageButton mayaButton;
     private ImageButton pepeButton;
-
     private EditText username;
-
     private SeekBar difficultyBar;
-
-    private boolean userValid;
-
+    public Player player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,10 +30,12 @@ public class ConfigActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         difficultyBar = findViewById(R.id.difficultyBar);
 
+        player = new Player();
+
         startJump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userValid = checkValidity(username.getText().toString().trim());
+                boolean userValid = player.checkValidity(username.getText().toString().trim());
 
                 if (userValid) {
                     startGame(imgClicked, difficultyBar.getProgress(),
@@ -53,8 +48,6 @@ public class ConfigActivity extends AppCompatActivity {
             }
 
         });
-
-
 
         mayaButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +72,10 @@ public class ConfigActivity extends AppCompatActivity {
     }
 
     public void startGame(int imgClicked, int difficulty, String username) {
-        GameView gameView = new GameView(this, imgClicked, difficulty, username);
+        player.setUsername(username);
+        player.setDifficulty(difficulty);
+        player.setImg(imgClicked);
+        GameView gameView = new GameView(this, player);
         setContentView(gameView);
     }
 

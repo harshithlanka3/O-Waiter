@@ -27,42 +27,27 @@ public class GameView extends View {
     private Context context;
     private Handler handler;
     private Runnable runnable;
-    private float spriteX;
-    private float spriteY;
-
-    private int difficulty;
+    private final int livesWidth = 920;
 
     private Player player;
 
-    private String username;
-
-    private final int spriteSize = 88;
-    private final int screenWidth = 1080;
-
-    private final int screenHeight = 1760;
-
-    private final int textHeight = 40;
-
-    private final int livesWidth = 920;
-
-    public GameView(Context context, int spriteNum, int difficulty, String username) {
+    public GameView(Context context, Player player) {
         super(context);
         this.context = context;
-        this.difficulty = difficulty;
-        this.username = username;
+        this.player = player;
 
-        switch (spriteNum) {
+        switch (player.getImgClicked()) {
         case 1:
             sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pengu);
-            sprite = Bitmap.createScaledBitmap(sprite, spriteSize, spriteSize, false);
+            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(), player.getSpriteSize(), false);
             break;
         case 2:
             sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pepe);
-            sprite = Bitmap.createScaledBitmap(sprite, spriteSize, spriteSize, false);
+            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(), player.getSpriteSize(), false);
             break;
         default:
             sprite = BitmapFactory.decodeResource(getResources(), R.drawable.maya);
-            sprite = Bitmap.createScaledBitmap(sprite, spriteSize, spriteSize, false);
+            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(), player.getSpriteSize(), false);
             break;
         }
 
@@ -75,7 +60,7 @@ public class GameView extends View {
         Display display = ((Activity) getContext()).getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
-        rectBackground = new Rect(0, 0, screenWidth, screenHeight);
+        rectBackground = new Rect(0, 0, player.getScreenWidth(), player.getScreenHeight());
         handler = new Handler();
         runnable = new Runnable() {
             @Override
@@ -83,10 +68,6 @@ public class GameView extends View {
                 invalidate();
             }
         };
-        spriteX = screenWidth / 2;
-        spriteY = screenHeight;
-
-        player = new Player(spriteX, spriteY);
     }
 
     @Override
@@ -94,34 +75,35 @@ public class GameView extends View {
         super.onDraw(canvas);
         canvas.drawBitmap(background, null, rectBackground, null);
 
-        drawRow(canvas, 0, spriteSize * 3, wood);
-        drawRow(canvas, spriteSize * 3, spriteSize * 7, carpet);
-        drawRow(canvas, spriteSize * 7, spriteSize * 8, wood);
-        drawRow(canvas, spriteSize * 8, spriteSize * 11, sushi);
-        drawRow(canvas, spriteSize * 11, spriteSize * 12, wood);
-        drawRow(canvas, spriteSize * 12, spriteSize * 15, sushi);
-        drawRow(canvas, spriteSize * 15, spriteSize * 16, wood);
-        drawRow(canvas, spriteSize * 16, spriteSize * 20, carpet);
-        drawRow(canvas, spriteSize * 20, spriteSize * 22, wood);
+        drawRow(canvas, 0, player.getSpriteSize() * 3, wood);
+        drawRow(canvas, player.getSpriteSize() * 3, player.getSpriteSize() * 7, carpet);
+        drawRow(canvas, player.getSpriteSize() * 7, player.getSpriteSize() * 8, wood);
+        drawRow(canvas, player.getSpriteSize() * 8, player.getSpriteSize() * 11, sushi);
+        drawRow(canvas, player.getSpriteSize() * 11, player.getSpriteSize() * 12, wood);
+        drawRow(canvas, player.getSpriteSize() * 12, player.getSpriteSize() * 15, sushi);
+        drawRow(canvas, player.getSpriteSize() * 15, player.getSpriteSize() * 16, wood);
+        drawRow(canvas, player.getSpriteSize() * 16, player.getSpriteSize() * 20, carpet);
+        drawRow(canvas, player.getSpriteSize() * 20, player.getSpriteSize() * 22, wood);
 
-        canvas.drawBitmap(table, screenWidth / 2 - spriteSize / 2, spriteSize, null);
-        canvas.drawBitmap(sprite, player.getxCoord() - spriteSize / 2, player.getyCoord(), null);
+        canvas.drawBitmap(table, player.getScreenWidth() / 2 - player.getSpriteSize() / 2, player.getSpriteSize(), null);
+        canvas.drawBitmap(sprite, player.getxCoord() - player.getSpriteSize() / 2, player.getyCoord(), null);
 
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
         paint.setTextSize(40);
-        switch (difficulty) {
+        switch (player.getDifficulty()) {
         case 1:
-            canvas.drawText("<3 <3", livesWidth + 50, textHeight, paint);
+            canvas.drawText("<3 <3", livesWidth + 50, player.getSpriteSize() / 2, paint);
             break;
         case 2:
-            canvas.drawText("<3", livesWidth + 100, textHeight, paint);
+            canvas.drawText("<3", livesWidth + 100, player.getSpriteSize() / 2, paint);
             break;
         default:
-            canvas.drawText("<3 <3 <3", livesWidth, textHeight, paint);
+            canvas.drawText("<3 <3 <3", livesWidth, player.getSpriteSize() / 2, paint);
             break;
         }
-        canvas.drawText(username, 10, textHeight, paint);
+        canvas.drawText(player.getUsername(), player.getLeftBound(), player.getSpriteSize() / 2, paint);
+        canvas.drawText("Score: " + player.getScore(), player.getLeftBound(), player.getSpriteSize(), paint);
 
 
         handler.postDelayed(runnable, 30);
@@ -135,25 +117,17 @@ public class GameView extends View {
         int x = (int) event.getX();
         int y = (int) event.getY();
 
-        if (!(player.getyCoord() <= y && y <= player.getyCoord() + spriteSize)) {
+        if (!(player.getyCoord() <= y && y <= player.getyCoord() + player.getSpriteSize())) {
             if (y < player.getyCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveUp();
-                spriteX = player.getxCoord();
-                spriteY = player.getyCoord();
             } else if (y > player.getyCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveDown();
-                spriteX = player.getxCoord();
-                spriteY = player.getyCoord();
             }
         } else {
             if (x < player.getxCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveLeft();
-                spriteX = player.getxCoord();
-                spriteY = player.getyCoord();
             } else if (x > player.getxCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveRight();
-                spriteX = player.getxCoord();
-                spriteY = player.getyCoord();
             }
         }
 
@@ -161,8 +135,8 @@ public class GameView extends View {
     }
 
     public void drawRow(Canvas canvas, int rowStart, int rowEnd, Bitmap image) {
-        for (int row = rowStart; row < rowEnd; row += spriteSize) {
-            for (int col = 0; col < screenWidth; col += spriteSize) {
+        for (int row = rowStart; row < rowEnd; row += player.getSpriteSize()) {
+            for (int col = 0; col < player.getScreenWidth(); col += player.getSpriteSize()) {
                 canvas.drawBitmap(image, col, row, null);
             }
         }
