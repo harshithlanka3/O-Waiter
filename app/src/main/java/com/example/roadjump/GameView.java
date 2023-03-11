@@ -27,6 +27,7 @@ public class GameView extends View {
     private Bitmap doubleChef;
     private Bitmap rumya;
     private Bitmap rumyarev;
+    private Bitmap seen;
     private Rect rectBackground;
     private Context context;
     private Handler handler;
@@ -35,7 +36,13 @@ public class GameView extends View {
     private Player player;
 
     private Vehicle[] vehicles = new Vehicle[14];
-
+    private Vehicle seen1;
+    private Vehicle seen2;
+    private Vehicle seen3;
+    private Vehicle seen4;
+    private Vehicle seen5;
+    private Vehicle seen6;
+  
     private long globalTimer;
     private long lastClicked = 0;
 
@@ -59,6 +66,13 @@ public class GameView extends View {
         vehicles[9] = new Vehicle(500,player.getSpriteSize() * 2, player.getSpriteSize(),
                 1080, player.getLowerBound() - 15 * player.getSpriteSize());
 
+        seen1 = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+                0, player.getLowerBound() - 3 * player.getSpriteSize());
+        seen2 = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+                -5 * player.getSpriteSize(), player.getLowerBound() - 3 * player.getSpriteSize());
+        seen3 = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+                -10 * player.getSpriteSize(), player.getLowerBound() - 3 * player.getSpriteSize());
+
         switch (player.getImgClicked()) {
         case 1:
             sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pingu);
@@ -77,6 +91,7 @@ public class GameView extends View {
         doubleChef = BitmapFactory.decodeResource(getResources(), R.drawable.double_chefs);
         rumya = BitmapFactory.decodeResource(getResources(), R.drawable.rumyachef);
         rumyarev = BitmapFactory.decodeResource(getResources(), R.drawable.rumyachefrev);
+        seen = BitmapFactory.decodeResource(getResources(), R.drawable.seen);
         background = BitmapFactory.decodeResource(getResources(), R.drawable.gameplays1background);
         wood = BitmapFactory.decodeResource(getResources(), R.drawable.wood_tile_image);
         table = BitmapFactory.decodeResource(getResources(), R.drawable.table_tile_image);
@@ -113,12 +128,17 @@ public class GameView extends View {
 
         canvas.drawBitmap(table, player.getScreenWidth() / 2 - player.getSpriteSize() / 2, player.getSpriteSize(), null);
         canvas.drawBitmap(sprite, player.getxCoord() - player.getSpriteSize() / 2, player.getyCoord(), null);
+      
         canvas.drawBitmap(doubleChef, vehicles[0].getxCoord(), vehicles[0].getyCoord(), null);
         canvas.drawBitmap(doubleChef, vehicles[1].getxCoord(), vehicles[1].getyCoord(), null);
         canvas.drawBitmap(doubleChef, vehicles[7].getxCoord(), vehicles[7].getyCoord(), null);
         canvas.drawBitmap(doubleChef, vehicles[8].getxCoord(), vehicles[8].getyCoord(), null);
         canvas.drawBitmap(rumya, vehicles[2].getxCoord(), vehicles[2].getyCoord(), null);
         canvas.drawBitmap(rumyarev, vehicles[9].getxCoord(), vehicles[9].getyCoord(), null);
+
+        canvas.drawBitmap(seen, seen1.getxCoord(), seen1.getyCoord(), null);
+        canvas.drawBitmap(seen, seen2.getxCoord(), seen2.getyCoord(), null);
+        canvas.drawBitmap(seen, seen3.getxCoord(), seen3.getyCoord(), null);
 
 
         Paint paint = new Paint();
@@ -146,6 +166,9 @@ public class GameView extends View {
             vehicles[8].moveLeft(2);
             vehicles[2].moveRight(5);
             vehicles[9].moveLeft(5);
+            seen1.moveRight(8);
+            seen2.moveRight(8);
+            seen3.moveRight(8);
         }
 
         handler.postDelayed(runnable, 30);
