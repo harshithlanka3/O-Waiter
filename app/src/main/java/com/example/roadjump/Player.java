@@ -1,8 +1,5 @@
 package com.example.roadjump;
 
-import android.os.SystemClock;
-import android.widget.ImageView;
-
 public class Player {
     private int xCoord;
     private int yCoord;
