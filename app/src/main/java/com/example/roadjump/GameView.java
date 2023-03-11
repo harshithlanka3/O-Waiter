@@ -36,12 +36,6 @@ public class GameView extends View {
     private Player player;
 
     private Vehicle[] vehicles = new Vehicle[14];
-    private Vehicle seen1;
-    private Vehicle seen2;
-    private Vehicle seen3;
-    private Vehicle seen4;
-    private Vehicle seen5;
-    private Vehicle seen6;
   
     private long globalTimer;
     private long lastClicked = 0;
@@ -55,24 +49,30 @@ public class GameView extends View {
                 0, player.getLowerBound() - player.getSpriteSize());
         vehicles[1] = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
                 -8 * player.getSpriteSize(), player.getLowerBound() - player.getSpriteSize());
-
+        vehicles[6] = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+                -4 * player.getSpriteSize(), player.getLowerBound() - 4 * player.getSpriteSize());
         vehicles[7] = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
                 1080, player.getLowerBound() - 14 * player.getSpriteSize());
         vehicles[8] = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
                 20 * player.getSpriteSize(), player.getLowerBound() - 14 * player.getSpriteSize());
-
         vehicles[2] = new Vehicle(500,player.getSpriteSize() * 2, player.getSpriteSize(),
                 0, player.getLowerBound() - 2 * player.getSpriteSize());
         vehicles[9] = new Vehicle(500,player.getSpriteSize() * 2, player.getSpriteSize(),
                 1080, player.getLowerBound() - 15 * player.getSpriteSize());
-
-        seen1 = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+        vehicles[13] = new Vehicle(500,player.getSpriteSize() * 2, player.getSpriteSize(),
+                1080 + 4 * player.getSpriteSize(), player.getLowerBound() - 17 * player.getSpriteSize());
+        vehicles[3] = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
                 0, player.getLowerBound() - 3 * player.getSpriteSize());
-        seen2 = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+        vehicles[4] = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
                 -5 * player.getSpriteSize(), player.getLowerBound() - 3 * player.getSpriteSize());
-        seen3 = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+        vehicles[5] = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
                 -10 * player.getSpriteSize(), player.getLowerBound() - 3 * player.getSpriteSize());
-
+        vehicles[10] = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+                1080, player.getLowerBound() - 16 * player.getSpriteSize());
+        vehicles[11] = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+                1080 + 5 * player.getSpriteSize(), player.getLowerBound() - 16 * player.getSpriteSize());
+        vehicles[12] = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
+                1080 + 10 * player.getSpriteSize(), player.getLowerBound() - 16 * player.getSpriteSize());
         switch (player.getImgClicked()) {
         case 1:
             sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pingu);
@@ -134,11 +134,16 @@ public class GameView extends View {
         canvas.drawBitmap(doubleChef, vehicles[7].getxCoord(), vehicles[7].getyCoord(), null);
         canvas.drawBitmap(doubleChef, vehicles[8].getxCoord(), vehicles[8].getyCoord(), null);
         canvas.drawBitmap(rumya, vehicles[2].getxCoord(), vehicles[2].getyCoord(), null);
+        canvas.drawBitmap(rumya, vehicles[6].getxCoord(), vehicles[6].getyCoord(), null);
         canvas.drawBitmap(rumyarev, vehicles[9].getxCoord(), vehicles[9].getyCoord(), null);
+        canvas.drawBitmap(rumyarev, vehicles[13].getxCoord(), vehicles[13].getyCoord(), null);
 
-        canvas.drawBitmap(seen, seen1.getxCoord(), seen1.getyCoord(), null);
-        canvas.drawBitmap(seen, seen2.getxCoord(), seen2.getyCoord(), null);
-        canvas.drawBitmap(seen, seen3.getxCoord(), seen3.getyCoord(), null);
+        canvas.drawBitmap(seen, vehicles[3].getxCoord(), vehicles[3].getyCoord(), null);
+        canvas.drawBitmap(seen, vehicles[4].getxCoord(), vehicles[4].getyCoord(), null);
+        canvas.drawBitmap(seen, vehicles[5].getxCoord(), vehicles[5].getyCoord(), null);
+        canvas.drawBitmap(seen, vehicles[10].getxCoord(), vehicles[10].getyCoord(), null);
+        canvas.drawBitmap(seen, vehicles[11].getxCoord(), vehicles[11].getyCoord(), null);
+        canvas.drawBitmap(seen, vehicles[12].getxCoord(), vehicles[12].getyCoord(), null);
 
 
         Paint paint = new Paint();
@@ -165,10 +170,15 @@ public class GameView extends View {
             vehicles[7].moveLeft(2);
             vehicles[8].moveLeft(2);
             vehicles[2].moveRight(5);
+            vehicles[6].moveRight(5);
             vehicles[9].moveLeft(5);
-            seen1.moveRight(8);
-            seen2.moveRight(8);
-            seen3.moveRight(8);
+            vehicles[3].moveRight(8);
+            vehicles[4].moveRight(8);
+            vehicles[5].moveRight(8);
+            vehicles[10].moveLeft(8);
+            vehicles[11].moveLeft(8);
+            vehicles[12].moveLeft(8);
+            vehicles[13].moveLeft(5);
         }
 
         handler.postDelayed(runnable, 30);
