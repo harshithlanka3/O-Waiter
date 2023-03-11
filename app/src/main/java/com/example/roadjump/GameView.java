@@ -34,18 +34,15 @@ public class GameView extends View {
     private Runnable runnable;
     private final int livesWidth = 920;
     private Player player;
-    private Vehicle doubleChef1;
-    private Vehicle doubleChef2;
-    private Vehicle doubleChef3;
-    private Vehicle doubleChef4;
-    private Vehicle rumya1;
-    private Vehicle rumya2;
+
+    private Vehicle[] vehicles = new Vehicle[14];
     private Vehicle seen1;
     private Vehicle seen2;
     private Vehicle seen3;
     private Vehicle seen4;
     private Vehicle seen5;
     private Vehicle seen6;
+  
     private long globalTimer;
     private long lastClicked = 0;
 
@@ -54,19 +51,19 @@ public class GameView extends View {
         this.context = context;
         this.player = player;
 
-        doubleChef1 = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[0] = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
                 0, player.getLowerBound() - player.getSpriteSize());
-        doubleChef2 = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[1] = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
                 -8 * player.getSpriteSize(), player.getLowerBound() - player.getSpriteSize());
 
-        doubleChef3 = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[7] = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
                 1080, player.getLowerBound() - 14 * player.getSpriteSize());
-        doubleChef4 = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[8] = new Vehicle(500, player.getSpriteSize() * 2, player.getSpriteSize(),
                 20 * player.getSpriteSize(), player.getLowerBound() - 14 * player.getSpriteSize());
 
-        rumya1 = new Vehicle(500,player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[2] = new Vehicle(500,player.getSpriteSize() * 2, player.getSpriteSize(),
                 0, player.getLowerBound() - 2 * player.getSpriteSize());
-        rumya2 = new Vehicle(500,player.getSpriteSize() * 2, player.getSpriteSize(),
+        vehicles[9] = new Vehicle(500,player.getSpriteSize() * 2, player.getSpriteSize(),
                 1080, player.getLowerBound() - 15 * player.getSpriteSize());
 
         seen1 = new Vehicle(500, player.getSpriteSize(), player.getSpriteSize(),
@@ -131,15 +128,18 @@ public class GameView extends View {
 
         canvas.drawBitmap(table, player.getScreenWidth() / 2 - player.getSpriteSize() / 2, player.getSpriteSize(), null);
         canvas.drawBitmap(sprite, player.getxCoord() - player.getSpriteSize() / 2, player.getyCoord(), null);
-        canvas.drawBitmap(doubleChef, doubleChef1.getxCoord(), doubleChef1.getyCoord(), null);
-        canvas.drawBitmap(doubleChef, doubleChef2.getxCoord(), doubleChef2.getyCoord(), null);
-        canvas.drawBitmap(doubleChef, doubleChef3.getxCoord(), doubleChef3.getyCoord(), null);
-        canvas.drawBitmap(doubleChef, doubleChef4.getxCoord(), doubleChef4.getyCoord(), null);
-        canvas.drawBitmap(rumya, rumya1.getxCoord(), rumya1.getyCoord(), null);
-        canvas.drawBitmap(rumyarev, rumya2.getxCoord(), rumya2.getyCoord(), null);
+      
+        canvas.drawBitmap(doubleChef, vehicles[0].getxCoord(), vehicles[0].getyCoord(), null);
+        canvas.drawBitmap(doubleChef, vehicles[1].getxCoord(), vehicles[1].getyCoord(), null);
+        canvas.drawBitmap(doubleChef, vehicles[7].getxCoord(), vehicles[7].getyCoord(), null);
+        canvas.drawBitmap(doubleChef, vehicles[8].getxCoord(), vehicles[8].getyCoord(), null);
+        canvas.drawBitmap(rumya, vehicles[2].getxCoord(), vehicles[2].getyCoord(), null);
+        canvas.drawBitmap(rumyarev, vehicles[9].getxCoord(), vehicles[9].getyCoord(), null);
+
         canvas.drawBitmap(seen, seen1.getxCoord(), seen1.getyCoord(), null);
         canvas.drawBitmap(seen, seen2.getxCoord(), seen2.getyCoord(), null);
         canvas.drawBitmap(seen, seen3.getxCoord(), seen3.getyCoord(), null);
+
 
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
@@ -160,12 +160,12 @@ public class GameView extends View {
 
         if (!(SystemClock.elapsedRealtime() - globalTimer < 1)) {
             globalTimer = SystemClock.elapsedRealtime();
-            doubleChef1.moveRight(2);
-            doubleChef2.moveRight(2);
-            doubleChef3.moveLeft(2);
-            doubleChef4.moveLeft(2);
-            rumya1.moveRight(5);
-            rumya2.moveLeft(5);
+            vehicles[0].moveRight(2);
+            vehicles[1].moveRight(2);
+            vehicles[7].moveLeft(2);
+            vehicles[8].moveLeft(2);
+            vehicles[2].moveRight(5);
+            vehicles[9].moveLeft(5);
             seen1.moveRight(8);
             seen2.moveRight(8);
             seen3.moveRight(8);
