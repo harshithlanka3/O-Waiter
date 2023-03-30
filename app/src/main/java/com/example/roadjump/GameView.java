@@ -95,10 +95,10 @@ public class GameView extends View {
                 0, player.getLowerBound() - player.getSpriteSize());
         plates[3] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
                 0, player.getLowerBound() - player.getSpriteSize());
-//        plates[4] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-//                0, player.getLowerBound() - player.getSpriteSize());
-//        plates[5] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-//                0, player.getLowerBound() - player.getSpriteSize());
+        plates[4] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
+                0, player.getLowerBound() - player.getSpriteSize());
+        plates[5] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
+                0, player.getLowerBound() - player.getSpriteSize());
         //PLATES HAVE BEEN CREATED
 
         switch (player.getImgClicked()) {
