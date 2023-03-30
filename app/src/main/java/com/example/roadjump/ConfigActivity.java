@@ -1,52 +1,46 @@
 package com.example.roadjump;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Button;
-import android.content.Intent;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 
-public class  ConfigActivity extends AppCompatActivity {
+public class ConfigActivity extends AppCompatActivity {
     private Button startJump;
-
-    private int imgClicked = 0;
-    private ImageButton penguButton;
-    private ImageButton bunnyButton;
-    private ImageButton pepeButton;
-
+    private int imgClicked;
+    private ImageButton pinguButton;
+    private ImageButton podgeButton;
+    private ImageButton narshithButton;
     private EditText username;
-
     private SeekBar difficultyBar;
-
-    private boolean userValid;
-
+    private Player player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.character_select);
 
         startJump = findViewById(R.id.submitCharacter);
-        penguButton = findViewById(R.id.pengu_sprite);
-        bunnyButton = findViewById(R.id.bunny_sprite);
-        pepeButton = findViewById(R.id.pepe_sprite);
+        pinguButton = findViewById(R.id.pingu_sprite);
+        podgeButton = findViewById(R.id.podge_sprite);
+        narshithButton = findViewById(R.id.narshith_sprite);
         username = findViewById(R.id.username);
         difficultyBar = findViewById(R.id.difficultyBar);
+
+        player = new Player();
 
         startJump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userValid = checkValidity();
+                boolean userValid = player.checkValidity(username.getText().toString().trim());
 
                 if (userValid) {
-                    Intent playGame = new Intent(ConfigActivity.this, GameActivity.class);
-                    playGame.putExtra("character", imgClicked);
-                    playGame.putExtra("difficulty", difficultyBar.getProgress());
-                    playGame.putExtra("user", username.getText().toString().trim());
-                    startActivity(playGame);
+                    startGame(imgClicked, difficultyBar.getProgress(),
+                            username.getText().toString().trim());
+
                 } else {
                     username.setError("You have to enter a valid username. "
                             + "Can't be null or whitespace.");
@@ -55,35 +49,34 @@ public class  ConfigActivity extends AppCompatActivity {
 
         });
 
-
-
-        bunnyButton.setOnClickListener(new View.OnClickListener() {
+        podgeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 imgClicked = 0;
             }
         });
 
-        penguButton.setOnClickListener(new View.OnClickListener() {
+        pinguButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 imgClicked = 1;
             }
         });
 
-        pepeButton.setOnClickListener(new View.OnClickListener() {
+        narshithButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 imgClicked = 2;
             }
         });
     }
-    private boolean checkValidity() {
-        if (username == null || username.length() == 0) {
-            return false;
-        } else {
-            return username.getText().toString().trim().length() != 0;
-        }
+
+    public void startGame(int imgClicked, int difficulty, String username) {
+        player.setUsername(username);
+        player.setDifficulty(difficulty);
+        player.setImg(imgClicked);
+        GameView gameView = new GameView(this, player);
+        setContentView(gameView);
     }
 
 }
