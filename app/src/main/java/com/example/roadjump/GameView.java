@@ -28,7 +28,6 @@ public class GameView extends View {
     private Bitmap rumya;
     private Bitmap rumyarev;
     private Bitmap seen;
-
     private Bitmap platos;
     private Rect rectBackground;
     private Context context;
@@ -88,17 +87,17 @@ public class GameView extends View {
 
         // CREATING THE PLATES
         plates[0] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                5, player.getLowerBound() - 18 * player.getSpriteSize());
+                player.getScreenWidth() / 2 - 44, player.getScreenHeight() / 2);
         plates[1] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                10, player.getLowerBound() -  12 *player.getSpriteSize());
+                player.getScreenWidth() / 2 - 44, player.getScreenHeight() / 2 - player.getSpriteSize());
         plates[2] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                0, player.getLowerBound() - player.getSpriteSize());
+                player.getScreenWidth() / 2 - 44, player.getScreenHeight() / 2 - 2 * player.getSpriteSize());
         plates[3] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                0, player.getLowerBound() - player.getSpriteSize());
+                player.getScreenWidth() / 2 + 132, player.getScreenHeight() / 2 + 2 * player.getSpriteSize());
         plates[4] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                0, player.getLowerBound() - player.getSpriteSize());
+                player.getScreenWidth() / 2 + 132, player.getScreenHeight() / 2 + 3 * player.getSpriteSize());
         plates[5] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                0, player.getLowerBound() - player.getSpriteSize());
+                player.getScreenWidth() / 2 + 132, player.getScreenHeight() / 2 + 4 * player.getSpriteSize());
         //PLATES HAVE BEEN CREATED
 
         switch (player.getImgClicked()) {
@@ -123,9 +122,7 @@ public class GameView extends View {
         rumya = BitmapFactory.decodeResource(getResources(), R.drawable.rumyachef);
         rumyarev = BitmapFactory.decodeResource(getResources(), R.drawable.rumyachefrev);
         seen = BitmapFactory.decodeResource(getResources(), R.drawable.seen);
-
         platos = BitmapFactory.decodeResource(getResources(), R.drawable.plate);
-
         background = BitmapFactory.decodeResource(getResources(), R.drawable.gameplays1background);
         wood = BitmapFactory.decodeResource(getResources(), R.drawable.wood_tile_image);
         table = BitmapFactory.decodeResource(getResources(), R.drawable.table_tile_image);
@@ -167,7 +164,6 @@ public class GameView extends View {
                 player.getSpriteSize() * 20, carpet);
         drawRow(canvas, player.getSpriteSize() * 20,
                 player.getSpriteSize() * 22, wood);
-
         canvas.drawBitmap(table, player.getScreenWidth() / 2 - player.getSpriteSize() / 2,
                 player.getSpriteSize(), null);
         canvas.drawBitmap(sprite, player.getxCoord() - player.getSpriteSize() / 2,
