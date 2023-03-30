@@ -141,4 +141,8 @@ public class Player {
     public int getLeftBound() {
         return leftBound;
     }
+
+    public void setScore(int newScore) {
+        score = newScore;
+    }
 }
