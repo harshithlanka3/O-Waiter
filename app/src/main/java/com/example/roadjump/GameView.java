@@ -28,6 +28,8 @@ public class GameView extends View {
     private Bitmap rumya;
     private Bitmap rumyarev;
     private Bitmap seen;
+
+    //private Bitmap platos;
     private Rect rectBackground;
     private Context context;
     private Handler handler;
@@ -36,6 +38,8 @@ public class GameView extends View {
     private Player player;
 
     private Vehicle[] vehicles = new Vehicle[14];
+
+    //private Plate[] plates = new Plate[6];
   
     private long globalTimer;
     private long lastClicked = 0;
@@ -81,6 +85,22 @@ public class GameView extends View {
         vehicles[12] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 1080 + 10 * player.getSpriteSize(),
                 player.getLowerBound() - 16 * player.getSpriteSize());
+
+        // CREATING THE PLATES
+//        plates[0] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
+//                0, player.getLowerBound() - player.getSpriteSize());
+//        plates[1] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
+//                0, player.getLowerBound() - player.getSpriteSize());
+//        plates[2] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
+//                0, player.getLowerBound() - player.getSpriteSize());
+//        plates[3] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
+//                0, player.getLowerBound() - player.getSpriteSize());
+//        plates[4] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
+//                0, player.getLowerBound() - player.getSpriteSize());
+//        plates[5] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
+//                0, player.getLowerBound() - player.getSpriteSize());
+        //PLATES HAVE BEEN CREATED
+
         switch (player.getImgClicked()) {
         case 1:
             sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pingu);
@@ -103,6 +123,9 @@ public class GameView extends View {
         rumya = BitmapFactory.decodeResource(getResources(), R.drawable.rumyachef);
         rumyarev = BitmapFactory.decodeResource(getResources(), R.drawable.rumyachefrev);
         seen = BitmapFactory.decodeResource(getResources(), R.drawable.seen);
+
+        //platos = BitmapFactory.decodeResource(getResources(), R.drawable.plate);
+
         background = BitmapFactory.decodeResource(getResources(), R.drawable.gameplays1background);
         wood = BitmapFactory.decodeResource(getResources(), R.drawable.wood_tile_image);
         table = BitmapFactory.decodeResource(getResources(), R.drawable.table_tile_image);
