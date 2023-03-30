@@ -39,7 +39,7 @@ public class GameView extends View {
 
     private Vehicle[] vehicles = new Vehicle[14];
 
-    //private Plate[] plates = new Plate[6];
+    private Plate[] plates = new Plate[6];
   
     private long globalTimer;
     private long lastClicked = 0;
@@ -87,8 +87,8 @@ public class GameView extends View {
                 player.getLowerBound() - 16 * player.getSpriteSize());
 
         // CREATING THE PLATES
-//        plates[0] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-//                0, player.getLowerBound() - player.getSpriteSize());
+        plates[0] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
+                0, player.getLowerBound() - player.getSpriteSize());
 //        plates[1] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
 //                0, player.getLowerBound() - player.getSpriteSize());
 //        plates[2] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
