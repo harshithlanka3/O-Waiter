@@ -2,6 +2,8 @@ package com.example.roadjump;
 
 public class Player {
     private int xCoord;
+
+    private int col;
     private int yCoord;
     private int score;
     private String username;
@@ -18,6 +20,7 @@ public class Player {
     public Player() {
         xCoord = screenWidth / 2;
         yCoord = screenHeight;
+        col = 0;
         resetScore();
         imgClicked = 0;
         progress = screenHeight;
@@ -45,6 +48,7 @@ public class Player {
     public void moveLeft() {
         if (xCoord - spriteSize >= leftBound) {
             xCoord -= spriteSize;
+            --col;
         }
         if (score == 45 && xCoord == screenWidth / 2) {
             score += 5;
@@ -53,6 +57,7 @@ public class Player {
     public void moveRight() {
         if (xCoord + spriteSize <= rightBound) {
             xCoord += spriteSize;
+            col++;
         }
         if (score == 45 && xCoord == screenWidth / 2) {
             score += 5;
@@ -82,10 +87,15 @@ public class Player {
     public int getxCoord() {
         return xCoord;
     }
+
+    public int getCol() { return col; }
+
+    public void setxCoord(int x) { this.xCoord = x; }
     public int getyCoord() {
         return yCoord;
     }
 
+    public void setyCoord(int y) { this.yCoord = y; }
     public int getScore() {
         return score;
     }

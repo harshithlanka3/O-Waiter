@@ -232,12 +232,7 @@ public class GameView extends View {
 
         handler.postDelayed(runnable, 30);
 
-        //water collision
-        int yCoordTile = player.getyCoord() / 88;
-        if ((yCoordTile > 8 && yCoordTile < 11) || (yCoordTile > 12 && yCoordTile < 15)) {
-        }
     }
-
 
 
     @Override
@@ -263,6 +258,31 @@ public class GameView extends View {
                 player.moveLeft();
             } else if (x > player.getxCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveRight();
+            }
+        }
+
+        //water collision
+        int yCoordTile = player.getyCoord() / 88;
+        if ((yCoordTile > 8 && yCoordTile < 11)) {
+            System.out.println(player.getCol());
+            if (player.getCol() == 2) {
+                System.out.println(player.getCol());
+                System.out.println("hi");
+            } else {
+                System.out.println(player.getCol());
+                player.setScore(player.getScore() / 2);
+                player.setxCoord(player.getScreenWidth() / 2);
+                player.setyCoord(player.getScreenHeight());
+            }
+        }
+        if (yCoordTile > 12 && yCoordTile < 15) {
+            if (player.getCol() == 0) {
+                System.out.println(player.getCol());
+            } else {
+                System.out.println(player.getCol());
+                player.setScore(player.getScore() / 2);
+                player.setxCoord(player.getScreenWidth() / 2);
+                player.setyCoord(player.getScreenHeight());
             }
         }
 
