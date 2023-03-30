@@ -29,7 +29,7 @@ public class GameView extends View {
     private Bitmap rumyarev;
     private Bitmap seen;
 
-    //private Bitmap platos;
+    private Bitmap platos;
     private Rect rectBackground;
     private Context context;
     private Handler handler;
@@ -124,7 +124,7 @@ public class GameView extends View {
         rumyarev = BitmapFactory.decodeResource(getResources(), R.drawable.rumyachefrev);
         seen = BitmapFactory.decodeResource(getResources(), R.drawable.seen);
 
-        //platos = BitmapFactory.decodeResource(getResources(), R.drawable.plate);
+        platos = BitmapFactory.decodeResource(getResources(), R.drawable.plate);
 
         background = BitmapFactory.decodeResource(getResources(), R.drawable.gameplays1background);
         wood = BitmapFactory.decodeResource(getResources(), R.drawable.wood_tile_image);
@@ -188,6 +188,12 @@ public class GameView extends View {
         canvas.drawBitmap(seen, vehicles[10].getxCoord(), vehicles[10].getyCoord(), null);
         canvas.drawBitmap(seen, vehicles[11].getxCoord(), vehicles[11].getyCoord(), null);
         canvas.drawBitmap(seen, vehicles[12].getxCoord(), vehicles[12].getyCoord(), null);
+
+        canvas.drawBitmap(platos, vehicles[0].getxCoord(), vehicles[0].getyCoord(), null);
+        canvas.drawBitmap(platos, vehicles[1].getxCoord(), vehicles[1].getyCoord(), null);
+        canvas.drawBitmap(platos, vehicles[2].getxCoord(), vehicles[2].getyCoord(), null);
+        canvas.drawBitmap(platos, vehicles[3].getxCoord(), vehicles[3].getyCoord(), null);
+        canvas.drawBitmap(platos, vehicles[4].getxCoord(), vehicles[4].getyCoord(), null);
 
 
         Paint paint = new Paint();
