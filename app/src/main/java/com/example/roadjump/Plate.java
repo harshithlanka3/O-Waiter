@@ -8,12 +8,12 @@ public class Plate {
     private final int rightBound = 1068;
     private int widthSprite;
     private int heightSprite;
-//    private int delay;
+    private int delay;
 
     //1 constructor
 
     public Plate (int width, int height, int xCoord, int yCoord) {
-//        this.delay = delay;
+        this.delay = delay;
         this.widthSprite = width;
         this.heightSprite = height;
         this.xCoord = xCoord;
