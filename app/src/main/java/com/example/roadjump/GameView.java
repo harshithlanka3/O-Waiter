@@ -39,7 +39,7 @@ public class GameView extends View {
 
     private Vehicle[] vehicles = new Vehicle[14];
 
-    //private Plate[] plates = new Plate[6];
+    private Plate[] plates = new Plate[6];
   
     private long globalTimer;
     private long lastClicked = 0;
