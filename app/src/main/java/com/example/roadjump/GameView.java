@@ -231,6 +231,11 @@ public class GameView extends View {
         }
 
         handler.postDelayed(runnable, 30);
+
+        //water collision
+        int yCoordTile = player.getyCoord() / 88;
+        if ((yCoordTile > 8 && yCoordTile < 11) || (yCoordTile > 12 && yCoordTile < 15)) {
+        }
     }
 
 
