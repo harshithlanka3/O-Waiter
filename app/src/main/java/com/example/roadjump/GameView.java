@@ -29,7 +29,7 @@ public class GameView extends View {
     private Bitmap rumyarev;
     private Bitmap seen;
 
-    //private Bitmap platos;
+    private Bitmap platos;
     private Rect rectBackground;
     private Context context;
     private Handler handler;
@@ -124,7 +124,7 @@ public class GameView extends View {
         rumyarev = BitmapFactory.decodeResource(getResources(), R.drawable.rumyachefrev);
         seen = BitmapFactory.decodeResource(getResources(), R.drawable.seen);
 
-        //platos = BitmapFactory.decodeResource(getResources(), R.drawable.plate);
+        platos = BitmapFactory.decodeResource(getResources(), R.drawable.plate);
 
         background = BitmapFactory.decodeResource(getResources(), R.drawable.gameplays1background);
         wood = BitmapFactory.decodeResource(getResources(), R.drawable.wood_tile_image);
