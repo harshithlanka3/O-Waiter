@@ -189,6 +189,11 @@ public class GameView extends View {
         canvas.drawBitmap(seen, vehicles[11].getxCoord(), vehicles[11].getyCoord(), null);
         canvas.drawBitmap(seen, vehicles[12].getxCoord(), vehicles[12].getyCoord(), null);
 
+        canvas.drawBitmap(platos, vehicles[0].getxCoord(), vehicles[0].getyCoord(), null);
+        canvas.drawBitmap(platos, vehicles[1].getxCoord(), vehicles[1].getyCoord(), null);
+        canvas.drawBitmap(platos, vehicles[2].getxCoord(), vehicles[2].getyCoord(), null);
+        
+
 
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
