@@ -78,6 +78,7 @@ public class Vehicle {
             player.setRow(0);
             player.setyCoord(player.getScreenHeight());
             player.setColumn(0);
+            player.setDifficulty(player.getDifficulty() + 1);
         }
 
     }
