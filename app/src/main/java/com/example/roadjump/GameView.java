@@ -43,7 +43,15 @@ public class GameView extends View {
     private final int livesWidth = 920;
     private Player player;
 
-    private Vehicle[] vehicles = new Vehicle[14];
+    private Vehicle[][] vehicles = new Vehicle[8][];
+    private Vehicle[] row1 = new Vehicle[2];
+    private Vehicle[] row2 = new Vehicle[1];
+    private Vehicle[] row3 = new Vehicle[3];
+    private Vehicle[] row4 = new Vehicle[1];
+    private Vehicle[] row5 = new Vehicle[2];
+    private Vehicle[] row6 = new Vehicle[1];
+    private Vehicle[] row7 = new Vehicle[3];
+    private Vehicle[] row8 = new Vehicle[1];
 
     private Plate[] plates = new Plate[6];
   
@@ -55,42 +63,51 @@ public class GameView extends View {
         this.context = context;
         this.player = player;
 
-        vehicles[0] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
-                0, player.getLowerBound() - player.getSpriteSize());
-        vehicles[1] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
+        row1[0] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
+                0, player.getLowerBound() - player.getSpriteSize(), 1);
+        row1[1] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 -8 * player.getSpriteSize(),
-                player.getLowerBound() - player.getSpriteSize());
-        vehicles[6] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
+                player.getLowerBound() - player.getSpriteSize(), 1);
+        row4[0] = new Vehicle(player.getSpriteSize() * 3, player.getSpriteSize(),
                 -4 * player.getSpriteSize(),
-                player.getLowerBound() - 4 * player.getSpriteSize());
-        vehicles[7] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
-                1080, player.getLowerBound() - 14 * player.getSpriteSize());
-        vehicles[8] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
+                player.getLowerBound() - 4 * player.getSpriteSize(), 4);
+        row5[0] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
+                1080, player.getLowerBound() - 14 * player.getSpriteSize(), 14);
+        row5[1] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
                 20 * player.getSpriteSize(),
-                player.getLowerBound() - 14 * player.getSpriteSize());
-        vehicles[2] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
-                0, player.getLowerBound() - 2 * player.getSpriteSize());
-        vehicles[9] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
-                1080, player.getLowerBound() - 15 * player.getSpriteSize());
-        vehicles[13] = new Vehicle(player.getSpriteSize() * 2, player.getSpriteSize(),
+                player.getLowerBound() - 14 * player.getSpriteSize(), 14);
+        row2[0] = new Vehicle(player.getSpriteSize() * 3, player.getSpriteSize(),
+                0, player.getLowerBound() - 2 * player.getSpriteSize(),2);
+        row6[0] = new Vehicle(player.getSpriteSize() * 3, player.getSpriteSize(),
+                1080, player.getLowerBound() - 15 * player.getSpriteSize(),15);
+        row8[0] = new Vehicle(player.getSpriteSize() * 3, player.getSpriteSize(),
                 1080 + 4 * player.getSpriteSize(),
-                player.getLowerBound() - 17 * player.getSpriteSize());
-        vehicles[3] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
-                0, player.getLowerBound() - 3 * player.getSpriteSize());
-        vehicles[4] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
+                player.getLowerBound() - 17 * player.getSpriteSize(),17);
+        row3[0] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
+                0, player.getLowerBound() - 3 * player.getSpriteSize(),3);
+        row3[1] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 -5 * player.getSpriteSize(),
-                player.getLowerBound() - 3 * player.getSpriteSize());
-        vehicles[5] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
+                player.getLowerBound() - 3 * player.getSpriteSize(),3);
+        row3[2] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 -10 * player.getSpriteSize(),
-                player.getLowerBound() - 3 * player.getSpriteSize());
-        vehicles[10] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
-                1080, player.getLowerBound() - 16 * player.getSpriteSize());
-        vehicles[11] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
+                player.getLowerBound() - 3 * player.getSpriteSize(),3);
+        row7[0] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
+                1080, player.getLowerBound() - 16 * player.getSpriteSize(),16);
+        row7[1] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 1080 + 5 * player.getSpriteSize(),
-                player.getLowerBound() - 16 * player.getSpriteSize());
-        vehicles[12] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
+                player.getLowerBound() - 16 * player.getSpriteSize(),16);
+        row7[2] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 1080 + 10 * player.getSpriteSize(),
-                player.getLowerBound() - 16 * player.getSpriteSize());
+                player.getLowerBound() - 16 * player.getSpriteSize(),16);
+
+        vehicles[0] = row1;
+        vehicles[1] = row2;
+        vehicles[2] = row3;
+        vehicles[3] = row4;
+        vehicles[4] = row5;
+        vehicles[5] = row6;
+        vehicles[6] = row7;
+        vehicles[7] = row8;
 
         // CREATING THE PLATES
         plates[0] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
@@ -105,7 +122,6 @@ public class GameView extends View {
                 player.getScreenWidth() / 2 + 132, player.getScreenHeight() / 2 + 3 * player.getSpriteSize());
         plates[5] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
                 player.getScreenWidth() / 2 + 132, player.getScreenHeight() / 2 + 4 * player.getSpriteSize());
-        //PLATES HAVE BEEN CREATED
 
         switch (player.getImgClicked()) {
         case 1:
@@ -188,21 +204,21 @@ public class GameView extends View {
         canvas.drawBitmap(sprite, player.getxCoord() - player.getSpriteSize() / 2,
                 player.getyCoord(), null);
       
-        canvas.drawBitmap(doubleChef, vehicles[0].getxCoord(), vehicles[0].getyCoord(), null);
-        canvas.drawBitmap(doubleChef, vehicles[1].getxCoord(), vehicles[1].getyCoord(), null);
-        canvas.drawBitmap(doubleChef, vehicles[7].getxCoord(), vehicles[7].getyCoord(), null);
-        canvas.drawBitmap(doubleChef, vehicles[8].getxCoord(), vehicles[8].getyCoord(), null);
-        canvas.drawBitmap(rumya, vehicles[2].getxCoord(), vehicles[2].getyCoord(), null);
-        canvas.drawBitmap(rumya, vehicles[6].getxCoord(), vehicles[6].getyCoord(), null);
-        canvas.drawBitmap(rumyarev, vehicles[9].getxCoord(), vehicles[9].getyCoord(), null);
-        canvas.drawBitmap(rumyarev, vehicles[13].getxCoord(), vehicles[13].getyCoord(), null);
+        canvas.drawBitmap(doubleChef, vehicles[0][0].getxCoord(), vehicles[0][0].getyCoord(), null);
+        canvas.drawBitmap(doubleChef, vehicles[0][1].getxCoord(), vehicles[0][1].getyCoord(), null);
+        canvas.drawBitmap(doubleChef, vehicles[4][0].getxCoord(), vehicles[4][0].getyCoord(), null);
+        canvas.drawBitmap(doubleChef, vehicles[4][1].getxCoord(), vehicles[4][1].getyCoord(), null);
+        canvas.drawBitmap(rumya, vehicles[1][0].getxCoord(), vehicles[1][0].getyCoord(), null);
+        canvas.drawBitmap(rumya, vehicles[3][0].getxCoord(), vehicles[3][0].getyCoord(), null);
+        canvas.drawBitmap(rumyarev, vehicles[5][0].getxCoord(), vehicles[5][0].getyCoord(), null);
+        canvas.drawBitmap(rumyarev, vehicles[7][0].getxCoord(), vehicles[7][0].getyCoord(), null);
 
-        canvas.drawBitmap(seen, vehicles[3].getxCoord(), vehicles[3].getyCoord(), null);
-        canvas.drawBitmap(seen, vehicles[4].getxCoord(), vehicles[4].getyCoord(), null);
-        canvas.drawBitmap(seen, vehicles[5].getxCoord(), vehicles[5].getyCoord(), null);
-        canvas.drawBitmap(seen, vehicles[10].getxCoord(), vehicles[10].getyCoord(), null);
-        canvas.drawBitmap(seen, vehicles[11].getxCoord(), vehicles[11].getyCoord(), null);
-        canvas.drawBitmap(seen, vehicles[12].getxCoord(), vehicles[12].getyCoord(), null);
+        canvas.drawBitmap(seen, vehicles[2][0].getxCoord(), vehicles[2][0].getyCoord(), null);
+        canvas.drawBitmap(seen, vehicles[2][1].getxCoord(), vehicles[2][1].getyCoord(), null);
+        canvas.drawBitmap(seen, vehicles[2][2].getxCoord(), vehicles[2][2].getyCoord(), null);
+        canvas.drawBitmap(seen, vehicles[6][0].getxCoord(), vehicles[6][0].getyCoord(), null);
+        canvas.drawBitmap(seen, vehicles[6][1].getxCoord(), vehicles[6][1].getyCoord(), null);
+        canvas.drawBitmap(seen, vehicles[6][2].getxCoord(), vehicles[6][2].getyCoord(), null);
 
 
 
@@ -227,35 +243,35 @@ public class GameView extends View {
 
         if (!(SystemClock.elapsedRealtime() - globalTimer < 1)) {
             globalTimer = SystemClock.elapsedRealtime();
-            vehicles[0].moveRight(2);
-            vehicles[1].moveRight(2);
-            vehicles[7].moveLeft(2);
-            vehicles[8].moveLeft(2);
-            vehicles[2].moveRight(5);
-            vehicles[6].moveRight(5);
-            vehicles[9].moveLeft(5);
-            vehicles[3].moveRight(8);
-            vehicles[4].moveRight(8);
-            vehicles[5].moveRight(8);
-            vehicles[10].moveLeft(8);
-            vehicles[11].moveLeft(8);
-            vehicles[12].moveLeft(8);
-            vehicles[13].moveLeft(5);
+            vehicles[0][0].moveRight(2, player);
+            vehicles[0][1].moveRight(2, player);
+            vehicles[4][0].moveLeft(2, player);
+            vehicles[4][1].moveLeft(2, player);
+            vehicles[1][0].moveRight(5, player);
+            vehicles[3][0].moveRight(5, player);
+            vehicles[5][0].moveLeft(5, player);
+            vehicles[7][0].moveLeft(5, player);
+            vehicles[2][0].moveRight(8, player);
+            vehicles[2][1].moveRight(8, player);
+            vehicles[2][2].moveRight(8, player);
+            vehicles[6][0].moveLeft(8, player);
+            vehicles[6][1].moveLeft(8, player);
+            vehicles[6][2].moveLeft(8, player);
         }
 
 
 
 
-        handler.postDelayed(runnable, 30);
+        handler.postDelayed(runnable, 20);
     }
 
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (SystemClock.elapsedRealtime() - lastClicked < 300) {
+        /*if (SystemClock.elapsedRealtime() - lastClicked < 150) {
             return true;
         }
-
+        */
         lastClicked = SystemClock.elapsedRealtime();
 
         int action = event.getAction();
