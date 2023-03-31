@@ -225,17 +225,9 @@ public class GameView extends View {
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
         paint.setTextSize(40);
-        switch (player.getDifficulty()) {
-        case 1:
-            canvas.drawText("<3 <3", livesWidth + 50, player.getSpriteSize() / 2, paint);
-            break;
-        case 2:
-            canvas.drawText("<3", livesWidth + 100, player.getSpriteSize() / 2, paint);
-            break;
-        default:
-            canvas.drawText("<3 <3 <3", livesWidth, player.getSpriteSize() / 2, paint);
-            break;
-        }
+        canvas.drawText((player.getDifficulty() == 0 ? "<3" : ""), livesWidth, player.getSpriteSize() / 2, paint);
+        canvas.drawText((player.getDifficulty() <= 1 ? "<3" : ""), livesWidth + 50, player.getSpriteSize() / 2, paint);
+        canvas.drawText("<3", livesWidth + 95, player.getSpriteSize() / 2, paint);
         canvas.drawText(player.getUsername(), player.getLeftBound() - player.getSpriteSize(),
                 player.getSpriteSize() / 2, paint);
         canvas.drawText("Score: " + player.getScore(),
