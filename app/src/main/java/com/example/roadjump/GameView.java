@@ -34,12 +34,6 @@ public class GameView extends View {
     private Handler handler;
     private Runnable runnable;
 
-    private Collide collisionCheckp0;
-
-    private Collide collisionCheckp1;
-
-    private Collide collisionCheckp2;
-
     private final int livesWidth = 920;
     private Player player;
 
@@ -140,10 +134,6 @@ public class GameView extends View {
                     player.getSpriteSize(), false);
             break;
         }
-
-        collisionCheckp0 = new Collide(player, plates[0]);
-        collisionCheckp1 = new Collide(player, plates[1]);
-        collisionCheckp2 = new Collide(player, plates[2]);
 
         doubleChef = BitmapFactory.decodeResource(getResources(), R.drawable.double_chefs);
         rumya = BitmapFactory.decodeResource(getResources(), R.drawable.rumyachef);
@@ -273,27 +263,14 @@ public class GameView extends View {
         if (!(player.getyCoord() <= y && y <= player.getyCoord() + player.getSpriteSize())) {
             if (y < player.getyCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveUp();
-//                if (player.getxCoord() != 716 && (player.getyCoord() > 1056 && player.getyCoord() < 1408)) {
-//                    player.setScore(5);
-//                }
             } else if (y > player.getyCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveDown();
-//                if (player.getxCoord() != 716 && (player.getyCoord() > 1056 && player.getyCoord() < 1408)) {
-//                    player.setScore(5);
-//                }
             }
         } else {
             if (x < player.getxCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveLeft();
-                System.out.println(player.getyCoord());
-//                if (player.getxCoord() != 716 && (player.getyCoord() > 1056 && player.getyCoord() < 1408)) {
-//                    player.setScore(5);
-//                }
             } else if (x > player.getxCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveRight();
-//                if (player.getxCoord() != 716 && (player.getyCoord() > 1056 && player.getyCoord() < 1408)) {
-//                    player.setScore(5);
-//                }
             }
         }
 

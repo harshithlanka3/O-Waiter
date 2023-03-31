@@ -112,8 +112,6 @@ public class Player {
         return xCoord;
     }
 
-    public int getCol() { return col; }
-
     public void setxCoord(int x) { this.xCoord = x; }
     public int getyCoord() {
         return yCoord;
