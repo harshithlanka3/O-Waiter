@@ -2,8 +2,9 @@ package com.example.roadjump;
 
 public class Player {
     private int xCoord;
-
     private int col;
+
+    private int row;
     private int yCoord;
     private int score;
     private String username;
@@ -21,6 +22,7 @@ public class Player {
         xCoord = screenWidth / 2;
         yCoord = screenHeight;
         col = 0;
+        row = 0;
         resetScore();
         imgClicked = 0;
         progress = screenHeight;
@@ -29,6 +31,8 @@ public class Player {
     public void moveUp() {
         if (yCoord > spriteSize) {
             yCoord -= spriteSize;
+            row++;
+            checkColisionPlate();
         }
         if (yCoord < progress) {
             progress = yCoord;
@@ -41,6 +45,8 @@ public class Player {
     public void moveDown() {
         if (yCoord <= lowerBound) {
             yCoord += spriteSize;
+            row--;
+            checkColisionPlate();
         }
 
     }
@@ -49,6 +55,7 @@ public class Player {
         if (xCoord - spriteSize >= leftBound) {
             xCoord -= spriteSize;
             --col;
+            checkColisionPlate();
         }
         if (score == 45 && xCoord == screenWidth / 2) {
             score += 5;
@@ -58,9 +65,26 @@ public class Player {
         if (xCoord + spriteSize <= rightBound) {
             xCoord += spriteSize;
             col++;
+            checkColisionPlate();
         }
         if (score == 45 && xCoord == screenWidth / 2) {
             score += 5;
+        }
+    }
+
+    public void checkColisionPlate() {
+        if (col != 2 && row >=6 && row <= 8) {
+            score -= score / 2;
+            xCoord = screenWidth / 2;
+            row = 0;
+            yCoord = screenHeight;
+            col = 0;
+        } else if (col != 0 && row >=10 && row <= 12) {
+            score -= score / 2;
+            xCoord = screenWidth / 2;
+            row = 0;
+            yCoord = screenHeight;
+            col = 0;
         }
     }
 

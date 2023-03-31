@@ -33,6 +33,13 @@ public class GameView extends View {
     private Context context;
     private Handler handler;
     private Runnable runnable;
+
+    private Collide collisionCheckp0;
+
+    private Collide collisionCheckp1;
+
+    private Collide collisionCheckp2;
+
     private final int livesWidth = 920;
     private Player player;
 
@@ -117,6 +124,10 @@ public class GameView extends View {
                     player.getSpriteSize(), false);
             break;
         }
+
+        collisionCheckp0 = new Collide(player, plates[0]);
+        collisionCheckp1 = new Collide(player, plates[1]);
+        collisionCheckp2 = new Collide(player, plates[2]);
 
         doubleChef = BitmapFactory.decodeResource(getResources(), R.drawable.double_chefs);
         rumya = BitmapFactory.decodeResource(getResources(), R.drawable.rumyachef);
@@ -231,7 +242,6 @@ public class GameView extends View {
         }
 
         handler.postDelayed(runnable, 30);
-
     }
 
 
@@ -250,41 +260,54 @@ public class GameView extends View {
         if (!(player.getyCoord() <= y && y <= player.getyCoord() + player.getSpriteSize())) {
             if (y < player.getyCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveUp();
+//                if (player.getxCoord() != 716 && (player.getyCoord() > 1056 && player.getyCoord() < 1408)) {
+//                    player.setScore(5);
+//                }
             } else if (y > player.getyCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveDown();
+//                if (player.getxCoord() != 716 && (player.getyCoord() > 1056 && player.getyCoord() < 1408)) {
+//                    player.setScore(5);
+//                }
             }
         } else {
             if (x < player.getxCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveLeft();
+                System.out.println(player.getyCoord());
+//                if (player.getxCoord() != 716 && (player.getyCoord() > 1056 && player.getyCoord() < 1408)) {
+//                    player.setScore(5);
+//                }
             } else if (x > player.getxCoord() && action == MotionEvent.ACTION_DOWN) {
                 player.moveRight();
+//                if (player.getxCoord() != 716 && (player.getyCoord() > 1056 && player.getyCoord() < 1408)) {
+//                    player.setScore(5);
+//                }
             }
         }
 
-        //water collision
-        int yCoordTile = player.getyCoord() / 88;
-        if ((yCoordTile > 8 && yCoordTile < 11)) {
-            System.out.println(player.getCol());
-            if (player.getCol() == 2) {
-                System.out.println(player.getCol());
-                System.out.println("hi");
-            } else {
-                System.out.println(player.getCol());
-                player.setScore(player.getScore() / 2);
-                player.setxCoord(player.getScreenWidth() / 2);
-                player.setyCoord(player.getScreenHeight());
-            }
-        }
-        if (yCoordTile > 12 && yCoordTile < 15) {
-            if (player.getCol() == 0) {
-                System.out.println(player.getCol());
-            } else {
-                System.out.println(player.getCol());
-                player.setScore(player.getScore() / 2);
-                player.setxCoord(player.getScreenWidth() / 2);
-                player.setyCoord(player.getScreenHeight());
-            }
-        }
+//        //water collision
+//        int yCoordTile = player.getyCoord() / 88;
+//        if ((yCoordTile > 8 && yCoordTile < 11)) {
+//            System.out.println(player.getCol() + "hi");
+//            if (!(player.getCol() == 2)) {
+//                System.out.println(player.getCol());
+//                System.out.println("hi");
+//            } else {
+//                System.out.println("hi-bi");
+//                player.setScore(player.getScore() / 2);
+//                player.setxCoord(player.getScreenWidth() / 2);
+//                player.setyCoord(player.getScreenHeight());
+//            }
+//        }
+//        if (yCoordTile > 12 && yCoordTile < 15) {
+//            if (! (player.getCol() == 0)) {
+//                System.out.println(player.getCol());
+//            } else {
+//                System.out.println(player.getCol());
+//                player.setScore(player.getScore() / 2);
+//                player.setxCoord(player.getScreenWidth() / 2);
+//                player.setyCoord(player.getScreenHeight());
+//            }
+//        }
 
         return true;
     }
