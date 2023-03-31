@@ -8,8 +8,12 @@ import static org.junit.Assert.*;
 public class ScoreUnitTests {
     private Player player;
 
+    private Vehicle vehicle;
+
     @Before
-    public void setup() {player = new Player();}
+    public void setup() {
+        player = new Player();
+    }
 
     @Test
     public void scoreMoveUp() {
@@ -72,5 +76,65 @@ public class ScoreUnitTests {
         }
 
         assertEquals(player.getScore(), 0);
+    }
+
+    @Test
+    public void scoreLossDoubleChef() {
+        vehicle = new Vehicle(176, 88, 344, 1672, 1);
+        player = new Player(540, 1672);
+        player.setRow(1);
+        player.setScore(2);
+        int counter = 0;
+        while (player.getScore() != 1) {
+            vehicle.moveRight(2, player);
+            counter++;
+        }
+        System.out.println(counter);
+        assertEquals(1, player.getScore());
+    }
+
+    @Test
+    public void scoreLossRumya() {
+        vehicle = new Vehicle(264, 88, 256, 1672, 1);
+        player = new Player(540, 1672);
+        player.setRow(1);
+        player.setScore(2);
+        int counter = 0;
+        while (player.getScore() != 1) {
+            vehicle.moveRight(2, player);
+            counter++;
+        }
+        System.out.println(counter);
+        assertEquals(1, player.getScore());
+    }
+
+    @Test
+    public void scoreLossSeen() {
+        vehicle = new Vehicle(88, 88, 344, 1672, 1);
+        player = new Player(540, 1672);
+        player.setRow(1);
+        player.setScore(2);
+        int counter = 0;
+        while (player.getScore() != 1) {
+            vehicle.moveRight(2, player);
+            counter++;
+        }
+        System.out.println(counter);
+        assertEquals(1, player.getScore());
+    }
+
+    @Test
+    public void scoreLossPosReset() {
+        vehicle = new Vehicle(176, 88, 344, 1672, 1);
+        player = new Player(540, 1672);
+        player.setRow(1);
+        player.setScore(2);
+        int counter = 0;
+        while (player.getScore() != 1) {
+            vehicle.moveRight(2, player);
+            counter++;
+        }
+        assertEquals(1760, player.getyCoord());
+        assertEquals(540, player.getxCoord());
     }
 }
