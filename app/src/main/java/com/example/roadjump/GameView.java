@@ -274,31 +274,6 @@ public class GameView extends View {
             }
         }
 
-//        //water collision
-//        int yCoordTile = player.getyCoord() / 88;
-//        if ((yCoordTile > 8 && yCoordTile < 11)) {
-//            System.out.println(player.getCol() + "hi");
-//            if (!(player.getCol() == 2)) {
-//                System.out.println(player.getCol());
-//                System.out.println("hi");
-//            } else {
-//                System.out.println("hi-bi");
-//                player.setScore(player.getScore() / 2);
-//                player.setxCoord(player.getScreenWidth() / 2);
-//                player.setyCoord(player.getScreenHeight());
-//            }
-//        }
-//        if (yCoordTile > 12 && yCoordTile < 15) {
-//            if (! (player.getCol() == 0)) {
-//                System.out.println(player.getCol());
-//            } else {
-//                System.out.println(player.getCol());
-//                player.setScore(player.getScore() / 2);
-//                player.setxCoord(player.getScreenWidth() / 2);
-//                player.setyCoord(player.getScreenHeight());
-//            }
-//        }
-
         return true;
     }
 

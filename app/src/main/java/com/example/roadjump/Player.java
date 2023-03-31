@@ -3,7 +3,6 @@ package com.example.roadjump;
 public class Player {
     private int xCoord;
     private int col;
-
     private int row;
     private int yCoord;
     private int score;
@@ -21,6 +20,16 @@ public class Player {
     public Player() {
         xCoord = screenWidth / 2;
         yCoord = screenHeight;
+        col = 0;
+        row = 0;
+        resetScore();
+        imgClicked = 0;
+        progress = screenHeight;
+    }
+
+    public Player(int xCoord, int yCoord) {
+        this.xCoord = xCoord;
+        this.yCoord = yCoord;
         col = 0;
         row = 0;
         resetScore();
@@ -79,12 +88,14 @@ public class Player {
             row = 0;
             yCoord = screenHeight;
             col = 0;
+            difficulty += 1;
         } else if (col != 0 && row >=10 && row <= 12) {
             score -= score / 2;
             xCoord = screenWidth / 2;
             row = 0;
             yCoord = screenHeight;
             col = 0;
+            difficulty += 1;
         }
     }
 
