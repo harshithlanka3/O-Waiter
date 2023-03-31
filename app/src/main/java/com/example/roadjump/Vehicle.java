@@ -52,4 +52,18 @@ public class Vehicle {
     public int getHeightSprite() {
         return heightSprite;
     }
+
+    public void checkCollision(Player player) {
+        if (((xCoord < player.getxCoord() + player.getSpriteSize())
+                && (player.getxCoord() + player.getSpriteSize() < xCoord + widthSprite))
+                || (xCoord < player.getxCoord())
+                && (player.getxCoord() < xCoord + widthSprite)) {
+            player.setScore(player.getScore() - player.getScore() / 2);
+            player.setxCoord(player.getScreenWidth() / 2);
+            player.setRow(0);
+            player.setyCoord(player.getScreenHeight());
+            player.setColumn(0);
+        }
+
+    }
 }

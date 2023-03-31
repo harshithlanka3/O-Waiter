@@ -177,6 +177,14 @@ public class GameView extends View {
                 player.getSpriteSize() * 22, wood);
         canvas.drawBitmap(table, player.getScreenWidth() / 2 - player.getSpriteSize() / 2,
                 player.getSpriteSize(), null);
+
+        canvas.drawBitmap(platos, plates[0].getxCoord(), plates[0].getyCoord(), null);
+        canvas.drawBitmap(platos, plates[1].getxCoord(), plates[1].getyCoord(), null);
+        canvas.drawBitmap(platos, plates[2].getxCoord(), plates[2].getyCoord(), null);
+        canvas.drawBitmap(platos, plates[3].getxCoord(), plates[3].getyCoord(), null);
+        canvas.drawBitmap(platos, plates[4].getxCoord(), plates[4].getyCoord(), null);
+        canvas.drawBitmap(platos, plates[5].getxCoord(), plates[5].getyCoord(), null);
+
         canvas.drawBitmap(sprite, player.getxCoord() - player.getSpriteSize() / 2,
                 player.getyCoord(), null);
       
@@ -196,12 +204,6 @@ public class GameView extends View {
         canvas.drawBitmap(seen, vehicles[11].getxCoord(), vehicles[11].getyCoord(), null);
         canvas.drawBitmap(seen, vehicles[12].getxCoord(), vehicles[12].getyCoord(), null);
 
-        canvas.drawBitmap(platos, plates[0].getxCoord(), plates[0].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[1].getxCoord(), plates[1].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[2].getxCoord(), plates[2].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[3].getxCoord(), plates[3].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[4].getxCoord(), plates[4].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[5].getxCoord(), plates[5].getyCoord(), null);
 
 
         Paint paint = new Paint();
@@ -240,6 +242,9 @@ public class GameView extends View {
             vehicles[12].moveLeft(8);
             vehicles[13].moveLeft(5);
         }
+
+
+
 
         handler.postDelayed(runnable, 30);
     }
