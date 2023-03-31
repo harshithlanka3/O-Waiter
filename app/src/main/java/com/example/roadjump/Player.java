@@ -32,7 +32,7 @@ public class Player {
         if (yCoord > spriteSize) {
             yCoord -= spriteSize;
             row++;
-            checkColisionPlate();
+            checkCollisionPlate();
         }
         if (yCoord < progress) {
             progress = yCoord;
@@ -46,7 +46,7 @@ public class Player {
         if (yCoord <= lowerBound) {
             yCoord += spriteSize;
             row--;
-            checkColisionPlate();
+            checkCollisionPlate();
         }
 
     }
@@ -55,7 +55,7 @@ public class Player {
         if (xCoord - spriteSize >= leftBound) {
             xCoord -= spriteSize;
             --col;
-            checkColisionPlate();
+            checkCollisionPlate();
         }
         if (score == 45 && xCoord == screenWidth / 2) {
             score += 5;
@@ -65,14 +65,14 @@ public class Player {
         if (xCoord + spriteSize <= rightBound) {
             xCoord += spriteSize;
             col++;
-            checkColisionPlate();
+            checkCollisionPlate();
         }
         if (score == 45 && xCoord == screenWidth / 2) {
             score += 5;
         }
     }
 
-    public void checkColisionPlate() {
+    public void checkCollisionPlate() {
         if (col != 2 && row >=6 && row <= 8) {
             score -= score / 2;
             xCoord = screenWidth / 2;
@@ -87,6 +87,12 @@ public class Player {
             col = 0;
         }
     }
+
+//    public void checkCollisionRumyaChef() {
+//        if (row == 2) {
+//            if ()
+//        }
+//    }
 
     public boolean checkValidity(String username) {
         if (username == null || username.length() == 0) {
@@ -178,5 +184,13 @@ public class Player {
 
     public void setScore(int newScore) {
         score = newScore;
+    }
+
+    public void setRow (int row) {
+        this.row = row;
+    }
+
+    public void setColumn (int column) {
+        col = column;
     }
 }
