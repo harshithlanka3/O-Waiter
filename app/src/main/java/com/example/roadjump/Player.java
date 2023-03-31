@@ -88,12 +88,6 @@ public class Player {
         }
     }
 
-//    public void checkCollisionRumyaChef() {
-//        if (row == 2) {
-//            if ()
-//        }
-//    }
-
     public boolean checkValidity(String username) {
         if (username == null || username.length() == 0) {
             return false;
@@ -193,4 +187,9 @@ public class Player {
     public void setColumn (int column) {
         col = column;
     }
+
+    public int getRow() {
+        return row;
+    }
+
 }
