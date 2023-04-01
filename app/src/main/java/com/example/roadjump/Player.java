@@ -25,6 +25,7 @@ public class Player {
         resetScore();
         imgClicked = 0;
         progress = screenHeight;
+        score = 0;
     }
 
     public Player(int xCoord, int yCoord) {

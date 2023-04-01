@@ -3,6 +3,7 @@ package com.example.roadjump;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -274,6 +275,58 @@ public class GameView extends View {
             }
         }
 
+
+//        //water collision
+//        int yCoordTile = player.getyCoord() / 88;
+//        if ((yCoordTile > 8 && yCoordTile < 11)) {
+//            System.out.println(player.getCol() + "hi");
+//            if (!(player.getCol() == 2)) {
+//                System.out.println(player.getCol());
+//                System.out.println("hi");
+//            } else {
+//                System.out.println("hi-bi");
+//                player.setScore(player.getScore() / 2);
+//                player.setxCoord(player.getScreenWidth() / 2);
+//                player.setyCoord(player.getScreenHeight());
+//            }
+//        }
+//        if (yCoordTile > 12 && yCoordTile < 15) {
+//            if (! (player.getCol() == 0)) {
+//                System.out.println(player.getCol());
+//            } else {
+//                System.out.println(player.getCol());
+//                player.setScore(player.getScore() / 2);
+//                player.setxCoord(player.getScreenWidth() / 2);
+//                player.setyCoord(player.getScreenHeight());
+//            }
+//        }
+
+        //After the player has moved, determine whether or not they have 1: died, or 2: reached the
+        //goal tile. If one of these conditions is met, then go to GameOverActivity!
+
+        //case 1: the player has died.
+        if (player.getDifficulty() == 3) {
+            Intent newIntent = new Intent(context, GameOverActivity.class);
+
+            String finalScoreStr = String.valueOf(player.getScore());
+            newIntent.putExtra("finalScoreStringKey", finalScoreStr);
+            newIntent.putExtra("playerDiedKey", 1);
+
+            context.startActivity(newIntent);
+        }
+
+        //case 2: the player has reached the goal tile
+        //THIS MUST BE UPDATED SO THAT IF PLAYER POSITION = GOAL TILE, then PLAYER WINS!
+        if (player.getDifficulty() == 1) {
+            Intent newIntent = new Intent(context, GameOverActivity.class);
+
+            String finalScoreStr = String.valueOf(player.getScore());
+            newIntent.putExtra("finalScoreStringKey", finalScoreStr);
+            newIntent.putExtra("playerDiedKey", 0);
+
+            context.startActivity(newIntent);
+        }
+
         return true;
     }
 
@@ -284,4 +337,6 @@ public class GameView extends View {
             }
         }
     }
+
+
 }
