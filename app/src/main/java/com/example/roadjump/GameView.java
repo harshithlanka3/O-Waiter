@@ -275,6 +275,7 @@ public class GameView extends View {
             }
         }
 
+
 //        //water collision
 //        int yCoordTile = player.getyCoord() / 88;
 //        if ((yCoordTile > 8 && yCoordTile < 11)) {
