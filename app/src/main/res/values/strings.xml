@@ -7,4 +7,5 @@
     <string name="gameplayS1ImageDescription">Gameplay Image during Sprint 1</string>
     <string name="characterGameplayS1ImageDescription">Gameplay Image of chosen char during Sprint 1</string>
     <string name="click_below_to_start">Click Below To Start</string>
+    <string name="finalScoreStringText">999</string>
 </resources>

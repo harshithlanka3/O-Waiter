@@ -26,6 +26,7 @@ public class Player {
         resetScore();
         imgClicked = 0;
         progress = screenHeight;
+        score = 0;
     }
 
     public void moveUp() {

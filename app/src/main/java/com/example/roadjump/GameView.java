@@ -3,6 +3,7 @@ package com.example.roadjump;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -299,6 +300,32 @@ public class GameView extends View {
 //            }
 //        }
 
+        //After the player has moved, determine whether or not they have 1: died, or 2: reached the
+        //goal tile. If one of these conditions is met, then go to GameOverActivity!
+
+        //case 1: the player has died.
+        if (player.getDifficulty() == 3) {
+            Intent newIntent = new Intent(context, GameOverActivity.class);
+
+            String finalScoreStr = String.valueOf(player.getScore());
+            newIntent.putExtra("finalScoreStringKey", finalScoreStr);
+            newIntent.putExtra("playerDiedKey", 1);
+
+            context.startActivity(newIntent);
+        }
+
+        //case 2: the player has reached the goal tile
+        //THIS MUST BE UPDATED SO THAT IF PLAYER POSITION = GOAL TILE, then PLAYER WINS!
+        if (player.getDifficulty() == 1) {
+            Intent newIntent = new Intent(context, GameOverActivity.class);
+
+            String finalScoreStr = String.valueOf(player.getScore());
+            newIntent.putExtra("finalScoreStringKey", finalScoreStr);
+            newIntent.putExtra("playerDiedKey", 0);
+
+            context.startActivity(newIntent);
+        }
+
         return true;
     }
 
@@ -309,4 +336,6 @@ public class GameView extends View {
             }
         }
     }
+
+
 }

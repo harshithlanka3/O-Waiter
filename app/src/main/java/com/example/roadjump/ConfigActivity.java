@@ -79,4 +79,7 @@ public class ConfigActivity extends AppCompatActivity {
         setContentView(gameView);
     }
 
+
+
+
 }
