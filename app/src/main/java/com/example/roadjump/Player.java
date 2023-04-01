@@ -202,4 +202,7 @@ public class Player {
         return row;
     }
 
+    public int getCol() {
+        return col;
+    }
 }

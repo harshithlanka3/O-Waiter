@@ -317,7 +317,7 @@ public class GameView extends View {
 
         //case 2: the player has reached the goal tile
         //THIS MUST BE UPDATED SO THAT IF PLAYER POSITION = GOAL TILE, then PLAYER WINS!
-        if (player.getDifficulty() == 1) {
+        if (player.getRow() == 19 && player.getCol() == 0) {
             Intent newIntent = new Intent(context, GameOverActivity.class);
 
             String finalScoreStr = String.valueOf(player.getScore());
