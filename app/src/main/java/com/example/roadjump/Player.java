@@ -24,7 +24,7 @@ public class Player {
         row = 0;
         resetScore();
         imgClicked = 0;
-        progress = screenHeight;
+        progress = 0;
         score = 0;
     }
 
@@ -35,7 +35,7 @@ public class Player {
         row = 0;
         resetScore();
         imgClicked = 0;
-        progress = screenHeight;
+        progress = 0;
     }
 
     public void moveUp() {
@@ -44,12 +44,12 @@ public class Player {
             row++;
             checkCollisionPlate();
         }
-        if (yCoord < progress) {
-            progress = yCoord;
+        if (row > progress) {
+            progress += 1;
+            if (row == 19 && col == 0) {
+                score += 5;
+            }
             updateScore();
-        }
-        if (score == 45 && xCoord == screenWidth / 2) {
-            score += 5;
         }
     }
     public void moveDown() {
@@ -67,7 +67,7 @@ public class Player {
             --col;
             checkCollisionPlate();
         }
-        if (score == 45 && xCoord == screenWidth / 2) {
+        if (row == 19 && col == 0) {
             score += 5;
         }
     }
@@ -77,7 +77,7 @@ public class Player {
             col++;
             checkCollisionPlate();
         }
-        if (score == 45 && xCoord == screenWidth / 2) {
+        if (row == 19 && col == 0) {
             score += 5;
         }
     }
@@ -109,12 +109,12 @@ public class Player {
     }
 
     public void updateScore() {
-        if ((score >= 0 && score < 8) || (score >= 29 && score < 37)) {
+        if ((row > 1 && row <= 5) || (row > 15 && row <= 18)) {
             score += 2;
-        } else if (score == 8 || score == 18 || score == 28 || score == 37) {
+        } else if (row == 1 || row == 6 || row == 10) {
             score += 1;
-        } else if (score == 38) {
-            score += 7;
+        } else if (row == 19) {
+            score += 11;
         } else {
             score += 3;
         }
