@@ -26,23 +26,23 @@ public class Vehicle {
     }
 
     public void moveRight(int step, Player player) {
-        if (player.getRow() == row) {
-            checkCollision(player);
-        }
         if (xCoord > 1080) {
             xCoord = -250;
         }
         xCoord += step;
-    }
-
-    public void moveLeft(int step, Player player) {
         if (player.getRow() == row) {
             checkCollision(player);
         }
+    }
+
+    public void moveLeft(int step, Player player) {
         if (xCoord <= -250) {
             xCoord = 1200;
         }
         xCoord -= step;
+        if (player.getRow() == row) {
+            checkCollision(player);
+        }
     }
 
     public int getWidthSprite() {
@@ -54,10 +54,10 @@ public class Vehicle {
     }
 
     public void checkCollision(Player player) {
-        if (((xCoord < player.getxCoord() + player.getSpriteSize())
-            && (player.getxCoord() + player.getSpriteSize() < xCoord + widthSprite))
-            || ((xCoord < player.getxCoord())
-            && (player.getxCoord() < xCoord + widthSprite))) {
+        if (((xCoord < player.getxCoord() + player.getSpriteSize()/2)
+            && (player.getxCoord() + player.getSpriteSize()/2 < xCoord + widthSprite))
+            || ((xCoord < player.getxCoord() - player.getSpriteSize()/2)
+            && (player.getxCoord() - player.getSpriteSize()/2 < xCoord + widthSprite))) {
             player.setScore(player.getScore() - player.getScore() / 2);
             player.setxCoord(player.getScreenWidth() / 2);
             player.setRow(0);
