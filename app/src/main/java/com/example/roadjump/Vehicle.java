@@ -54,10 +54,10 @@ public class Vehicle {
     }
 
     public void checkCollision(Player player) {
-        if (((xCoord < player.getxCoord() + player.getSpriteSize()/2)
-            && (player.getxCoord() + player.getSpriteSize()/2 < xCoord + widthSprite))
-            || ((xCoord < player.getxCoord() - player.getSpriteSize()/2)
-            && (player.getxCoord() - player.getSpriteSize()/2 < xCoord + widthSprite))) {
+        if (((xCoord < player.getxCoord() + player.getSpriteSize() / 2)
+            && (player.getxCoord() + player.getSpriteSize() / 2 < xCoord + widthSprite))
+            || ((xCoord < player.getxCoord() - player.getSpriteSize() / 2)
+            && (player.getxCoord() - player.getSpriteSize() / 2 < xCoord + widthSprite))) {
             player.setScore(player.getScore() - player.getScore() / 2);
             player.setxCoord(player.getScreenWidth() / 2);
             player.setRow(0);

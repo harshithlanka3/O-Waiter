@@ -83,14 +83,14 @@ public class Player {
     }
 
     public void checkCollisionPlate() {
-        if (col != 2 && row >=6 && row <= 8) {
+        if (col != 2 && row >= 6 && row <= 8) {
             score -= score / 2;
             xCoord = screenWidth / 2;
             row = 0;
             yCoord = screenHeight;
             col = 0;
             difficulty += 1;
-        } else if (col != 0 && row >=10 && row <= 12) {
+        } else if (col != 0 && row >= 10 && row <= 12) {
             score -= score / 2;
             xCoord = screenWidth / 2;
             row = 0;
@@ -124,12 +124,16 @@ public class Player {
         return xCoord;
     }
 
-    public void setxCoord(int x) { this.xCoord = x; }
+    public void setxCoord(int x) {
+        this.xCoord = x;
+    }
     public int getyCoord() {
         return yCoord;
     }
 
-    public void setyCoord(int y) { this.yCoord = y; }
+    public void setyCoord(int y) {
+        this.yCoord = y;
+    }
     public int getScore() {
         return score;
     }
@@ -190,11 +194,11 @@ public class Player {
         score = newScore;
     }
 
-    public void setRow (int row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
-    public void setColumn (int column) {
+    public void setColumn(int column) {
         col = column;
     }
 

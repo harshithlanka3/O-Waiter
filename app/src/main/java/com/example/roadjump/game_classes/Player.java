@@ -4,8 +4,6 @@ import android.widget.ImageView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.roadjump.R;
-
 public class Player {
     private float xCoord;
     private float yCoord;
@@ -27,7 +25,8 @@ public class Player {
     }
 
     //new code methods
-    ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) characterImage.getLayoutParams();
+    private ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams)
+            characterImage.getLayoutParams();
 
     public void moveUp() {
         if (layoutParams.topMargin - 352 > -4200) {

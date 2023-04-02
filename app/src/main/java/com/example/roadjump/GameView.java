@@ -72,28 +72,28 @@ public class GameView extends View {
                 20 * player.getSpriteSize(),
                 player.getLowerBound() - 14 * player.getSpriteSize(), 14);
         row2[0] = new Vehicle(player.getSpriteSize() * 3, player.getSpriteSize(),
-                0, player.getLowerBound() - 2 * player.getSpriteSize(),2);
+                0, player.getLowerBound() - 2 * player.getSpriteSize(), 2);
         row6[0] = new Vehicle(player.getSpriteSize() * 3, player.getSpriteSize(),
-                1080, player.getLowerBound() - 15 * player.getSpriteSize(),15);
+                1080, player.getLowerBound() - 15 * player.getSpriteSize(), 15);
         row8[0] = new Vehicle(player.getSpriteSize() * 3, player.getSpriteSize(),
                 1080 + 4 * player.getSpriteSize(),
-                player.getLowerBound() - 17 * player.getSpriteSize(),17);
+                player.getLowerBound() - 17 * player.getSpriteSize(), 17);
         row3[0] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
-                0, player.getLowerBound() - 3 * player.getSpriteSize(),3);
+                0, player.getLowerBound() - 3 * player.getSpriteSize(), 3);
         row3[1] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 -5 * player.getSpriteSize(),
-                player.getLowerBound() - 3 * player.getSpriteSize(),3);
+                player.getLowerBound() - 3 * player.getSpriteSize(), 3);
         row3[2] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 -10 * player.getSpriteSize(),
-                player.getLowerBound() - 3 * player.getSpriteSize(),3);
+                player.getLowerBound() - 3 * player.getSpriteSize(), 3);
         row7[0] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
-                1080, player.getLowerBound() - 16 * player.getSpriteSize(),16);
+                1080, player.getLowerBound() - 16 * player.getSpriteSize(), 16);
         row7[1] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 1080 + 5 * player.getSpriteSize(),
-                player.getLowerBound() - 16 * player.getSpriteSize(),16);
+                player.getLowerBound() - 16 * player.getSpriteSize(), 16);
         row7[2] = new Vehicle(player.getSpriteSize(), player.getSpriteSize(),
                 1080 + 10 * player.getSpriteSize(),
-                player.getLowerBound() - 16 * player.getSpriteSize(),16);
+                player.getLowerBound() - 16 * player.getSpriteSize(), 16);
 
         vehicles[0] = row1;
         vehicles[1] = row2;
@@ -108,15 +108,20 @@ public class GameView extends View {
         plates[0] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
                 player.getScreenWidth() / 2 - 44, player.getScreenHeight() / 2);
         plates[1] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 - 44, player.getScreenHeight() / 2 - player.getSpriteSize());
+                player.getScreenWidth() / 2 - 44, player.getScreenHeight()
+                / 2 - player.getSpriteSize());
         plates[2] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 - 44, player.getScreenHeight() / 2 - 2 * player.getSpriteSize());
+                player.getScreenWidth() / 2 - 44, player.getScreenHeight()
+                / 2 - 2 * player.getSpriteSize());
         plates[3] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 + 132, player.getScreenHeight() / 2 + 2 * player.getSpriteSize());
+                player.getScreenWidth() / 2 + 132, player.getScreenHeight()
+                / 2 + 2 * player.getSpriteSize());
         plates[4] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 + 132, player.getScreenHeight() / 2 + 3 * player.getSpriteSize());
+                player.getScreenWidth() / 2 + 132, player.getScreenHeight()
+                / 2 + 3 * player.getSpriteSize());
         plates[5] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 + 132, player.getScreenHeight() / 2 + 4 * player.getSpriteSize());
+                player.getScreenWidth() / 2 + 132, player.getScreenHeight()
+                / 2 + 4 * player.getSpriteSize());
 
         switch (player.getImgClicked()) {
         case 1:
@@ -216,8 +221,10 @@ public class GameView extends View {
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
         paint.setTextSize(40);
-        canvas.drawText((player.getDifficulty() == 0 ? "<3" : ""), livesWidth, player.getSpriteSize() / 2, paint);
-        canvas.drawText((player.getDifficulty() <= 1 ? "<3" : ""), livesWidth + 50, player.getSpriteSize() / 2, paint);
+        canvas.drawText((player.getDifficulty() == 0 ? "<3" : ""), livesWidth,
+                player.getSpriteSize() / 2, paint);
+        canvas.drawText((player.getDifficulty() <= 1 ? "<3" : ""), livesWidth + 50,
+                player.getSpriteSize() / 2, paint);
         canvas.drawText("<3", livesWidth + 95, player.getSpriteSize() / 2, paint);
         canvas.drawText(player.getUsername(), player.getLeftBound() - player.getSpriteSize(),
                 player.getSpriteSize() / 2, paint);
@@ -276,30 +283,30 @@ public class GameView extends View {
         }
 
 
-//        //water collision
-//        int yCoordTile = player.getyCoord() / 88;
-//        if ((yCoordTile > 8 && yCoordTile < 11)) {
-//            System.out.println(player.getCol() + "hi");
-//            if (!(player.getCol() == 2)) {
-//                System.out.println(player.getCol());
-//                System.out.println("hi");
-//            } else {
-//                System.out.println("hi-bi");
-//                player.setScore(player.getScore() / 2);
-//                player.setxCoord(player.getScreenWidth() / 2);
-//                player.setyCoord(player.getScreenHeight());
-//            }
-//        }
-//        if (yCoordTile > 12 && yCoordTile < 15) {
-//            if (! (player.getCol() == 0)) {
-//                System.out.println(player.getCol());
-//            } else {
-//                System.out.println(player.getCol());
-//                player.setScore(player.getScore() / 2);
-//                player.setxCoord(player.getScreenWidth() / 2);
-//                player.setyCoord(player.getScreenHeight());
-//            }
-//        }
+        //        //water collision
+        //        int yCoordTile = player.getyCoord() / 88;
+        //        if ((yCoordTile > 8 && yCoordTile < 11)) {
+        //            System.out.println(player.getCol() + "hi");
+        //            if (!(player.getCol() == 2)) {
+        //                System.out.println(player.getCol());
+        //                System.out.println("hi");
+        //            } else {
+        //                System.out.println("hi-bi");
+        //                player.setScore(player.getScore() / 2);
+        //                player.setxCoord(player.getScreenWidth() / 2);
+        //                player.setyCoord(player.getScreenHeight());
+        //            }
+        //        }
+        //        if (yCoordTile > 12 && yCoordTile < 15) {
+        //            if (! (player.getCol() == 0)) {
+        //                System.out.println(player.getCol());
+        //            } else {
+        //                System.out.println(player.getCol());
+        //                player.setScore(player.getScore() / 2);
+        //                player.setxCoord(player.getScreenWidth() / 2);
+        //                player.setyCoord(player.getScreenHeight());
+        //            }
+        //        }
 
         //After the player has moved, determine whether or not they have 1: died, or 2: reached the
         //goal tile. If one of these conditions is met, then go to GameOverActivity!

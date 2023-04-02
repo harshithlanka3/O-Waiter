@@ -25,7 +25,8 @@ public class GameOverActivity extends AppCompatActivity {
         //then, set the content view to gameplay.
         setContentView(R.layout.game_over_screen_layout);
 
-        //Set the playerDied (1 if dead, 0 if won) by retrieving it from extras. then set the finalScore.
+        //Set the playerDied (1 if dead, 0 if won) by retrieving it from extras.
+        // then set the finalScore.
         Intent intent = getIntent();
         int playerDied = intent.getIntExtra("playerDiedKey", 0);
         String finalScoreString = intent.getExtras().getString("finalScoreStringKey");
@@ -34,8 +35,12 @@ public class GameOverActivity extends AppCompatActivity {
         ImageView gameOverScreenIcon = findViewById(R.id.gameOverScreenIcon);
         TextView finalScoreText = findViewById(R.id.finalScoreTextGameOverScreen);
 
-        if (playerDied == 1) {gameOverScreenIcon.setImageResource(R.drawable.youre_fired_icon);}
-        if (playerDied == 0) {gameOverScreenIcon.setImageResource(R.drawable.delivered_icon);}
+        if (playerDied == 1) {
+            gameOverScreenIcon.setImageResource(R.drawable.youre_fired_icon);
+        }
+        if (playerDied == 0) {
+            gameOverScreenIcon.setImageResource(R.drawable.delivered_icon);
+        }
 
         finalScoreText.setText(finalScoreString);
 
@@ -44,7 +49,8 @@ public class GameOverActivity extends AppCompatActivity {
         Button exitButton = findViewById(R.id.exitButtonGameOverScreen);
 
 
-        //set an onClickListener for restartButton where, if the button is clicked, start the ConfigActivity
+        //set an onClickListener for restartButton where,
+        // if the button is clicked, start the ConfigActivity
         restartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,7 +58,8 @@ public class GameOverActivity extends AppCompatActivity {
             }
         });
 
-        //set an onClickListener for restartButton where, if the button is clicked, start the MainActivity
+        //set an onClickListener for restartButton where,
+        // if the button is clicked, start the MainActivity
 
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
