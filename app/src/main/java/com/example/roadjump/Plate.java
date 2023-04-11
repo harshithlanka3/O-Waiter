@@ -52,4 +52,18 @@ public class Plate {
     public int getHeightSprite() {
         return heightSprite;
     }
+
+    public void moveRight(int step) {
+        if (xCoord > 1080) {
+            xCoord = -250;
+        }
+        xCoord += step;
+    }
+
+    public void moveLeft(int step) {
+        if (xCoord <= -250) {
+            xCoord = 1200;
+        }
+        xCoord -= step;
+    }
 }
