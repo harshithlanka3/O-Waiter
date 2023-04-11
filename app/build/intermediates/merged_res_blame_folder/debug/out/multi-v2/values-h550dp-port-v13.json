@@ -1,0 +1,23 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.roadjump.app-mergeDebugResources-27:/values-h550dp-port-v13/values-h550dp-port-v13.xml",
+            "map": [
+                {
+<<<<<<< HEAD
+                    "source": "/Users/gisellemcphilliamy/.gradle/caches/transforms-3/4fbcf167c94e837ff1be43cd429a082f/transformed/material-1.8.0/res/values-h550dp-port-v13/values-h550dp-port-v13.xml",
+=======
+                    "source": "/Users/ramyasubramaniam/.gradle/caches/transforms-3/4fbcf167c94e837ff1be43cd429a082f/transformed/material-1.8.0/res/values-h550dp-port-v13/values-h550dp-port-v13.xml",
+>>>>>>> 637e4052c81267d83d96c84fe7bec8afe00a2c25
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "76",
+                        "endOffsets": "127"
+                    }
+                }
+            ]
+        }
+    ]
+}

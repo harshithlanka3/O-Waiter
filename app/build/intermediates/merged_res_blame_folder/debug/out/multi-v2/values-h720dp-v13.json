@@ -1,0 +1,23 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.roadjump.app-mergeDebugResources-27:/values-h720dp-v13/values-h720dp-v13.xml",
+            "map": [
+                {
+<<<<<<< HEAD
+                    "source": "/Users/gisellemcphilliamy/.gradle/caches/transforms-3/5521fd259f8332737a22b3743c01d4b7/transformed/appcompat-1.6.0/res/values-h720dp-v13/values-h720dp-v13.xml",
+=======
+                    "source": "/Users/ramyasubramaniam/.gradle/caches/transforms-3/5521fd259f8332737a22b3743c01d4b7/transformed/appcompat-1.6.0/res/values-h720dp-v13/values-h720dp-v13.xml",
+>>>>>>> 637e4052c81267d83d96c84fe7bec8afe00a2c25
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        }
+    ]
+}
