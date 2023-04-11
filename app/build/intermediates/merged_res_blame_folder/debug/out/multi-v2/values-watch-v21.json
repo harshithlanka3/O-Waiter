@@ -4,7 +4,11 @@
             "outputFile": "com.example.roadjump.app-mergeDebugResources-27:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "/Users/gisellemcphilliamy/.gradle/caches/transforms-3/5521fd259f8332737a22b3743c01d4b7/transformed/appcompat-1.6.0/res/values-watch-v21/values-watch-v21.xml",
+=======
+                    "source": "/Users/ramyasubramaniam/.gradle/caches/transforms-3/5521fd259f8332737a22b3743c01d4b7/transformed/appcompat-1.6.0/res/values-watch-v21/values-watch-v21.xml",
+>>>>>>> 637e4052c81267d83d96c84fe7bec8afe00a2c25
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

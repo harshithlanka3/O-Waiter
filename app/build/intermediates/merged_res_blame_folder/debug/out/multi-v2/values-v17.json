@@ -4,7 +4,11 @@
             "outputFile": "com.example.roadjump.app-mergeDebugResources-27:/values-v17/values-v17.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "/Users/gisellemcphilliamy/.gradle/caches/transforms-3/5521fd259f8332737a22b3743c01d4b7/transformed/appcompat-1.6.0/res/values-v17/values-v17.xml",
+=======
+                    "source": "/Users/ramyasubramaniam/.gradle/caches/transforms-3/5521fd259f8332737a22b3743c01d4b7/transformed/appcompat-1.6.0/res/values-v17/values-v17.xml",
+>>>>>>> 637e4052c81267d83d96c84fe7bec8afe00a2c25
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
