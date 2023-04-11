@@ -122,23 +122,6 @@ public class GameView extends View {
         plates[5] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
                 player.getScreenWidth() / 2 + 132, player.getScreenHeight()
                 / 2 + 4 * player.getSpriteSize());
-        plates[6] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 - 264, player.getScreenHeight() / 2);
-        plates[7] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 - 264, player.getScreenHeight()
-                / 2 - player.getSpriteSize());
-        plates[8] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 - 264, player.getScreenHeight()
-                / 2 - 2 * player.getSpriteSize());
-        plates[9] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 + 264, player.getScreenHeight()
-                / 2 + 2 * player.getSpriteSize());
-        plates[10] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 + 264, player.getScreenHeight()
-                / 2 + 3 * player.getSpriteSize());
-        plates[11] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 + 264, player.getScreenHeight()
-                / 2 + 4 * player.getSpriteSize());
 
         switch (player.getImgClicked()) {
         case 1:
@@ -213,12 +196,6 @@ public class GameView extends View {
         canvas.drawBitmap(platos, plates[3].getxCoord(), plates[3].getyCoord(), null);
         canvas.drawBitmap(platos, plates[4].getxCoord(), plates[4].getyCoord(), null);
         canvas.drawBitmap(platos, plates[5].getxCoord(), plates[5].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[6].getxCoord(), plates[0].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[7].getxCoord(), plates[1].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[8].getxCoord(), plates[2].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[9].getxCoord(), plates[3].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[10].getxCoord(), plates[4].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[11].getxCoord(), plates[5].getyCoord(), null);
 
         canvas.drawBitmap(sprite, player.getxCoord() - player.getSpriteSize() / 2,
                 player.getyCoord(), null);
