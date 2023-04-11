@@ -249,7 +249,12 @@ public class GameView extends View {
             vehicles[6][2].moveLeft(8, player);
 
             plates[0].moveRight(2);
+            plates[1].moveLeft(8);
+            plates[2].moveRight(4);
             plates[3].moveRight(2);
+            plates[4].moveLeft(8);
+            plates[5].moveRight(4);
+
 
 
         }
