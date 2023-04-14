@@ -48,8 +48,8 @@ public class GameView extends View {
     private Vehicle[] row7 = new Vehicle[3];
     private Vehicle[] row8 = new Vehicle[1];
 
-    private Plate[] plates = new Plate[12];
-  
+    private Plate[] plates = new Plate[14];
+
     private long globalTimer;
     private long lastClicked = 0;
 
@@ -123,39 +123,44 @@ public class GameView extends View {
                 player.getScreenWidth() / 2 + 132, player.getScreenHeight()
                 / 2 + 4 * player.getSpriteSize());
         plates[6] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 - 264, player.getScreenHeight() / 2);
+                player.getScreenWidth() / 2 - 44 - 88, player.getScreenHeight() / 2);
         plates[7] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 - 264, player.getScreenHeight()
+                player.getScreenWidth() / 2 - 44 - 88, player.getScreenHeight()
                 / 2 - player.getSpriteSize());
         plates[8] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 - 264, player.getScreenHeight()
+                player.getScreenWidth() / 2 - 44 - 88, player.getScreenHeight()
                 / 2 - 2 * player.getSpriteSize());
         plates[9] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 + 264, player.getScreenHeight()
+                player.getScreenWidth() / 2 - 88 + 132, player.getScreenHeight()
                 / 2 + 2 * player.getSpriteSize());
         plates[10] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 + 264, player.getScreenHeight()
+                player.getScreenWidth() / 2 - 88 + 132, player.getScreenHeight()
                 / 2 + 3 * player.getSpriteSize());
         plates[11] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
-                player.getScreenWidth() / 2 + 264, player.getScreenHeight()
+                player.getScreenWidth() / 2 - 88 + 132, player.getScreenHeight()
                 / 2 + 4 * player.getSpriteSize());
+        plates[12] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
+                player.getScreenWidth() / 2 - 2 * 88 + 132, player.getScreenHeight()
+                / 2 + 4 * player.getSpriteSize());
+        plates[13] = new Plate(player.getSpriteSize() * 2, player.getSpriteSize(),
+                player.getScreenWidth() / 2 - 44 - 2 * 88, player.getScreenHeight() / 2);
 
         switch (player.getImgClicked()) {
-        case 1:
-            sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pingu);
-            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
-                    player.getSpriteSize(), false);
-            break;
-        case 2:
-            sprite = BitmapFactory.decodeResource(getResources(), R.drawable.narshith);
-            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
-                    player.getSpriteSize(), false);
-            break;
-        default:
-            sprite = BitmapFactory.decodeResource(getResources(), R.drawable.podge);
-            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
-                    player.getSpriteSize(), false);
-            break;
+            case 1:
+                sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pingu);
+                sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
+                        player.getSpriteSize(), false);
+                break;
+            case 2:
+                sprite = BitmapFactory.decodeResource(getResources(), R.drawable.narshith);
+                sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
+                        player.getSpriteSize(), false);
+                break;
+            default:
+                sprite = BitmapFactory.decodeResource(getResources(), R.drawable.podge);
+                sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
+                        player.getSpriteSize(), false);
+                break;
         }
 
         doubleChef = BitmapFactory.decodeResource(getResources(), R.drawable.double_chefs);
@@ -213,16 +218,19 @@ public class GameView extends View {
         canvas.drawBitmap(platos, plates[3].getxCoord(), plates[3].getyCoord(), null);
         canvas.drawBitmap(platos, plates[4].getxCoord(), plates[4].getyCoord(), null);
         canvas.drawBitmap(platos, plates[5].getxCoord(), plates[5].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[6].getxCoord(), plates[0].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[7].getxCoord(), plates[1].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[8].getxCoord(), plates[2].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[9].getxCoord(), plates[3].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[10].getxCoord(), plates[4].getyCoord(), null);
-        canvas.drawBitmap(platos, plates[11].getxCoord(), plates[5].getyCoord(), null);
+        canvas.drawBitmap(platos, plates[6].getxCoord(), plates[6].getyCoord(), null);
+        canvas.drawBitmap(platos, plates[7].getxCoord(), plates[7].getyCoord(), null);
+        canvas.drawBitmap(platos, plates[8].getxCoord(), plates[8].getyCoord(), null);
+        canvas.drawBitmap(platos, plates[9].getxCoord(), plates[9].getyCoord(), null);
+        canvas.drawBitmap(platos, plates[10].getxCoord(), plates[10].getyCoord(), null);
+        canvas.drawBitmap(platos, plates[11].getxCoord(), plates[11].getyCoord(), null);
+        canvas.drawBitmap(platos, plates[12].getxCoord(), plates[12].getyCoord(), null);
+        canvas.drawBitmap(platos, plates[13].getxCoord(), plates[13].getyCoord(), null);
+
 
         canvas.drawBitmap(sprite, player.getxCoord() - player.getSpriteSize() / 2,
                 player.getyCoord(), null);
-      
+
         canvas.drawBitmap(doubleChef, vehicles[0][0].getxCoord(), vehicles[0][0].getyCoord(), null);
         canvas.drawBitmap(doubleChef, vehicles[0][1].getxCoord(), vehicles[0][1].getyCoord(), null);
         canvas.drawBitmap(doubleChef, vehicles[4][0].getxCoord(), vehicles[4][0].getyCoord(), null);
@@ -277,6 +285,14 @@ public class GameView extends View {
             plates[3].moveRight(2);
             plates[4].moveLeft(8);
             plates[5].moveRight(4);
+            plates[6].moveRight(2);
+            plates[7].moveLeft(8);
+            plates[8].moveRight(4);
+            plates[9].moveRight(2);
+            plates[10].moveLeft(8);
+            plates[11].moveRight(4);
+            plates[12].moveRight(4);
+            plates[13].moveRight(2);
 
 
 
@@ -314,35 +330,6 @@ public class GameView extends View {
                 player.moveRight();
             }
         }
-
-
-        //        //water collision
-        //        int yCoordTile = player.getyCoord() / 88;
-        //        if ((yCoordTile > 8 && yCoordTile < 11)) {
-        //            System.out.println(player.getCol() + "hi");
-        //            if (!(player.getCol() == 2)) {
-        //                System.out.println(player.getCol());
-        //                System.out.println("hi");
-        //            } else {
-        //                System.out.println("hi-bi");
-        //                player.setScore(player.getScore() / 2);
-        //                player.setxCoord(player.getScreenWidth() / 2);
-        //                player.setyCoord(player.getScreenHeight());
-        //            }
-        //        }
-        //        if (yCoordTile > 12 && yCoordTile < 15) {
-        //            if (! (player.getCol() == 0)) {
-        //                System.out.println(player.getCol());
-        //            } else {
-        //                System.out.println(player.getCol());
-        //                player.setScore(player.getScore() / 2);
-        //                player.setxCoord(player.getScreenWidth() / 2);
-        //                player.setyCoord(player.getScreenHeight());
-        //            }
-        //        }
-
-        //After the player has moved, determine whether or not they have 1: died, or 2: reached the
-        //goal tile. If one of these conditions is met, then go to GameOverActivity!
 
         //case 1: the player has died.
         if (player.getDifficulty() == 3) {
