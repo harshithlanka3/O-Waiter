@@ -7,8 +7,6 @@ public class Vehicle {
     private int heightSprite;
     private int row;
 
-    //1 constructor
-
     public Vehicle(int width, int height, int xCoord, int yCoord, int row) {
         this.widthSprite = width;
         this.heightSprite = height;

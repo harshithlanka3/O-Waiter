@@ -10,8 +10,6 @@ public class Plate {
     private int heightSprite;
     private int delay;
 
-    //1 constructor
-
     public Plate(int width, int height, int xCoord, int yCoord) {
         this.delay = delay;
         this.widthSprite = width;
@@ -30,20 +28,6 @@ public class Plate {
     public int getyCoord() {
         return yCoord;
     }
-
-    //    public void moveRight(int step) {
-    //        if (xCoord > 1080) {
-    //            xCoord = -250;
-    //        }
-    //        xCoord += step;
-    //    }
-
-    //    public void moveLeft(int step) {
-    //        if (xCoord <= -250) {
-    //            xCoord = 1200;
-    //        }
-    //        xCoord -= step;
-    //    }
 
     public int getWidthSprite() {
         return widthSprite;
