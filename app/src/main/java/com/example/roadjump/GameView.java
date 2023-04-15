@@ -137,21 +137,21 @@ public class GameView extends View {
          */
 
         switch (player.getImgClicked()) {
-            case 1:
-                sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pingu);
-                sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
-                        player.getSpriteSize(), false);
-                break;
-            case 2:
-                sprite = BitmapFactory.decodeResource(getResources(), R.drawable.narshith);
-                sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
-                        player.getSpriteSize(), false);
-                break;
-            default:
-                sprite = BitmapFactory.decodeResource(getResources(), R.drawable.podge);
-                sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
-                        player.getSpriteSize(), false);
-                break;
+        case 1:
+            sprite = BitmapFactory.decodeResource(getResources(), R.drawable.pingu);
+            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
+                    player.getSpriteSize(), false);
+            break;
+        case 2:
+            sprite = BitmapFactory.decodeResource(getResources(), R.drawable.narshith);
+            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
+                    player.getSpriteSize(), false);
+            break;
+        default:
+            sprite = BitmapFactory.decodeResource(getResources(), R.drawable.podge);
+            sprite = Bitmap.createScaledBitmap(sprite, player.getSpriteSize(),
+                    player.getSpriteSize(), false);
+            break;
         }
 
         doubleChef = BitmapFactory.decodeResource(getResources(), R.drawable.double_chefs);
@@ -203,31 +203,51 @@ public class GameView extends View {
         canvas.drawBitmap(table, player.getScreenWidth() / 2 - player.getSpriteSize() / 2,
                 player.getSpriteSize(), null);
 
-        canvas.drawBitmap(platos, plates[0].getxCoord(), player.getLowerBound() - player.getSpriteSize() * 6, null);
-        canvas.drawBitmap(platos, plates[1].getxCoord(), player.getLowerBound() - player.getSpriteSize() * 7, null);
-        canvas.drawBitmap(platos, plates[2].getxCoord(), player.getLowerBound() - player.getSpriteSize() * 8, null);
-        canvas.drawBitmap(platos, plates[3].getxCoord(), player.getLowerBound() - player.getSpriteSize() * 10, null);
-        canvas.drawBitmap(platos, plates[4].getxCoord(), player.getLowerBound() - player.getSpriteSize() * 11, null);
-        canvas.drawBitmap(platos, plates[5].getxCoord(), player.getLowerBound() - player.getSpriteSize() * 12, null);
+        canvas.drawBitmap(platos, plates[0].getxCoord(),
+                player.getLowerBound() - player.getSpriteSize() * 6, null);
+        canvas.drawBitmap(platos, plates[1].getxCoord(),
+                player.getLowerBound() - player.getSpriteSize() * 7, null);
+        canvas.drawBitmap(platos, plates[2].getxCoord(),
+                player.getLowerBound() - player.getSpriteSize() * 8, null);
+        canvas.drawBitmap(platos, plates[3].getxCoord(),
+                player.getLowerBound() - player.getSpriteSize() * 10, null);
+        canvas.drawBitmap(platos, plates[4].getxCoord(),
+                player.getLowerBound() - player.getSpriteSize() * 11, null);
+        canvas.drawBitmap(platos, plates[5].getxCoord(),
+                player.getLowerBound() - player.getSpriteSize() * 12, null);
 
         canvas.drawBitmap(sprite, player.getxCoord() - player.getSpriteSize() / 2,
                 player.getyCoord(), null);
 
-        canvas.drawBitmap(doubleChef, vehicles[0][0].getxCoord(), player.getLowerBound() - 1 * player.getSpriteSize(), null);
-        canvas.drawBitmap(doubleChef, vehicles[0][1].getxCoord(), player.getLowerBound() - 1 * player.getSpriteSize(), null);
-        canvas.drawBitmap(doubleChef, vehicles[4][0].getxCoord(), player.getLowerBound() - 14 * player.getSpriteSize(), null);
-        canvas.drawBitmap(doubleChef, vehicles[4][1].getxCoord(), player.getLowerBound() - 14 * player.getSpriteSize(), null);
-        canvas.drawBitmap(rumya, vehicles[1][0].getxCoord(), player.getLowerBound() - 2 * player.getSpriteSize(), null);
-        canvas.drawBitmap(rumya, vehicles[3][0].getxCoord(), player.getLowerBound() - 4 * player.getSpriteSize(), null);
-        canvas.drawBitmap(rumyarev, vehicles[5][0].getxCoord(), player.getLowerBound() - 15 * player.getSpriteSize(), null);
-        canvas.drawBitmap(rumyarev, vehicles[7][0].getxCoord(), player.getLowerBound() - 17 * player.getSpriteSize(), null);
+        canvas.drawBitmap(doubleChef, vehicles[0][0].getxCoord(),
+                player.getLowerBound() - 1 * player.getSpriteSize(), null);
+        canvas.drawBitmap(doubleChef, vehicles[0][1].getxCoord(),
+                player.getLowerBound() - 1 * player.getSpriteSize(), null);
+        canvas.drawBitmap(doubleChef, vehicles[4][0].getxCoord(),
+                player.getLowerBound() - 14 * player.getSpriteSize(), null);
+        canvas.drawBitmap(doubleChef, vehicles[4][1].getxCoord(),
+                player.getLowerBound() - 14 * player.getSpriteSize(), null);
+        canvas.drawBitmap(rumya, vehicles[1][0].getxCoord(),
+                player.getLowerBound() - 2 * player.getSpriteSize(), null);
+        canvas.drawBitmap(rumya, vehicles[3][0].getxCoord(),
+                player.getLowerBound() - 4 * player.getSpriteSize(), null);
+        canvas.drawBitmap(rumyarev, vehicles[5][0].getxCoord(),
+                player.getLowerBound() - 15 * player.getSpriteSize(), null);
+        canvas.drawBitmap(rumyarev, vehicles[7][0].getxCoord(),
+                player.getLowerBound() - 17 * player.getSpriteSize(), null);
 
-        canvas.drawBitmap(seen, vehicles[2][0].getxCoord(), player.getLowerBound() - 3 * player.getSpriteSize(), null);
-        canvas.drawBitmap(seen, vehicles[2][1].getxCoord(), player.getLowerBound() - 3 * player.getSpriteSize(), null);
-        canvas.drawBitmap(seen, vehicles[2][2].getxCoord(), player.getLowerBound() - 3 * player.getSpriteSize(), null);
-        canvas.drawBitmap(seen, vehicles[6][0].getxCoord(), player.getLowerBound() - 16 * player.getSpriteSize(), null);
-        canvas.drawBitmap(seen, vehicles[6][1].getxCoord(),player.getLowerBound() - 16 * player.getSpriteSize(), null);
-        canvas.drawBitmap(seen, vehicles[6][2].getxCoord(), player.getLowerBound() - 16 * player.getSpriteSize(), null);
+        canvas.drawBitmap(seen, vehicles[2][0].getxCoord(),
+                player.getLowerBound() - 3 * player.getSpriteSize(), null);
+        canvas.drawBitmap(seen, vehicles[2][1].getxCoord(),
+                player.getLowerBound() - 3 * player.getSpriteSize(), null);
+        canvas.drawBitmap(seen, vehicles[2][2].getxCoord(),
+                player.getLowerBound() - 3 * player.getSpriteSize(), null);
+        canvas.drawBitmap(seen, vehicles[6][0].getxCoord(),
+                player.getLowerBound() - 16 * player.getSpriteSize(), null);
+        canvas.drawBitmap(seen, vehicles[6][1].getxCoord(),
+                player.getLowerBound() - 16 * player.getSpriteSize(), null);
+        canvas.drawBitmap(seen, vehicles[6][2].getxCoord(),
+                player.getLowerBound() - 16 * player.getSpriteSize(), null);
 
 
 
@@ -315,7 +335,9 @@ public class GameView extends View {
 
         //case 2: the player has reached the goal tile
         //THIS MUST BE UPDATED SO THAT IF PLAYER POSITION = GOAL TILE, then PLAYER WINS!
-        if (player.getRow() == 19 && player.getxCoord() >= player.getScreenWidth() / 2 - player.getSpriteSize() && player.getxCoord() <= player.getScreenWidth() / 2 + player.getSpriteSize()) {
+        if (player.getRow() == 19 && player.getxCoord()
+                >= player.getScreenWidth() / 2 - player.getSpriteSize()
+                && player.getxCoord() <= player.getScreenWidth() / 2 + player.getSpriteSize()) {
             Intent newIntent = new Intent(context, GameOverActivity.class);
 
             String finalScoreStr = String.valueOf(player.getScore());
