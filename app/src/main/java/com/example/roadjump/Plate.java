@@ -66,6 +66,7 @@ public class Plate {
                 && (player.getxCoord() + player.getSpriteSize() / 2 < xCoord + widthSprite))
                 || ((xCoord < player.getxCoord() - player.getSpriteSize() / 2)
                 && (player.getxCoord() - player.getSpriteSize() / 2 < xCoord + widthSprite))) {
+            System.out.println("WORKS");
             return true;
         } else {
             player.setScore(player.getScore() - player.getScore() / 2);
