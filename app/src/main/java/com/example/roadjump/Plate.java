@@ -52,13 +52,15 @@ public class Plate {
     }
 
     public boolean checkCollision(Player player, int step) {
-        if (((xCoord < player.getxCoord() + player.getSpriteSize() / 2)
-                && (player.getxCoord() + player.getSpriteSize() / 2 < xCoord + widthSprite))
-                || ((xCoord < player.getxCoord() - player.getSpriteSize() / 2)
-                && (player.getxCoord() - player.getSpriteSize() / 2 < xCoord + widthSprite))) {
+        int playerRight = player.getxCoord() + player.getSpriteSize() / 2;
+        int playerLeft = player.getxCoord() - player.getSpriteSize() / 2;
+        int plateLeft = xCoord;
+        int plateRight = xCoord + widthSprite;
+        if (((plateLeft < playerRight)
+                && (playerRight < plateRight))
+                || ((plateLeft < playerLeft)
+                && (playerLeft < plateRight))) {
             player.setxCoord(player.getxCoord() + step);
-        }
-        if (!(player.getxCoord() > player.getRightBound() || player.getxCoord() < player.getLeftBound())) {
             return true;
         }
         player.setScore(player.getScore() - player.getScore() / 2);
