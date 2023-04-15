@@ -10,25 +10,19 @@ public class Plate {
     private int widthSprite;
     private int heightSprite;
     
-    public Plate(int width, int height, int xCoord, int yCoord, int row) {
+    public Plate(int width, int height, int xCoord, int row) {
         this.widthSprite = width;
         this.heightSprite = height;
         this.xCoord = xCoord;
-        this.yCoord = yCoord;
         this.row = row;
     }
     public Plate(int width, int height) {
-        this(width, height, 0, 0, 0);
+        this(width, height, 0, 0);
     }
 
     public int getxCoord() {
         return xCoord;
     }
-
-    public int getyCoord() {
-        return yCoord;
-    }
-
     public int getWidthSprite() {
         return widthSprite;
     }
@@ -43,9 +37,7 @@ public class Plate {
         }
         xCoord += step;
         if (player.getRow() == row) {
-            if (checkCollision(player)) {
-                player.setxCoord(player.getxCoord() + step);
-            }
+            checkCollision(player, step);
         }
     }
 
@@ -55,18 +47,18 @@ public class Plate {
         }
         xCoord -= step;
         if (player.getRow() == row) {
-            if (checkCollision(player)) {
-                player.setxCoord(player.getxCoord() - step);
-            }
+            checkCollision(player, -step);
         }
     }
 
-    public boolean checkCollision(Player player) {
+    public boolean checkCollision(Player player, int step) {
+        System.out.println(xCoord);
+        System.out.println(player.getxCoord());
         if (((xCoord < player.getxCoord() + player.getSpriteSize() / 2)
                 && (player.getxCoord() + player.getSpriteSize() / 2 < xCoord + widthSprite))
                 || ((xCoord < player.getxCoord() - player.getSpriteSize() / 2)
                 && (player.getxCoord() - player.getSpriteSize() / 2 < xCoord + widthSprite))) {
-            System.out.println("WORKS");
+            player.setxCoord(player.getxCoord() + 2 * step);
             return true;
         } else {
             player.setScore(player.getScore() - player.getScore() / 2);
