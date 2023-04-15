@@ -48,7 +48,7 @@ public class GameView extends View {
     private Vehicle[] row7 = new Vehicle[3];
     private Vehicle[] row8 = new Vehicle[1];
 
-    private Plate[] plates = new Plate[14];
+    private Plate[] plates = new Plate[10];
 
     private long globalTimer;
     private long lastClicked = 0;
@@ -107,34 +107,15 @@ public class GameView extends View {
         plates[0] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
                 0, 6);
         plates[1] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
-                0, 7);
+                player.getScreenWidth() / 2, 7);
         plates[2] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
-                0, 8);
+                player.getScreenWidth(), 8);
         plates[3] =  new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
                 0, 10);
         plates[4] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
-                0, 11);
+                player.getScreenWidth() / 2, 11);
         plates[5] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
-                0, 12);
-        /*
-        plates[0] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
-                player.getScreenWidth() / 2 - 44, player.getScreenHeight() / 2, 6);
-        plates[1] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
-                player.getScreenWidth() / 2 - 44, player.getScreenHeight()
-                / 2 - player.getSpriteSize(), 7);
-        plates[2] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
-                player.getScreenWidth() / 2 - 44, player.getScreenHeight()
-                / 2 - 2 * player.getSpriteSize(), 8);
-        plates[3] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
-                player.getScreenWidth() / 2 + 132, player.getScreenHeight()
-                / 2 + 2 * player.getSpriteSize(), 10);
-        plates[4] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
-                player.getScreenWidth() / 2 + 132, player.getScreenHeight()
-                / 2 + 3 * player.getSpriteSize(), 11);
-        plates[5] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
-                player.getScreenWidth() / 2 + 132, player.getScreenHeight()
-                / 2 + 4 * player.getSpriteSize(), 12);
-         */
+                player.getScreenWidth(), 12);
 
         switch (player.getImgClicked()) {
         case 1:
