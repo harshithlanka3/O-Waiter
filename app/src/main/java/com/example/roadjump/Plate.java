@@ -58,7 +58,7 @@ public class Plate {
                 && (player.getxCoord() + player.getSpriteSize() / 2 < xCoord + widthSprite))
                 || ((xCoord < player.getxCoord() - player.getSpriteSize() / 2)
                 && (player.getxCoord() - player.getSpriteSize() / 2 < xCoord + widthSprite))) {
-            player.setxCoord(player.getxCoord() + 2 * step);
+            player.setxCoord(player.getxCoord() + step);
             return true;
         } else {
             player.setScore(player.getScore() - player.getScore() / 2);
