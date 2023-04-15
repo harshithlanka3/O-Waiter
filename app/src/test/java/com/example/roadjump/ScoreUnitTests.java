@@ -80,7 +80,7 @@ public class ScoreUnitTests {
 
     @Test
     public void scoreLossDoubleChef() {
-        vehicle = new Vehicle(176, 88, 344, 1672, 1);
+        vehicle = new Vehicle(176, 88, 344, 1);
         player = new Player(540, 1672);
         player.setRow(1);
         player.setScore(2);
@@ -95,7 +95,7 @@ public class ScoreUnitTests {
 
     @Test
     public void scoreLossRumya() {
-        vehicle = new Vehicle(264, 88, 256, 1672, 1);
+        vehicle = new Vehicle(264, 88, 256, 1);
         player = new Player(540, 1672);
         player.setRow(1);
         player.setScore(2);
@@ -110,7 +110,7 @@ public class ScoreUnitTests {
 
     @Test
     public void scoreLossSeen() {
-        vehicle = new Vehicle(88, 88, 344, 1672, 1);
+        vehicle = new Vehicle(88, 88, 344, 1);
         player = new Player(540, 1672);
         player.setRow(1);
         player.setScore(2);
@@ -125,7 +125,7 @@ public class ScoreUnitTests {
 
     @Test
     public void scoreLossPosReset() {
-        vehicle = new Vehicle(176, 88, 344, 1672, 1);
+        vehicle = new Vehicle(176, 88, 344, 1);
         player = new Player(540, 1672);
         player.setRow(1);
         player.setScore(2);

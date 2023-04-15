@@ -12,7 +12,7 @@ public class VehicleConstructorTests {
 
     @Before
     public void setup() {
-        testVehicle = new Vehicle(88, 88, 0, 0, 0);
+        testVehicle = new Vehicle(88, 88, 0, 0);
     }
 
     @Test
@@ -32,6 +32,6 @@ public class VehicleConstructorTests {
 
     @Test
     public void yCoordTest() {
-        assertEquals(0, testVehicle.getyCoord());
+        assertEquals(0, testVehicle.getRow());
     }
 }

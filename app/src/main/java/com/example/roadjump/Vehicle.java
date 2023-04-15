@@ -46,8 +46,6 @@ public class Vehicle {
     }
 
     public void checkCollision(Player player) {
-        System.out.println(xCoord);
-        System.out.println(player.getxCoord());
         if (((xCoord < player.getxCoord() + player.getSpriteSize() / 2)
             && (player.getxCoord() + player.getSpriteSize() / 2 < xCoord + widthSprite))
             || ((xCoord < player.getxCoord() - player.getSpriteSize() / 2)
@@ -59,6 +57,9 @@ public class Vehicle {
             player.setColumn(0);
             player.setDifficulty(player.getDifficulty() + 1);
         }
+    }
 
+    public int getRow() {
+        return row;
     }
 }

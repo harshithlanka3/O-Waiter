@@ -17,7 +17,7 @@ public class LivesUnitTests {
 
     @Test
     public void lowestDiff() {
-        vehicle = new Vehicle(264, 88, 256, 1672, 1);
+        vehicle = new Vehicle(264, 88, 256,  1);
         player = new Player(540, 1672);
         player.setDifficulty(0);
         player.setRow(1);
@@ -33,7 +33,7 @@ public class LivesUnitTests {
 
     @Test
     public void midDiff() {
-        vehicle = new Vehicle(264, 88, 256, 1672, 1);
+        vehicle = new Vehicle(264, 88, 256,  1);
         player = new Player(540, 1672);
         player.setRow(1);
         player.setDifficulty(1);
@@ -49,7 +49,7 @@ public class LivesUnitTests {
 
     @Test
     public void highDiff() {
-        vehicle = new Vehicle(264, 88, 256, 1672, 1);
+        vehicle = new Vehicle(264, 88, 256,  1);
         player = new Player(540, 1672);
         player.setRow(1);
         player.setDifficulty(2);
