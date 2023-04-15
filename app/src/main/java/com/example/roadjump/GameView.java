@@ -106,22 +106,22 @@ public class GameView extends View {
 
         // CREATING THE PLATES
         plates[0] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
-                player.getScreenWidth() / 2 - 44, player.getScreenHeight() / 2);
+                player.getScreenWidth() / 2 - 44, player.getScreenHeight() / 2, 6);
         plates[1] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
                 player.getScreenWidth() / 2 - 44, player.getScreenHeight()
-                / 2 - player.getSpriteSize());
+                / 2 - player.getSpriteSize(), 7);
         plates[2] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
                 player.getScreenWidth() / 2 - 44, player.getScreenHeight()
-                / 2 - 2 * player.getSpriteSize());
+                / 2 - 2 * player.getSpriteSize(), 8);
         plates[3] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
                 player.getScreenWidth() / 2 + 132, player.getScreenHeight()
-                / 2 + 2 * player.getSpriteSize());
+                / 2 + 2 * player.getSpriteSize(), 10);
         plates[4] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
                 player.getScreenWidth() / 2 + 132, player.getScreenHeight()
-                / 2 + 3 * player.getSpriteSize());
+                / 2 + 3 * player.getSpriteSize(), 11);
         plates[5] = new Plate(player.getSpriteSize() * 3, player.getSpriteSize(),
                 player.getScreenWidth() / 2 + 132, player.getScreenHeight()
-                / 2 + 4 * player.getSpriteSize());
+                / 2 + 4 * player.getSpriteSize(), 12);
 
         switch (player.getImgClicked()) {
             case 1:
@@ -248,12 +248,12 @@ public class GameView extends View {
             vehicles[6][1].moveLeft(8, player);
             vehicles[6][2].moveLeft(8, player);
 
-            plates[0].moveRight(2);
-            plates[1].moveLeft(8);
-            plates[2].moveRight(4);
-            plates[3].moveRight(2);
-            plates[4].moveLeft(8);
-            plates[5].moveRight(4);
+            plates[0].moveRight(2, player);
+            plates[1].moveLeft(8, player);
+            plates[2].moveRight(4, player);
+            plates[3].moveRight(2, player);
+            plates[4].moveLeft(8, player);
+            plates[5].moveRight(4, player);
 
         }
 
