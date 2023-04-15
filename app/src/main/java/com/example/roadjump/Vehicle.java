@@ -2,25 +2,19 @@ package com.example.roadjump;
 
 public class Vehicle {
     private int xCoord;
-    private int yCoord;
     private int widthSprite;
     private int heightSprite;
     private int row;
 
-    public Vehicle(int width, int height, int xCoord, int yCoord, int row) {
+    public Vehicle(int width, int height, int xCoord, int row) {
         this.widthSprite = width;
         this.heightSprite = height;
         this.xCoord = xCoord;
-        this.yCoord = yCoord;
         this.row = row;
     }
 
     public int getxCoord() {
         return xCoord;
-    }
-
-    public int getyCoord() {
-        return yCoord;
     }
 
     public void moveRight(int step, Player player) {
@@ -52,6 +46,8 @@ public class Vehicle {
     }
 
     public void checkCollision(Player player) {
+        System.out.println(xCoord);
+        System.out.println(player.getxCoord());
         if (((xCoord < player.getxCoord() + player.getSpriteSize() / 2)
             && (player.getxCoord() + player.getSpriteSize() / 2 < xCoord + widthSprite))
             || ((xCoord < player.getxCoord() - player.getSpriteSize() / 2)
