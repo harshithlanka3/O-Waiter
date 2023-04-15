@@ -71,4 +71,8 @@ public class Plate {
         player.setDifficulty(player.getDifficulty() + 1);
         return false;
     }
+
+    public int getRow() {
+        return row;
+    }
 }
