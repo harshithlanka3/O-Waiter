@@ -9,9 +9,7 @@ public class Plate {
     private final int rightBound = 1068;
     private int widthSprite;
     private int heightSprite;
-
-    //1 constructor
-
+    
     public Plate(int width, int height, int xCoord, int yCoord, int row) {
         this.widthSprite = width;
         this.heightSprite = height;
