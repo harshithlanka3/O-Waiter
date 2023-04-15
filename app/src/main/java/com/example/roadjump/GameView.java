@@ -261,10 +261,10 @@ public class GameView extends View {
             vehicles[6][1].moveLeft(8, player);
             vehicles[6][2].moveLeft(8, player);
 
-            plates[0].moveRight(2, player);
+            plates[0].moveRight(4, player);
             plates[1].moveLeft(8, player);
             plates[2].moveRight(4, player);
-            plates[3].moveRight(2, player);
+            plates[3].moveRight(4, player);
             plates[4].moveLeft(8, player);
             plates[5].moveRight(4, player);
         }
@@ -315,7 +315,7 @@ public class GameView extends View {
 
         //case 2: the player has reached the goal tile
         //THIS MUST BE UPDATED SO THAT IF PLAYER POSITION = GOAL TILE, then PLAYER WINS!
-        if (player.getRow() == 19 && player.getCol() == 0) {
+        if (player.getRow() == 19 && player.getxCoord() >= player.getScreenWidth() / 2 - player.getSpriteSize() && player.getxCoord() <= player.getScreenWidth() / 2 + player.getSpriteSize()) {
             Intent newIntent = new Intent(context, GameOverActivity.class);
 
             String finalScoreStr = String.valueOf(player.getScore());

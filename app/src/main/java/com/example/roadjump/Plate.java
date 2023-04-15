@@ -52,22 +52,21 @@ public class Plate {
     }
 
     public boolean checkCollision(Player player, int step) {
-        System.out.println(xCoord);
-        System.out.println(player.getxCoord());
         if (((xCoord < player.getxCoord() + player.getSpriteSize() / 2)
                 && (player.getxCoord() + player.getSpriteSize() / 2 < xCoord + widthSprite))
                 || ((xCoord < player.getxCoord() - player.getSpriteSize() / 2)
                 && (player.getxCoord() - player.getSpriteSize() / 2 < xCoord + widthSprite))) {
             player.setxCoord(player.getxCoord() + step);
-            return true;
-        } else {
-            player.setScore(player.getScore() - player.getScore() / 2);
-            player.setxCoord(player.getScreenWidth() / 2);
-            player.setRow(0);
-            player.setyCoord(player.getScreenHeight());
-            player.setColumn(0);
-            player.setDifficulty(player.getDifficulty() + 1);
-            return false;
         }
+        if (!(player.getxCoord() > player.getRightBound() || player.getxCoord() < player.getLeftBound())) {
+            return true;
+        }
+        player.setScore(player.getScore() - player.getScore() / 2);
+        player.setxCoord(player.getScreenWidth() / 2);
+        player.setRow(0);
+        player.setyCoord(player.getScreenHeight());
+        player.setColumn(0);
+        player.setDifficulty(player.getDifficulty() + 1);
+        return false;
     }
 }

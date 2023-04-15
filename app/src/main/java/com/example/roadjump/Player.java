@@ -45,7 +45,7 @@ public class Player {
         }
         if (row > progress) {
             progress += 1;
-            if (row == 19 && col == 0) {
+            if (row == 19 && xCoord >= screenWidth / 2 - spriteSize && xCoord <= screenWidth / 2 + spriteSize) {
                 score += 5;
             }
             updateScore();
@@ -64,7 +64,7 @@ public class Player {
             xCoord -= spriteSize;
             --col;
         }
-        if (row == 19 && col == 0) {
+        if (row == 19 && xCoord >= screenWidth / 2 - spriteSize && xCoord <= screenWidth / 2 + spriteSize) {
             score += 5;
         }
     }
@@ -73,7 +73,7 @@ public class Player {
             xCoord += spriteSize;
             col++;
         }
-        if (row == 19 && col == 0) {
+        if (row == 19 && xCoord >= screenWidth / 2 - spriteSize && xCoord <= screenWidth / 2 + spriteSize) {
             score += 5;
         }
     }
