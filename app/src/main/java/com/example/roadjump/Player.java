@@ -46,7 +46,7 @@ public class Player {
         if (row > progress) {
             progress += 1;
             if (row == 19 && xCoord >= screenWidth / 2 - spriteSize && xCoord <= screenWidth / 2 + spriteSize) {
-                score += 9;
+                score += 5;
             }
             updateScore();
         }
@@ -65,7 +65,7 @@ public class Player {
             --col;
         }
         if (row == 19 && xCoord >= screenWidth / 2 - spriteSize && xCoord <= screenWidth / 2 + spriteSize) {
-            score += 9;
+            score += 5;
         }
     }
     public void moveRight() {
@@ -74,10 +74,9 @@ public class Player {
             col++;
         }
         if (row == 19 && xCoord >= screenWidth / 2 - spriteSize && xCoord <= screenWidth / 2 + spriteSize) {
-            score += 9;
+            score += 5;
         }
     }
-
 
     public boolean checkValidity(String username) {
         if (username == null || username.length() == 0) {
@@ -93,9 +92,24 @@ public class Player {
         } else if (row == 1 || row == 6 || row == 10) {
             score += 1;
         } else if (row == 19) {
-            score += 5;
+            score += 11;
         } else {
             score += 3;
+        }
+    }
+
+    public void checkVehicleCollision(Vehicle vehicle) {
+        if (((vehicle.getxCoord() < this.xCoord + this.spriteSize / 2)
+                && (this.xCoord + this.spriteSize / 2 < vehicle.getxCoord() + vehicle.getWidthSprite()))
+                || ((vehicle.getxCoord() < this.xCoord- this.spriteSize / 2)
+                && (this.xCoord - this.spriteSize / 2 < vehicle.getxCoord() + vehicle.getWidthSprite()))) {
+
+            this.score = this.score - this.score / 2;
+            this.xCoord = screenWidth / 2;
+            this.row = 0;
+            this.yCoord = screenHeight;
+            this.col = 0;
+            this.difficulty += 1;
         }
     }
 
@@ -113,6 +127,7 @@ public class Player {
     public void setyCoord(int y) {
         this.yCoord = y;
     }
+
     public int getScore() {
         return score;
     }

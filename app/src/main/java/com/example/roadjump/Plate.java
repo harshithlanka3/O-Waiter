@@ -2,14 +2,10 @@ package com.example.roadjump;
 
 public class Plate {
     private int xCoord;
-    private int yCoord;
     private int row;
-    private final int lowerBound = 1754;
-    private final int leftBound = 12;
-    private final int rightBound = 1068;
     private int widthSprite;
     private int heightSprite;
-    
+
     public Plate(int width, int height, int xCoord, int row) {
         this.widthSprite = width;
         this.heightSprite = height;
@@ -56,6 +52,7 @@ public class Plate {
         int playerLeft = player.getxCoord() - player.getSpriteSize() / 2;
         int plateLeft = xCoord;
         int plateRight = xCoord + widthSprite;
+
         if (((plateLeft < playerRight)
                 && (playerRight < plateRight))
                 || ((plateLeft < playerLeft)
@@ -63,12 +60,14 @@ public class Plate {
             player.setxCoord(player.getxCoord() + step);
             return true;
         }
+
         player.setScore(player.getScore() - player.getScore() / 2);
         player.setxCoord(player.getScreenWidth() / 2);
         player.setRow(0);
         player.setyCoord(player.getScreenHeight());
         player.setColumn(0);
         player.setDifficulty(player.getDifficulty() + 1);
+
         return false;
     }
 
