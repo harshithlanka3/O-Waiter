@@ -252,17 +252,13 @@ public class GameView extends View {
 
 
 
-
         handler.postDelayed(runnable, 20);
     }
 
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        /*if (SystemClock.elapsedRealtime() - lastClicked < 150) {
-            return true;
-        }
-        */
+
         lastClicked = SystemClock.elapsedRealtime();
 
         int action = event.getAction();
@@ -283,6 +279,12 @@ public class GameView extends View {
             }
         }
 
+        checkPlayerStatus();
+
+        return true;
+    }
+
+    private void checkPlayerStatus() {
         //case 1: the player has died.
         if (player.getDifficulty() == 3) {
             Intent newIntent = new Intent(context, GameOverActivity.class);
@@ -294,9 +296,11 @@ public class GameView extends View {
             context.startActivity(newIntent);
         }
 
-        //case 2: the player has reached the goal tile
-        //THIS MUST BE UPDATED SO THAT IF PLAYER POSITION = GOAL TILE, then PLAYER WINS!
-        if (player.getRow() == 19 && player.getxCoord() >= player.getScreenWidth() / 2 - player.getSpriteSize() && player.getxCoord() <= player.getScreenWidth() / 2 + player.getSpriteSize()) {
+        //case 2: the player has reached the goal tile!
+        if (player.getRow() == 19
+                && player.getxCoord() >= player.getScreenWidth() / 2 - player.getSpriteSize()
+                && player.getxCoord() <= player.getScreenWidth() / 2 + player.getSpriteSize()) {
+
             Intent newIntent = new Intent(context, GameOverActivity.class);
 
             String finalScoreStr = String.valueOf(player.getScore());
@@ -305,8 +309,6 @@ public class GameView extends View {
 
             context.startActivity(newIntent);
         }
-
-        return true;
     }
 
     public void drawRow(Canvas canvas, int rowStart, int rowEnd, Bitmap image) {

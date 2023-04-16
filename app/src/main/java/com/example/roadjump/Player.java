@@ -78,7 +78,6 @@ public class Player {
         }
     }
 
-
     public boolean checkValidity(String username) {
         if (username == null || username.length() == 0) {
             return false;
@@ -99,6 +98,21 @@ public class Player {
         }
     }
 
+    public void checkVehicleCollision(Vehicle vehicle) {
+        if (((vehicle.getxCoord() < this.xCoord + this.spriteSize / 2)
+                && (this.xCoord + this.spriteSize / 2 < vehicle.getxCoord() + vehicle.getWidthSprite()))
+                || ((vehicle.getxCoord() < this.xCoord- this.spriteSize / 2)
+                && (this.xCoord - this.spriteSize / 2 < vehicle.getxCoord() + vehicle.getWidthSprite()))) {
+
+            this.score = this.score - this.score / 2;
+            this.xCoord = screenWidth / 2;
+            this.row = 0;
+            this.yCoord = screenHeight;
+            this.col = 0;
+            this.difficulty += 1;
+        }
+    }
+
     public int getxCoord() {
         return xCoord;
     }
@@ -113,6 +127,7 @@ public class Player {
     public void setyCoord(int y) {
         this.yCoord = y;
     }
+
     public int getScore() {
         return score;
     }
