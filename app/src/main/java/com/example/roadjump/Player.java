@@ -45,7 +45,8 @@ public class Player {
         }
         if (row > progress) {
             progress += 1;
-            if (row == 19 && xCoord >= screenWidth / 2 - spriteSize && xCoord <= screenWidth / 2 + spriteSize) {
+            if (row == 19 && xCoord >= screenWidth / 2 - spriteSize && xCoord
+                    <= screenWidth / 2 + spriteSize) {
                 score += 5;
             }
             updateScore();
@@ -64,7 +65,8 @@ public class Player {
             xCoord -= spriteSize;
             --col;
         }
-        if (row == 19 && xCoord >= screenWidth / 2 - spriteSize && xCoord <= screenWidth / 2 + spriteSize) {
+        if (row == 19 && xCoord >= screenWidth / 2 - spriteSize
+                && xCoord <= screenWidth / 2 + spriteSize) {
             score += 5;
         }
     }
@@ -73,7 +75,8 @@ public class Player {
             xCoord += spriteSize;
             col++;
         }
-        if (row == 19 && xCoord >= screenWidth / 2 - spriteSize && xCoord <= screenWidth / 2 + spriteSize) {
+        if (row == 19 && xCoord >= screenWidth / 2 - spriteSize
+                && xCoord <= screenWidth / 2 + spriteSize) {
             score += 5;
         }
     }
@@ -100,9 +103,11 @@ public class Player {
 
     public void checkVehicleCollision(Vehicle vehicle) {
         if (((vehicle.getxCoord() < this.xCoord + this.spriteSize / 2)
-                && (this.xCoord + this.spriteSize / 2 < vehicle.getxCoord() + vehicle.getWidthSprite()))
-                || ((vehicle.getxCoord() < this.xCoord- this.spriteSize / 2)
-                && (this.xCoord - this.spriteSize / 2 < vehicle.getxCoord() + vehicle.getWidthSprite()))) {
+                && (this.xCoord + this.spriteSize / 2 < vehicle.getxCoord()
+                + vehicle.getWidthSprite()))
+                || ((vehicle.getxCoord() < this.xCoord - this.spriteSize / 2)
+                && (this.xCoord - this.spriteSize / 2 < vehicle.getxCoord()
+                + vehicle.getWidthSprite()))) {
 
             this.score = this.score - this.score / 2;
             this.xCoord = screenWidth / 2;
