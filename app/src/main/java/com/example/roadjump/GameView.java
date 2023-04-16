@@ -184,31 +184,31 @@ public class GameView extends View {
         canvas.drawBitmap(table, player.getScreenWidth() / 2 - player.getSpriteSize() / 2,
                 player.getSpriteSize(), null);
 
-        canvas.drawBitmap(platos, plates[0].getxCoord(), player.getLowerBound() - player.getSpriteSize() * 6, null);
-        canvas.drawBitmap(platos, plates[1].getxCoord(), player.getLowerBound() - player.getSpriteSize() * 7, null);
-        canvas.drawBitmap(platos, plates[2].getxCoord(), player.getLowerBound() - player.getSpriteSize() * 8, null);
-        canvas.drawBitmap(platos, plates[3].getxCoord(), player.getLowerBound() - player.getSpriteSize() * 10, null);
-        canvas.drawBitmap(platos, plates[4].getxCoord(), player.getLowerBound() - player.getSpriteSize() * 11, null);
-        canvas.drawBitmap(platos, plates[5].getxCoord(), player.getLowerBound() - player.getSpriteSize() * 12, null);
+        canvas.drawBitmap(platos, plates[0].getxCoord(), player.getScreenHeight() - player.getSpriteSize() * 6, null);
+        canvas.drawBitmap(platos, plates[1].getxCoord(), player.getScreenHeight() - player.getSpriteSize() * 7, null);
+        canvas.drawBitmap(platos, plates[2].getxCoord(), player.getScreenHeight() - player.getSpriteSize() * 8, null);
+        canvas.drawBitmap(platos, plates[3].getxCoord(), player.getScreenHeight() - player.getSpriteSize() * 10, null);
+        canvas.drawBitmap(platos, plates[4].getxCoord(), player.getScreenHeight() - player.getSpriteSize() * 11, null);
+        canvas.drawBitmap(platos, plates[5].getxCoord(), player.getScreenHeight() - player.getSpriteSize() * 12, null);
 
         canvas.drawBitmap(sprite, player.getxCoord() - player.getSpriteSize() / 2,
                 player.getyCoord(), null);
 
-        canvas.drawBitmap(doubleChef, vehicles[0][0].getxCoord(), player.getLowerBound() - 1 * player.getSpriteSize(), null);
-        canvas.drawBitmap(doubleChef, vehicles[0][1].getxCoord(), player.getLowerBound() - 1 * player.getSpriteSize(), null);
-        canvas.drawBitmap(doubleChef, vehicles[4][0].getxCoord(), player.getLowerBound() - 14 * player.getSpriteSize(), null);
-        canvas.drawBitmap(doubleChef, vehicles[4][1].getxCoord(), player.getLowerBound() - 14 * player.getSpriteSize(), null);
-        canvas.drawBitmap(rumya, vehicles[1][0].getxCoord(), player.getLowerBound() - 2 * player.getSpriteSize(), null);
-        canvas.drawBitmap(rumya, vehicles[3][0].getxCoord(), player.getLowerBound() - 4 * player.getSpriteSize(), null);
-        canvas.drawBitmap(rumyarev, vehicles[5][0].getxCoord(), player.getLowerBound() - 15 * player.getSpriteSize(), null);
-        canvas.drawBitmap(rumyarev, vehicles[7][0].getxCoord(), player.getLowerBound() - 17 * player.getSpriteSize(), null);
+        canvas.drawBitmap(doubleChef, vehicles[0][0].getxCoord(), player.getScreenHeight() - 1 * player.getSpriteSize(), null);
+        canvas.drawBitmap(doubleChef, vehicles[0][1].getxCoord(), player.getScreenHeight() - 1 * player.getSpriteSize(), null);
+        canvas.drawBitmap(doubleChef, vehicles[4][0].getxCoord(), player.getScreenHeight() - 14 * player.getSpriteSize(), null);
+        canvas.drawBitmap(doubleChef, vehicles[4][1].getxCoord(), player.getScreenHeight() - 14 * player.getSpriteSize(), null);
+        canvas.drawBitmap(rumya, vehicles[1][0].getxCoord(), player.getScreenHeight() - 2 * player.getSpriteSize(), null);
+        canvas.drawBitmap(rumya, vehicles[3][0].getxCoord(), player.getScreenHeight() - 4 * player.getSpriteSize(), null);
+        canvas.drawBitmap(rumyarev, vehicles[5][0].getxCoord(), player.getScreenHeight() - 15 * player.getSpriteSize(), null);
+        canvas.drawBitmap(rumyarev, vehicles[7][0].getxCoord(), player.getScreenHeight() - 17 * player.getSpriteSize(), null);
 
-        canvas.drawBitmap(seen, vehicles[2][0].getxCoord(), player.getLowerBound() - 3 * player.getSpriteSize(), null);
-        canvas.drawBitmap(seen, vehicles[2][1].getxCoord(), player.getLowerBound() - 3 * player.getSpriteSize(), null);
-        canvas.drawBitmap(seen, vehicles[2][2].getxCoord(), player.getLowerBound() - 3 * player.getSpriteSize(), null);
-        canvas.drawBitmap(seen, vehicles[6][0].getxCoord(), player.getLowerBound() - 16 * player.getSpriteSize(), null);
-        canvas.drawBitmap(seen, vehicles[6][1].getxCoord(),player.getLowerBound() - 16 * player.getSpriteSize(), null);
-        canvas.drawBitmap(seen, vehicles[6][2].getxCoord(), player.getLowerBound() - 16 * player.getSpriteSize(), null);
+        canvas.drawBitmap(seen, vehicles[2][0].getxCoord(), player.getScreenHeight() - 3 * player.getSpriteSize(), null);
+        canvas.drawBitmap(seen, vehicles[2][1].getxCoord(), player.getScreenHeight() - 3 * player.getSpriteSize(), null);
+        canvas.drawBitmap(seen, vehicles[2][2].getxCoord(), player.getScreenHeight() - 3 * player.getSpriteSize(), null);
+        canvas.drawBitmap(seen, vehicles[6][0].getxCoord(), player.getScreenHeight() - 16 * player.getSpriteSize(), null);
+        canvas.drawBitmap(seen, vehicles[6][1].getxCoord(),player.getScreenHeight() - 16 * player.getSpriteSize(), null);
+        canvas.drawBitmap(seen, vehicles[6][2].getxCoord(), player.getScreenHeight() - 16 * player.getSpriteSize(), null);
 
 
 
